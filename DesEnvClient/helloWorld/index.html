@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>
+        Hello World!!!!
+    </h1>
+    <script>
+        console.log("hello world");
+        console.info("hello world");
+        console.warn("hello world");
+        console.error("hello world");
+
+        // VARIABLES
+        var a = 3; // Scope = àmbit de funció
+
+        function prova() {
+            var a = 3;
+
+            console.log(a, b); // aqui b no dona error, es undefined.
+
+            for (var b = 0; b < 5; b++) {
+                console.log(a, b); // b se incrementa de 0 a 4;
+            }
+
+            console.log(a, b); // se torna a incrementar encara que no estigui dins el For
+        }
+
+        // let i const tenen àmbit de BLOCK
+        // let b = 3;
+        // const c = 3; // no es pot reassignar.
+
+        function prova2() {
+            //const a = 3;
+
+            console.log(a, b); // aqui b no dona error, es undefined.
+
+            for (var /*const*/ b = 0; b < 5; b++) {
+                console.log(a, b); // b se incrementa de 0 a 4;
+            }
+
+            //console.log(a, b);
+
+            const c = ["poma", "pera"];
+            console.log(c);
+            c.push("taronja");
+            console.log(c);
+            //c = ["poma", "pera", "taronja"]; // estam reasingnant --> error
+        }
+
+        let d = 4; //Number (int de java)
+        d = "hola"; // String
+        console.log(d);
+
+        //prova();
+        //prova2();
+
+        // TIPUS DE DADES
+
+        // UNDEFINED
+        let e;
+        console.log("e", e);
+
+        // NULL
+        let f = null;
+        console.log("f", f);
+
+        //STRING + (interpolacio de variables)
+        const patata = "patata";
+        const g = "hola " + patata + "1";
+        const h = 'hola ' + patata + "2";
+        const i = `hola ${patata} 3` ;
+        console.log(g, h, i);
+
+        //OBJECTES --> Ex: crear peronas
+        const antonia = {
+            nom: "Antoni",
+            cognoms: "Perelló"
+        };
+
+        //CONSTRUCTOR
+        function Persona(nom, congnoms) {
+            this.nom = nom;
+            this.cognoms = congnoms;
+        }
+
+        const paco = new Persona("Paco", "Lopez");
+
+        console.log(antonia, paco);
+
+    </script>
+</body>
+</html>
