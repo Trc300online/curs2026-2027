@@ -21,7 +21,7 @@
     ?>
 
     <h1>
-        
+
         You have read "<?php echo $name; ?>."
         <?php
            /* $greeting = "Hello";
