@@ -1,19 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Demo</title>
-    <style>
-        body {
-            display: grid;
-            place-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: sans-serif;
-        }
-    </style>
-</head>
-<body>
 <!--
     <?php
 /*        $name = "Dark Matter";
@@ -32,10 +16,6 @@
 
     </h1>
 -->
-    <h1>
-        Recommended Books
-    </h1>
-
     <?php
         $books = [
             [
@@ -58,22 +38,39 @@
             ]
         ];
 
-    /*function filter($items, $fn) {
-        $filteredItems = [];
+/*function filter($items, $fn) {
+    $filteredItems = [];
 
-        foreach ($items as $item) {
-            if ($fn($item)) {
-                $filteredItems[] = $item;
-            }
+    foreach ($items as $item) {
+        if ($fn($item)) {
+            $filteredItems[] = $item;
         }
+    }
 
-        return $filteredItems;
-    }*/
+    return $filteredItems;
+}*/
 
-        $filteredBooks = /*filter*/array_filter($books, function ($book) {
-            return $book["author"] === "Andy Weir";
-        });
-    ?>
+    $filteredBooks = /*filter*/array_filter($books, function ($book) {
+        return $book["author"] === "Andy Weir";
+    });
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
 
     <ul>
         <?php /*foreach ($books as $book) : */?><!--
