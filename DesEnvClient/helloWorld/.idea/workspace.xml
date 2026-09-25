@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="88cd50c6-c478-4b28-a37a-40ff30dacc72" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0002052969763817" />
+      <entry key="MS500" value="1.184106392691292" />
+      <entry key="S2" value="1.9191744690050792" />
+      <entry key="S5" value="3.055983247081415" />
+      <entry key="S10" value="4.60279985759105" />
+      <entry key="S30" value="10.05314828855308" />
+      <entry key="S60" value="15.776929083802013" />
+      <entry key="M2" value="23.865481978716474" />
+      <entry key="M5" value="42.48659042580647" />
+      <entry key="M10" value="65.74073785329864" />
+      <entry key="M15" value="82.68711762438747" />
+      <entry key="M30" value="112.28897246723727" />
+      <entry key="H1" value="136.00973486151324" />
+      <entry key="H2" value="151.42394130454142" />
+      <entry key="H4" value="160.27115691532825" />
+      <entry key="D1" value="168.31295676612476" />
+      <entry key="W1" value="169.75732783464565" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="8.272560976127875E-51" />
+      <entry key="MS500" value="1.021237320272266E-10" />
+      <entry key="S2" value="0.0051745237020851265" />
+      <entry key="S5" value="0.2485063774394114" />
+      <entry key="S10" value="1.03598013084589" />
+      <entry key="S30" value="3.363946301546049" />
+      <entry key="S60" value="5.057941453273562" />
+      <entry key="M2" value="7.121484537040365" />
+      <entry key="M5" value="11.740391899784576" />
+      <entry key="M10" value="17.508440062328674" />
+      <entry key="M15" value="21.957365471387934" />
+      <entry key="M30" value="30.287760803515116" />
+      <entry key="H1" value="37.37668630942849" />
+      <entry key="H2" value="42.135516216370696" />
+      <entry key="H4" value="44.91237654774942" />
+      <entry key="D1" value="47.46217062375951" />
+      <entry key="W1" value="47.922575604535005" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.8067849275508914" />
+      <entry key="MS500" value="1.1292917941919012" />
+      <entry key="S2" value="1.8981153616323485" />
+      <entry key="S5" value="3.25716134344291" />
+      <entry key="S10" value="5.549795721769617" />
+      <entry key="S30" value="13.283670979089566" />
+      <entry key="S60" value="20.710786776662736" />
+      <entry key="M2" value="30.879884506225213" />
+      <entry key="M5" value="54.14220031247028" />
+      <entry key="M10" value="83.17944123762736" />
+      <entry key="M15" value="104.58265430917592" />
+      <entry key="M30" value="142.5305470657487" />
+      <entry key="H1" value="173.35658211121446" />
+      <entry key="H2" value="193.54223739806255" />
+      <entry key="H4" value="205.17424737287345" />
+      <entry key="D1" value="215.7734758238185" />
+      <entry key="W1" value="217.67966481587894" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3JdVXbmKMyr7OO6qhBuomcKLUrV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.helloWorld.html.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "disable.download.node.interpreter.editor.notification": "true",
+    "git-widget-placeholder": "main",
+    "javascript.preferred.runtime.type.id": "node",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/alumati/Escriptori/curs2026-2027/DesEnvClient/helloWorld",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="helloWorld.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/helloWorld/helloWorld.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.helloWorld.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.10968.77" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="88cd50c6-c478-4b28-a37a-40ff30dacc72" name="Changes" comment="" />
+      <created>1789990972758</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1789990972758</updated>
+      <workItem from="1789990973764" duration="371000" />
+      <workItem from="1789991352571" duration="3345000" />
+      <workItem from="1790151258234" duration="56000" />
+      <workItem from="1790323146513" duration="3000" />
+      <workItem from="1790331324657" duration="37000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
+</project>
