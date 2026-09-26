@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        let tasquesGalmes = ["rentadora", "cuina", "bany"];
+        let tasquesDuran = ["planxa", "bany"];
+        let tasquesSastre = ["rentadora", "cuina", "netja", "planxa", "bany"];
+
+        let familiaGalmes = ["pare", "mare", "fill", "filla"];
+        let familiaDuran = ["pare", "mare", "fill", "filla"];
+        let familiaSastre = ["pare", "mare", "fill", "filla 1", "filla 2"];
+
+        let tempsGalmes = 52;
+        let tempsDuran = 4;
+        let tempsSastre = 12;
+
+        function repartidorTasques(tasques, familia, temps) {
+            let timeCount = 1;
+
+            for (timeCount; timeCount <= temps; timeCount++) {
+                let msg = `setmana ${timeCount}: `;
+                for (let count = 0; count < tasques.length; count++) {
+                    msg += `${tasques[(timeCount + count)%tasques.length]} ${familia[((timeCount + count) + tasques.length) % familia.length]} | `
+                }
+                console.log(msg);
+            }
+        }
+
+        repartidorTasques(tasquesGalmes, familiaGalmes, tempsGalmes);
+        console.log("----------------------------------")
+        repartidorTasques(tasquesDuran, familiaDuran, tempsDuran);
+        console.log("----------------------------------")
+        repartidorTasques(tasquesSastre, familiaSastre, tempsSastre);
+
+
+    </script>
+
+</body>
+
+console.log(`setmana ${timeCount}: ${tasques[timeCount%tasques.length]} ${familia[(timeCount + tasques.length) % familia.length]} | ${tasques[(timeCount + 1)%tasques.length]} ${familia[((timeCount + 1) + tasques.length) % familia.length]}`)
