@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        //console.log(cotxe);
+
+        function Cotxe(motor, cc) {
+            this.motor = motor;
+            this.cc = cc;
+        }
+
+        const cotxe2 = new Cotxe("benzina", "1.5");
+        const cotxe3 = new Cotxe("benzina 98", "1.7");
+        cotxe2.color = "blanc";
+        cotxe2.propietari = function () {
+            // conectar a DGT
+            return "Pep Gomella";
+        }
+
+        console.log("cotxe2:", cotxe2, cotxe2.propietari(), "cotxe3:", cotxe3);
+
+        function suma(a, b) {
+            return a + b;
+        }
+
+        function resta(a, b) {
+            return a - b;
+        }
+
+        const suma1 = suma(4, 5);
+        const resta1 = resta(5, 4);
+
+        console.log(suma1);
+        console.log(resta1);
+
+        //tradicional
+        function tripleOperacio(resultatOperacio) {
+            return 3 * resultatOperacio;
+        }
+
+        console.log(tripleOperacio(suma(4, 5)));
+
+        //callback
+        function tripleOperacio2(num1, operacio, num2) {
+            return 3 * operacio(num1, num2);
+        }
+
+        console.log(tripleOperacio2(4, suma, 5));
+
+        console.log(tripleOperacio2(4, function (a, b) {
+            return a * b;
+        }, 5));
+
+        setTimeout(function () {
+            console.log(tripleOperacio2(4, suma, 5));
+        }, 5000);
+
+    </script>
+
+</body>
