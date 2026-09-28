@@ -15,6 +15,7 @@ public class TargetaTransport {
         this.numero = numero;
         this.titular = titular;
         this.tarifa = 1.15;
+        this.saldo = 0;
     }
 
     public String getNumero() {
@@ -33,7 +34,24 @@ public class TargetaTransport {
         return titular;
     }
 
+    public void setTitular(String titular) {
+        if (titular.length() == 0) {
+            throw new IllegalArgumentException("el nom del titular no pot ser buit");
+        }
+        this.titular = titular;
+    }
+
     public ArrayList<String> getViatges() {
         return viatges;
+    }
+
+    public void recarregar(int quantitat) throws IllegalAccessException {
+        if (quantitat > 50 || quantitat < 5) {
+            throw new IllegalAccessException("quantitat a recargar invalida");
+        }
+        if (saldo >= 100) {
+            throw new IllegalAccessException("saldo massa elevat per recarregar");
+        }
+        saldo += quantitat;
     }
 }
