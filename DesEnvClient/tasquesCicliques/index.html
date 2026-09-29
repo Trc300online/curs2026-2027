@@ -25,7 +25,7 @@
             for (timeCount; timeCount <= temps; timeCount++) {
                 let msg = `setmana ${timeCount}: `;
                 for (let count = 0; count < tasques.length; count++) {
-                    msg += `${tasques[(timeCount + count)%tasques.length]} ${familia[((timeCount + count) + tasques.length) % familia.length]} | `
+                    msg += `${tasques[(count)%tasques.length]} ${familia[((timeCount + count) + tasques.length) % familia.length]} | `
                 }
                 console.log(msg);
             }
@@ -37,6 +37,55 @@
         console.log("----------------------------------")
         repartidorTasques(tasquesSastre, familiaSastre, tempsSastre);
 
+        //SOLUCIÓ
+
+        function Familia(membres, tasques, numSetmanes) {
+            this.membres = membres;
+            this.tasques = tasques;
+            this.numSetmanes = numSetmanes;
+        }
+
+        const galmes = new Familia(
+            ["pare", "mare", "fill", "filla"],
+            ["rentadora", "cuina", "bany"],
+            52
+        )
+
+        const duran = new Familia(
+            ["pare", "mare", "fill", "filla"],
+            ["planxa", "bany"],
+            4
+        )
+
+        const sastre = new Familia(
+            ["pare", "mare", "fill", "filla 1", "filla 2"],
+            ["rentadora", "cuina", "netja", "planxa", "bany"],
+            12
+        )
+
+        function planificador(familia) {
+            const membres = familia.membres;
+            const tasques = familia.tasques;
+            const numSetmanes = familia.numSetmanes;
+
+            console.log("Familia", membres, "Tasques", tasques, "Num Setmanes", numSetmanes);
+
+            for (let numSetmana = 0; numSetmana < numSetmanes; numSetmana++) {
+                let text = '';
+                for (let i = 0; i < tasques.length; i++) {
+                    text += membres[i] + " | " + tasques[i] + " | ";
+                }
+                //membres.push(membres.shift()); // <-- IMPORTANT+
+                const primerMembre = membres[0];
+                // eliminar primer membre
+                membres.shift();
+                // afagir primer membre al final
+                membres.push(primerMembre);
+                console.log(`Setmana ${numSetmana + 1}: ` + text);
+            }
+        }
+
+        planificador(galmes);
 
     </script>
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    const numCares = 6;
+    const usuari = 2;
+    let resultats = [0, 0, 0, 0, 0, 0]
+
+    function caraCrau(numCares, usuari) {
+        if (Math.floor(Math.random() * numCares) === usuari) {
+            console.log("has guañat")
+        } else {
+            console.log("has perdut")
+        }
+    }
+
+    caraCrau(numCares, usuari)
+
+
+    function estadistica(resultat, tirades) {
+        for (let x = 0; x < tirades; x++) {
+            resultat[Math.floor(Math.random() * numCares)]++
+        }
+        console.log(resultat);
+    }
+
+    estadistica(resultats, 100000);
+    //hola
+</script>
+
+</body>
+</html>
