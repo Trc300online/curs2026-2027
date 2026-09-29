@@ -1,21 +1,28 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Targeta de transport públic.
  * ATENCIÓ: aquesta versió està MAL encapsulada. És el punt de partida de l'activitat 3.
  */
 public class TargetaTransport {
-    private String numero;
+    private final String numero;
     private String titular;
-    private double saldo;
-    private double tarifa;
-    private ArrayList<String> viatges = new ArrayList<>();
+    private long saldo;
+    long tarifa;
+    private List<String> viatges = new ArrayList<>();
 
     public TargetaTransport(String numero, String titular) {
         this.numero = numero;
         this.titular = titular;
-        this.tarifa = 1.15;
+        this.tarifa = 115;
         this.saldo = 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Targeta " + numero + " (" + titular + "): " + (double) saldo/100 + "€, " + viatges.size() + " viatges.";
     }
 
     public String getNumero() {
@@ -23,11 +30,19 @@ public class TargetaTransport {
     }
 
     public double getSaldo() {
-        return saldo;
+        return (double) saldo / 100;
     }
 
-    public double getTarifa() {
+    public long getTarifa() {
         return tarifa;
+    }
+
+    public void setTarifa(long tarifa) {
+
+        if (tarifa <= 0) {
+            throw new IllegalArgumentException("la tarifa a de ser superior a 0");
+        }
+        this.tarifa = tarifa;
     }
 
     public String getTitular() {
@@ -35,14 +50,18 @@ public class TargetaTransport {
     }
 
     public void setTitular(String titular) {
-        if (titular.length() == 0) {
+        if (esBuit(titular)) {
             throw new IllegalArgumentException("el nom del titular no pot ser buit");
         }
         this.titular = titular;
     }
 
-    public ArrayList<String> getViatges() {
-        return viatges;
+    private boolean esBuit(String text) {
+        return text.isBlank();
+    }
+
+    public List<String> getViatges() {
+        return Collections.unmodifiableList(viatges);
     }
 
     public void recarregar(int quantitat) throws IllegalAccessException {
@@ -52,6 +71,18 @@ public class TargetaTransport {
         if (saldo >= 100) {
             throw new IllegalAccessException("saldo massa elevat per recarregar");
         }
-        saldo += quantitat;
+        saldo += quantitat * 100;
+    }
+
+    public boolean validarViatge(String linea) {
+        if (saldo < tarifa) {
+            System.out.println("saldo insuficient");
+            return false;
+            //throw new IllegalArgumentException("saldo insuficient");
+        }
+
+        saldo -= tarifa;
+        viatges.add(linea);
+        return true;
     }
 }
