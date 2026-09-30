@@ -1,57 +1,32 @@
-<!--
-    <?php
-/*        $name = "Dark Matter";
-        $read = true;
+<?php
 
-        if($read) {
-            $message = "You have read $name";
-        } else {
-            $message = "You have NOT read $name";
-        }
-    */?>
+/*$name = "Laracasts";
+$cost = 15;*/
 
-    <h1>
+$business = [
+        'name' => 'Laracasts',
+        'cost' => 15,
+        'categories' => ["Testing", "PHP", "JavaScript"]
+];
 
-        <?php /*= $message */?>
+function register($user) {
+    // Create the user record in the db
+    // Log them in.
+    // Send a welcome email
+    // Redirect to their new dashboard
+}
 
-    </h1>
--->
-    <?php
-        $books = [
-            [
-                "name" => "Do Androids Dream of Electric Sheep",
-                "author" => "Philip K. Dick",
-                "releaseYear" => "1968",
-                "purchaseUrl" => "https://example.com"
-            ],
-            [
-                "name" => "Project Hail Mary",
-                "author" => "Andy Weir",
-                "releaseYear" => "2021",
-                "purchaseUrl" => "https://example.com"
-            ],
-            [
-                "name" => "The Martian",
-                "author" => "Andy Weir",
-                "releaseYear" => "2011",
-                "purchaseUrl" => "https://example.com"
-            ]
-        ];
+/*
+foreach ($business['categories'] as $category) {
+    echo $category . <br>;
+}
+*/
 
-/*function filter($items, $fn) {
-    $filteredItems = [];
-
-    foreach ($items as $item) {
-        if ($fn($item)) {
-            $filteredItems[] = $item;
-        }
-    }
-
-    return $filteredItems;
+/*
+if ($business['cost'] > 99) {
+    echo "Not interested.";
 }*/
 
-    $filteredBooks = /*filter*/array_filter($books, function ($book) {
-        return $book["author"] === "Andy Weir";
-    });
+// access to data --> $business['name']; <-- Laracasts
 
-    require "index.view.php";
+require "index.view.php";
