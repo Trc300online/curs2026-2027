@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+    <style>
+        .vermell {
+            color: red;
+        }
+        .blau {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<h1>DOM</h1>
+
+<p><span style="font-weight: bold">CRUD</span> (create, read, update, delete)</p>
+
+<p>client --> Object document --> objecte que propociona el...</p>
+
+<p>document.querySelector("selectorCSS") --> 1º objecte trobat al DOM</p>
+
+<p>document.querySelectorAll("selectorCss") --> retorna un arra []</p>
+
+<p> quests selectors provenen de:</p>
+<ul>
+    <li>getElementsById("id")</li>
+    <li>getElementsByClassName("class")</li>
+    <li>getElementsByTagName("tag")</li>
+</ul>
+
+<h1>Use de cRud --> Read</h1>
+<h2>Hello world</h2>
+<p class="paragraf-style" id="primer" data-joan="joan">Paràgraf</p>
+<p>Paràgraf</p>
+<p>Paràgraf</p>
+<p>Paràgraf</p>
+
+    <script>
+        const h2 = document.querySelector("h2");
+        const paragrafs = document.querySelectorAll("p");
+
+        console.log(h2, paragrafs, paragrafs[5].id, paragrafs[5].classList, paragrafs[5].joan);
+
+        // paragraf 6 --> modificat
+
+        document.querySelector("p:nth-child(12)").innerHTML = "Modificat"; //modifica el element nº 12, contant desde <body>, si aquest es <p>
+
+        document.querySelectorAll("p")[6].innerHTML = "Modificat2";
+
+        // pintar els paragrafs parells de vermell i els impars blaus
+        const a = document.querySelectorAll("p");
+
+        for (let x = 0; x < a.length; x++) {
+            if (x % 2 === 0) {
+                a[x].classList.add('vermell');
+            } else {
+                a[x].classList.add('blau');
+            }
+        }
+
+
+        // Afegir un últim paragraf que es digui "paragraf darrer"
+        const darrerParagraf = "Paragraf darrer";
+        document.body.append(darrerParagraf);
+
+    </script>
+
+</body>
+</html>
