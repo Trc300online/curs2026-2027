@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Poker</title>
+</head>
+<body>
+
+    <script>
+
+        function jugar() {
+            const div = document.querySelector("div");
+            let card1 = document.createElement("img");
+            let card2 = document.createElement("img");
+            let card3 = document.createElement("img");
+            let card4 = document.createElement("img");
+            let card5 = document.createElement("img");
+
+            let hand = [card1, card2, card3, card4, card5];
+
+            hand[0].src = 'cards/2_of_clubs.png'
+            hand[0].width = 250;
+            hand[1].src = 'cards/2_of_spades.png'
+            hand[1].width = 250;
+            hand[2].src = 'cards/3_of_clubs.png'
+            hand[2].width = 250;
+            hand[3].src = 'cards/5_of_diamonds.png'
+            hand[3].width = 250;
+            hand[4].src = 'cards/7_of_hearts.png'
+            hand[4].width = 250;
+
+            for (let x = 0; x < hand.length; x++) {
+                div.append(hand[x]);
+            }
+
+            checkWin(hand);
+
+            console.log(hand[0].getAttribute('src').charAt(6))
+        }
+
+        function checkWin(hand) {
+            if (isPair(hand)) {
+                console.log("has guanyat amb una Parella");
+            } else {
+                console.log("has perdut");
+            }
+        }
+
+        function isPair(hand) {
+            for (let x = 1; x < hand.length; x++) {
+                if (hand[x-1].getAttribute('src').charAt(6) === hand[x].getAttribute('src').charAt(6)) {
+                    return true
+                }
+            }
+            return false;
+        }
+
+    </script>
+
+    <div>
+        <button onclick=jugar()><p>Jugar</p></button>
+    </div>
+
+</body>
+</html>
