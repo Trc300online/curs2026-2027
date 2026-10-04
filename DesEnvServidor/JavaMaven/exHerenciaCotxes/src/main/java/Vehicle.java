@@ -24,6 +24,18 @@ public class Vehicle {
     }
 
     public String toString() {
-        return getClass() + " " + marca + " " + model + " [" + matricula + "] " + preuDia + " €/dia";
+        return getClass().getSimpleName() + " " + marca + " " + model + " [" + matricula + "] " + preuDia + " €/dia";
+    }
+
+    public double getPreuDia() {
+        return preuDia;
+    }
+
+    public int getDISCOUNT_THRESHOLD() {
+        return DISCOUNT_THRESHOLD;
+    }
+
+    public double getDISCOUNT() {
+        return DISCOUNT;
     }
 }
