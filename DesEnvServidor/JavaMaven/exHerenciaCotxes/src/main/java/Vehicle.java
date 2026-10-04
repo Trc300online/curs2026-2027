@@ -5,6 +5,8 @@ public class Vehicle {
     private double preuDia;
     private final int DISCOUNT_THRESHOLD = 7;
     private final double DISCOUNT = 0.9;
+    private boolean assegurancaTotal;
+    private final double QUOTA_ASSEGURANCA = 12;
 
     public Vehicle(String matricula, String marca, String model, double preuDia) {
         this.matricula = matricula;
@@ -18,6 +20,20 @@ public class Vehicle {
 
         if (dies >= DISCOUNT_THRESHOLD) {
             preu = preu * DISCOUNT;
+        }
+
+        return preu;
+    }
+
+    public double preuLloguer(int dies, boolean assegurancaTotal) {
+        double preu = preuDia * dies;
+
+        if (dies >= DISCOUNT_THRESHOLD) {
+            preu = preu * DISCOUNT;
+        }
+
+        if (assegurancaTotal) {
+            preu += QUOTA_ASSEGURANCA;
         }
 
         return preu;

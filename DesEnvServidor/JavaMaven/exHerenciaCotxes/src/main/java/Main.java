@@ -29,5 +29,8 @@ public class Main {
         }
         System.out.println();
         System.out.println("El preu de llogar tota la flota durant 7 dies es " + preuTotal);
+
+        //Vehicle v = new Moto("a", "a", "a", 1, 1);
+        //v.potConduirAmbCarnetB();
     }
 }
