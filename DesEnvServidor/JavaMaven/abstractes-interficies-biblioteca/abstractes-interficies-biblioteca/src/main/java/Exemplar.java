@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public abstract class Exemplar {
 
     private String codi;
@@ -14,5 +16,12 @@ public abstract class Exemplar {
 
     public String getTitol() {
         return titol;
+    }
+
+    public abstract LocalDate dataRetorn(LocalDate dataPrestec);
+
+    @Override
+    public String toString() {
+        return titol + " [" + codi + "]";
     }
 }
