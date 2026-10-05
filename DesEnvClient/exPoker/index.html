@@ -29,6 +29,12 @@
             hand[4].src = 'cards/7_of_hearts.png'
             hand[4].width = 250;
 
+            var imgElements = document.querySelectorAll("img"); // HTMLCollection
+            for(var i=0; i<imgElements.length; i++) {
+                var img = imgElements[i];
+                img.parentNode.removeChild(img);
+            }
+
             for (let x = 0; x < hand.length; x++) {
                 div.append(hand[x]);
             }
