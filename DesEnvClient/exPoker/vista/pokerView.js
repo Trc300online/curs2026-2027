@@ -37,11 +37,11 @@ function cardMapToImage(carta) {
     return nom;
 }
 
-function pintarBotoPlay(jugarFn) {
+function pintarBotoPlay(comprovarFn) {
     const div = document.getElementById("app");
     const boto = document.createElement("button");
-    boto.innerHTML = "jugar";
-    boto.addEventListener('click', jugarFn)
+    boto.innerHTML = "comprovar";
+    boto.addEventListener('click', comprovarFn)
 
         /*
         boto.addEventListener('click', function () {
@@ -52,20 +52,15 @@ function pintarBotoPlay(jugarFn) {
     div.append(boto);
 }
 
-function victoria() {
+function anunciarResultat(comprovarMaFn) {
     const titol  = document.createElement("h1");
     const div = document.getElementById("app");
 
-    titol.innerHTML = "Has guanyat!!!!!!!!"
-
-    div.append(titol);
-}
-
-function derrota() {
-    const titol  = document.createElement("h1");
-    const div = document.getElementById("app");
-
-    titol.innerHTML = "Has perdut..."
+    if (comprovarMaFn) {
+        titol.innerHTML = "Has guanyat!!!!!!!!"
+    } else {
+        titol.innerHTML = "Has perdut..."
+    }
 
     div.append(titol);
 }

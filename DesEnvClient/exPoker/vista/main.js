@@ -10,7 +10,7 @@ function init() {
 
     pintarMa(ma);
     pintarBotoPlay(function () {
-        comprovarMa(ma)
+        anunciarResultat(comprovarMa(ma));
     });
 }
 
