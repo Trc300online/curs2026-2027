@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "sass": "^1.105.1"
+  },
+  "name": "dissenyinterf",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass:watch": "sass --watch scss/activitats_sass/main.scss scss/activitats_sass/main.css",
+    "sass:build": "sass scss/activitats_sass/main.scss scss/activitats_sass/main.css --style=compressed --no-source-map",
+    "sass:dev": "sass --watch scss/activitats_sass/main.scss scss/activitats_sass/main.css --style=expanded --source-map"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

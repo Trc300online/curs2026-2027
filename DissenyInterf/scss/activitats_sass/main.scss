@@ -1,0 +1,34 @@
+$color-primari: green;
+$color-secundari: blue;
+$color-alerta: red;
+
+$espaiat-petit: 8px;
+$espaiat-mitjana: 16px;
+$espaiat-gran: 24px;
+
+$redi-vora: 8px;
+
+.targeta--primaria, .targeta--secundaria, .targeta--alerta {
+    background-color: lighten($color-primari, $amount: 60);
+    color: $color-secundari;
+    border: 2px, solid, darken($color-primari, $amount: 25);
+    border-radius: $redi-vora;
+
+    padding: $espaiat-mitjana;
+
+    .targeta__titol{
+        margin-bottom: $espaiat-gran;
+    }
+
+    button {
+        background-color: $color-primari;
+        padding: $espaiat-petit;
+        border-radius: $redi-vora;
+    }
+
+    button:hover {
+        background-color: darken($color-primari, $amount: 10);
+        transition: 0.3s;
+    }
+}
+
