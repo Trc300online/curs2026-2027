@@ -1,0 +1,32 @@
+name: "php"
+services:
+  db:
+    image: mysql:5.7
+
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: php_videos
+
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+  php:
+    build: ./
+    volumes:
+      - ./websites/demo:/var/www/html
+    ports:
+      - "80:80"
+    depends_on:
+      - db
