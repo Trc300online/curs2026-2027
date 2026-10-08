@@ -1,0 +1,27 @@
+Practica_1_AWS
+
+4. Informació de la instància
+    - ID: i-025811717637a7d25
+    - Type: t2.micro
+    - IPv4 pub: 3.85.174.170
+    - IPv4 priv: 172.31.47.184
+    - Zona: us-east-1c
+    - SecGroup: web-servers
+
+    1- ip publica --> es la direcció ip que identifica a la instacia cap a internet.
+       ip privada --> es la direcció ip que te la instancia dis de la red privada de AWS, se utilitza per comunicacions enter recursos de la propia VPC.
+    
+    2- ip publica --> permet que alters dispositius o serveis es puguin comunicar amb la instancia.
+       ip privada --> comunicacions entre instancies y basese de dades.
+    
+    3- es una ubicacio fisica dins de una regio de AWS on tenen infrastructura com els seus datacenters.
+
+5. Connexio mitjant SSH
+    hostname: ip-172-31-47-184
+    OS: PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+        NAME="Debian GNU/Linux"
+
+7. Comprovació del servidor web
+    1- utilitza el port 80
+    2- la regla de type: HTTP, protocol: TCP, port rang: 80
+    3- que no l'apache no tendira permisos per emprar el port i mostrat la pagina.
