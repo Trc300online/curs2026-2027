@@ -3,7 +3,7 @@
 require 'functions.php';
 //require 'router.php';
 require 'Database.php';
-
+//. Database Tables and Indexes vid done
 $config = require('config.php');
 
 $db = new Database($config['database']);
