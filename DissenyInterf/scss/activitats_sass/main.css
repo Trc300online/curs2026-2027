@@ -18,4 +18,39 @@
   transition: 0.3s;
 }
 
+.titol-principal {
+  font-size: 31.25px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  color: #111111;
+}
+
+.subtitol {
+  font-size: 25px;
+  line-height: 1.3;
+  margin-bottom: 8px;
+  color: rgb(21.6666666667%, 21.6666666667%, 21.6666666667%);
+}
+
+.subsubtitol {
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: rgb(21.6666666667%, 21.6666666667%, 21.6666666667%);
+}
+
+.text-normal {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  color: #333333;
+}
+
+.text-petita {
+  font-size: 12.8px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  color: #333333;
+}
+
 /*# sourceMappingURL=main.css.map */
