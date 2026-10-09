@@ -3,14 +3,18 @@ console.log("main init");
 
 function init() {
     const baralla = initBaralla();
-    console.log(baralla);
+    //console.log(baralla);
 
     const ma = mesclarIRepartirBaralla(baralla);
-    console.log(baralla);
+    //console.log(baralla);
 
     pintarMa(ma);
     pintarBotoPlay(function () {
-        anunciarResultat(comprovarMa(ma));
+        //pintar amb DOM (ventana emergente)
+        const isBOM = true;
+        const isWindow = true;
+        anunciarResultat(comprovarMa(ma), isBOM, isWindow);
+        //pintar amb BOM (use alert)
     });
 }
 

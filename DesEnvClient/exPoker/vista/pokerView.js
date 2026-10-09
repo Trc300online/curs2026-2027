@@ -52,15 +52,61 @@ function pintarBotoPlay(comprovarFn) {
     div.append(boto);
 }
 
-function anunciarResultat(comprovarMaFn) {
-    const titol  = document.createElement("h1");
-    const div = document.getElementById("app");
+function anunciarResultat(comprovarMaFn, isBOM, isWindow) {
+/*
+    if (isBOM && isWindow){
 
-    if (comprovarMaFn) {
-        titol.innerHTML = "Has guanyat!!!!!!!!"
-    } else {
-        titol.innerHTML = "Has perdut..."
-    }
+        myWindow = window.open("", "", "width=500,height=500");
 
-    div.append(titol);
+        const h1 = myWindow.document.createElement("h1");
+        if (comprovarMaFn) {
+            h1.innerHTML = "Has guanyat!!!!!!!!"
+        } else {
+            h1.innerHTML = "Has perdut..."
+        }
+        myWindow.document.body.append(h1);
+
+    } else if (isBOM) {
+
+        if (comprovarMaFn) {
+            alert("Has guanyat!!!!!!!!");
+        } else {
+            alert("Has perdut...");
+        }
+
+    } if (!isBOM && !isWindow) {
+*/
+        const missatge = document.createElement("p");
+        missatge.innerText = (comprovarMaFn) ? "Has guanyat!!!" : "Has perdut...";
+        missatge.style.color = "red";
+        missatge.style.fontSize = "50px";
+
+        const finestra = document.createElement("div");
+        finestra.style.backgroundColor = "gray";
+        finestra.style.width = "400px";
+        finestra.style.height = "300px";
+        finestra.style.borderColor = "blue";
+        finestra.style.position = "relative";
+        finestra.appendChild(missatge);
+
+        document.querySelector("#app").appendChild(finestra);
+
+        const botoTancar = document.createElement("div");
+        botoTancar.innerText = "X";
+        botoTancar.style.backgroundColor = "red";
+        botoTancar.style.fontSize = "50px";
+        botoTancar.style.width = "50px";
+        botoTancar.style.height = "50px";
+        botoTancar.style.position = "absolute";
+        botoTancar.style.top = "0px";
+        botoTancar.style.right = "0px";
+        botoTancar.addEventListener("click", function () {
+            /*console.log("Click a tancar finestra");
+            finestra.style.display = "none";*/
+            location.reload();
+        } );
+
+        finestra.appendChild(botoTancar);
+
+   // }
 }
