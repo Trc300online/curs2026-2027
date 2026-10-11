@@ -37,7 +37,7 @@ function cardMapToImage(carta) {
     return nom;
 }
 
-function pintarBotoPlay(comprovarFn) {
+function pintarBotoComprovar(comprovarFn) {
     const div = document.getElementById("app");
     const boto = document.createElement("button");
     boto.innerHTML = "comprovar";
@@ -51,6 +51,17 @@ function pintarBotoPlay(comprovarFn) {
 
     div.append(boto);
 }
+
+function pintarBotoPlay(generarPromptFn) {
+    const div = document.getElementById("app");
+    const boto = document.createElement("button");
+    boto.innerHTML = "Jugar";
+    boto.addEventListener('click', generarPromptFn)
+
+    div.append(boto);
+}
+
+
 
 function anunciarResultat(comprovarMaFn, isBOM, isWindow) {
 /*
@@ -109,4 +120,24 @@ function anunciarResultat(comprovarMaFn, isBOM, isWindow) {
         finestra.appendChild(botoTancar);
 
    // }
+}
+
+function generarJoc(ma) {
+    const myWindow = window.open("", "", "width=1000,height=500");
+    let div = myWindow.document.createElement("div");
+    div.innerHTML = "<div id='app'></div>";
+    myWindow.document.body.append(div);
+
+    const divApp = myWindow.document.getElementById("app")
+
+    for (const carta of ma) {
+        const imgName = cardMapToImage(carta);
+
+        const imatge = document.createElement("img");
+        imatge.src = "../assets/cards/" + imgName;
+        imatge.width = 150;
+        divApp.append(imatge);
+    }
+
+    myWindow.focus();
 }
