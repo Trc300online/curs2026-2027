@@ -1,0 +1,19 @@
+2- 
+    - un sistema gestor de bases de dades permet crear, organitzar, consultar, modificar i eleiminar dades de una BBDD.
+    - Ambdues son SGBD que empren SQL, mariadb es un fork de MySQL que esta desenvolupat per la comunitat. Poden presentar diferències en funcions, motors de amagatzamatge...
+    - el port TCP utilitzat habitualment es el 3306.
+
+4-
+    - per indicar les direccions IP que el servidor Mariadb ha de escoltar les conexions entrats.
+    - amb 127.0.0.1 el servidor nomes escolta a se interfaz localhost mentres que 0.0.0.0 fa que escolti a totes ses interficies IPv4 disponibles, fent que pugui acceptar conexions desde altres maquines.
+    - perque AWS tambe controla el trafic de red, fent que tenguem que modificar el Security Group.
+
+6-
+    - la direcció IPv4 publica de la instancia de EC2 on esta instalat el mariadb.
+    -   a) mariadb ha de estar actiu.
+        b) el bind-address a de premetre revre conexions remotes.
+        c) el Security Group ha de permetre TCP per el port 3306 desde la ip autoritzada.
+        d) l'usuari de mariadb ha de tenir permisos per poder conectarse desde el host remot.
+        e) Workbench ha de utilitzar la ip, el port, l'usuari i la contraseña correctes.
+    - donaria peu a intents de adivinar contrasenyes, explotacio de vulnerabilitats, accesos no autoritzats....
+    
