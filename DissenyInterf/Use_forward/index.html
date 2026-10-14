@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎮 SCSS Escape Room - Minecraft Edition</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="game-container">
+    <header class="game-header">
+      <div class="logo">
+        <span class="logo-icon">⛏️</span>
+        <h1>SCSS ESCAPE ROOM</h1>
+      </div>
+      <div class="game-info">
+        <div class="timer">
+          <span class="timer-icon">⏰</span>
+          <span id="time-remaining">03:00:00</span>
+        </div>
+        <div class="teams-score">
+          <div class="team team-1">
+            <span class="team-name">🟥 Equip 1</span>
+            <span class="team-points" id="team1-points">0</span>
+          </div>
+          <div class="team team-2">
+            <span class="team-name">🟦 Equip 2</span>
+            <span class="team-points" id="team2-points">0</span>
+          </div>
+          <div class="team team-3">
+            <span class="team-name">🟩 Equip 3</span>
+            <span class="team-points" id="team3-points">0</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="team-selector" id="team-selector">
+      <h2>Selecciona el teu equip</h2>
+      <div class="team-buttons">
+        <button class="btn-team btn-team-1" data-team="1">🟥 Equip 1</button>
+        <button class="btn-team btn-team-2" data-team="2">🟦 Equip 2</button>
+        <button class="btn-team btn-team-3" data-team="3">🟩 Equip 3</button>
+      </div>
+    </div>
+
+    <main class="game-main hidden" id="game-main">
+      <div class="progress-section">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="progress-text">
+          <span id="current-challenge">1</span> / <span id="total-challenges">20</span>
+        </div>
+      </div>
+
+      <div class="challenge-panel">
+        <div class="challenge-header">
+          <h2 id="challenge-title">🔓 Repte 1</h2>
+          <div class="challenge-badge" id="challenge-badge">Nivell 1</div>
+        </div>
+        
+        <div class="challenge-content">
+          <div class="challenge-description">
+            <h3>📜 Enunciat</h3>
+            <p id="challenge-description"></p>
+            <div class="challenge-hint hidden" id="challenge-hint">
+              <strong>💡 Pista:</strong> <span id="hint-text"></span>
+            </div>
+            <button class="btn-hint" id="show-hint-btn">Mostrar pista (-5 punts)</button>
+          </div>
+
+          <div class="challenge-preview">
+            <h3>👁️ Vista Prèvia (en temps real)</h3>
+            <div class="preview-frame">
+              <iframe id="preview-iframe"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-section">
+          <div class="code-header">
+            <h3>💻 El teu codi SCSS</h3>
+            <div class="code-actions">
+              <button class="btn btn-compile" id="compile-btn">⚡ Compilar</button>
+              <button class="btn btn-validate" id="validate-btn">✅ Validar</button>
+            </div>
+          </div>
+          <textarea id="code-editor" spellcheck="false"></textarea>
+        </div>
+
+        <div class="validation-section-container">
+          <div class="validation-header">
+            <h3>📊 Validacions en temps real</h3>
+          </div>
+          <div id="validation-panel" class="validation-panel"></div>
+        </div>
+
+        <div class="console-section">
+          <div class="console-header">
+            <h3>🖥️ Consola</h3>
+            <button class="btn-small" id="clear-console">Netejar</button>
+          </div>
+          <div class="console-output" id="console-output"></div>
+        </div>
+      </div>
+    </main>
+
+    <div class="modal hidden" id="victory-modal">
+      <div class="modal-content">
+        <h2>🎉 Repte Completat!</h2>
+        <div class="victory-animation">
+          <div class="diamond">💎</div>
+        </div>
+        <p id="victory-message">Has desbloquejat el següent repte!</p>
+        <div class="victory-points">
+          <span>+<span id="points-earned">10</span> punts</span>
+        </div>
+        <button class="btn btn-next" id="next-challenge-btn">Següent Repte →</button>
+      </div>
+    </div>
+
+    <div class="modal hidden" id="end-modal">
+      <div class="modal-content">
+        <h2>🏆 Temps Completat!</h2>
+        <div class="final-scores">
+          <h3>Puntuacions Finals</h3>
+          <div class="score-item">
+            <span>🟥 Equip 1:</span>
+            <span id="final-team1">0</span>
+          </div>
+          <div class="score-item">
+            <span>🟦 Equip 2:</span>
+            <span id="final-team2">0</span>
+          </div>
+          <div class="score-item">
+            <span>🟩 Equip 3:</span>
+            <span id="final-team3">0</span>
+          </div>
+        </div>
+        <div class="winner" id="winner-announcement"></div>
+        <button class="btn btn-restart" id="restart-btn">Tornar a Jugar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="challenges.js"></script>
+  <script src="scss-compiler.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

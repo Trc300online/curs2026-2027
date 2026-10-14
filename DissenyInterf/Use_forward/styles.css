@@ -1,0 +1,642 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --minecraft-green: #5d8c3e;
+  --minecraft-dark-green: #3e5c2a;
+  --minecraft-brown: #8b6f47;
+  --minecraft-dark-brown: #5c4a2f;
+  --minecraft-stone: #7f7f7f;
+  --minecraft-dark-stone: #4a4a4a;
+  --minecraft-dirt: #9b7653;
+  --minecraft-gold: #fcdb05;
+  --minecraft-diamond: #5decf5;
+  --minecraft-red: #c6337a;
+  --minecraft-blue: #3c44aa;
+  --pixel-border: 4px;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background: linear-gradient(180deg, #87ceeb 0%, #87ceeb 60%, var(--minecraft-green) 60%, var(--minecraft-dark-green) 100%);
+  min-height: 100vh;
+  image-rendering: pixelated;
+  overflow-x: hidden;
+}
+
+.game-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.game-header {
+  background: var(--minecraft-dark-brown);
+  border: var(--pixel-border) solid var(--minecraft-brown);
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 0 rgba(0,0,0,0.3);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-icon {
+  font-size: 3rem;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.logo h1 {
+  color: var(--minecraft-gold);
+  font-size: 1.5rem;
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.5);
+}
+
+.game-info {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.timer {
+  background: var(--minecraft-dark-stone);
+  border: 3px solid var(--minecraft-stone);
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.timer-icon {
+  font-size: 1.5rem;
+}
+
+#time-remaining {
+  color: var(--minecraft-gold);
+  font-size: 1.2rem;
+}
+
+.teams-score {
+  display: flex;
+  gap: 15px;
+}
+
+.team {
+  background: var(--minecraft-dark-stone);
+  border: 3px solid;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.team-1 { border-color: var(--minecraft-red); }
+.team-2 { border-color: var(--minecraft-blue); }
+.team-3 { border-color: var(--minecraft-green); }
+
+.team-name {
+  font-size: 0.7rem;
+  color: white;
+}
+
+.team-points {
+  font-size: 1.5rem;
+  color: var(--minecraft-gold);
+}
+
+/* Team Selector */
+.team-selector {
+  background: var(--minecraft-dark-brown);
+  border: var(--pixel-border) solid var(--minecraft-brown);
+  padding: 60px;
+  text-align: center;
+  box-shadow: 0 8px 0 rgba(0,0,0,0.3);
+}
+
+.team-selector h2 {
+  color: var(--minecraft-gold);
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.5);
+}
+
+.team-buttons {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.btn-team {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  padding: 20px 40px;
+  border: var(--pixel-border) solid;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.3);
+}
+
+.btn-team:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 0 rgba(0,0,0,0.3);
+}
+
+.btn-team:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+}
+
+.btn-team-1 {
+  background: var(--minecraft-red);
+  border-color: #8b2252;
+  color: white;
+}
+
+.btn-team-2 {
+  background: var(--minecraft-blue);
+  border-color: #2a2f7a;
+  color: white;
+}
+
+.btn-team-3 {
+  background: var(--minecraft-green);
+  border-color: var(--minecraft-dark-green);
+  color: white;
+}
+
+/* Game Main */
+.game-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Progress */
+.progress-section {
+  background: var(--minecraft-dark-brown);
+  border: var(--pixel-border) solid var(--minecraft-brown);
+  padding: 20px;
+  box-shadow: 0 8px 0 rgba(0,0,0,0.3);
+}
+
+.progress-bar {
+  height: 30px;
+  background: var(--minecraft-dark-stone);
+  border: 3px solid var(--minecraft-stone);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--minecraft-green), var(--minecraft-gold));
+  width: 0%;
+  transition: width 0.5s;
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.3);
+}
+
+.progress-text {
+  text-align: center;
+  margin-top: 10px;
+  color: white;
+  font-size: 0.9rem;
+}
+
+/* Challenge Panel */
+.challenge-panel {
+  background: var(--minecraft-dark-brown);
+  border: var(--pixel-border) solid var(--minecraft-brown);
+  box-shadow: 0 8px 0 rgba(0,0,0,0.3);
+}
+
+.challenge-header {
+  background: var(--minecraft-brown);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid var(--minecraft-dark-brown);
+}
+
+.challenge-header h2 {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.challenge-badge {
+  background: var(--minecraft-gold);
+  color: var(--minecraft-dark-brown);
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  border: 3px solid var(--minecraft-dark-brown);
+}
+
+.challenge-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.challenge-description,
+.challenge-preview {
+  background: var(--minecraft-dark-stone);
+  border: 3px solid var(--minecraft-stone);
+  padding: 20px;
+}
+
+.challenge-description h3,
+.challenge-preview h3 {
+  color: var(--minecraft-gold);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+#challenge-description {
+  color: white;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.challenge-hint {
+  background: rgba(252, 219, 5, 0.1);
+  border: 2px solid var(--minecraft-gold);
+  padding: 15px;
+  margin: 15px 0;
+  color: var(--minecraft-gold);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.btn-hint {
+  font-family: 'Press Start 2P', cursive;
+  background: var(--minecraft-gold);
+  color: var(--minecraft-dark-brown);
+  border: 3px solid var(--minecraft-dark-brown);
+  padding: 10px 20px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.3);
+}
+
+.btn-hint:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 rgba(0,0,0,0.3);
+}
+
+.preview-frame {
+  background: white;
+  border: 3px solid var(--minecraft-stone);
+  height: 300px;
+  overflow: hidden;
+}
+
+#preview-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Code Section */
+.code-section {
+  border-top: 3px solid var(--minecraft-stone);
+}
+
+.code-header {
+  background: var(--minecraft-brown);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.code-header h3 {
+  color: white;
+  font-size: 0.9rem;
+}
+
+.code-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  padding: 10px 20px;
+  border: 3px solid;
+  cursor: pointer;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.3);
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 rgba(0,0,0,0.3);
+}
+
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+}
+
+.btn-compile {
+  background: var(--minecraft-diamond);
+  border-color: #3ba8b0;
+  color: var(--minecraft-dark-brown);
+}
+
+.btn-validate {
+  background: var(--minecraft-green);
+  border-color: var(--minecraft-dark-green);
+  color: white;
+}
+
+#code-editor {
+  width: 100%;
+  height: 300px;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  border: none;
+  padding: 20px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  resize: vertical;
+}
+
+/* Console */
+.console-section {
+  border-top: 3px solid var(--minecraft-stone);
+}
+
+.console-header {
+  background: var(--minecraft-dark-stone);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.console-header h3 {
+  color: white;
+  font-size: 0.8rem;
+}
+
+.btn-small {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  padding: 5px 10px;
+  background: var(--minecraft-stone);
+  border: 2px solid var(--minecraft-dark-stone);
+  color: white;
+  cursor: pointer;
+}
+
+.console-output {
+  background: #0a0a0a;
+  padding: 15px;
+  height: 150px;
+  overflow-y: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+}
+
+.console-message {
+  padding: 5px 0;
+  border-bottom: 1px solid #222;
+}
+
+.console-message.success { color: #4ec9b0; }
+.console-message.error { color: #f48771; }
+.console-message.info { color: #569cd6; }
+.console-message.warning { color: #dcdcaa; }
+
+/* Modals */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--minecraft-dark-brown);
+  border: var(--pixel-border) solid var(--minecraft-brown);
+  padding: 40px;
+  text-align: center;
+  max-width: 600px;
+  box-shadow: 0 8px 0 rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+  color: var(--minecraft-gold);
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.victory-animation {
+  margin: 30px 0;
+}
+
+.diamond {
+  font-size: 5rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.victory-points {
+  background: var(--minecraft-gold);
+  color: var(--minecraft-dark-brown);
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  margin: 20px 0;
+  border: 3px solid var(--minecraft-dark-brown);
+}
+
+.btn-next,
+.btn-restart {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.9rem;
+  padding: 15px 30px;
+  background: var(--minecraft-green);
+  border: 3px solid var(--minecraft-dark-green);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.3);
+  margin-top: 20px;
+}
+
+.final-scores {
+  background: var(--minecraft-dark-stone);
+  border: 3px solid var(--minecraft-stone);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.final-scores h3 {
+  color: var(--minecraft-gold);
+  margin-bottom: 20px;
+}
+
+.score-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  color: white;
+  font-size: 0.9rem;
+  border-bottom: 2px solid var(--minecraft-stone);
+}
+
+.winner {
+  background: var(--minecraft-gold);
+  color: var(--minecraft-dark-brown);
+  padding: 20px;
+  font-size: 1.2rem;
+  margin: 20px 0;
+  border: 3px solid var(--minecraft-dark-brown);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .challenge-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .game-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .team-buttons {
+    flex-direction: column;
+  }
+}
+
+/* Afegir al final de styles.css */
+
+.validation-section-container {
+  border-top: 3px solid var(--minecraft-stone);
+  background: var(--minecraft-dark-stone);
+}
+
+.validation-header {
+  background: var(--minecraft-brown);
+  padding: 10px 20px;
+}
+
+.validation-header h3 {
+  color: white;
+  font-size: 0.9rem;
+}
+
+.validation-panel {
+  padding: 15px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.validation-section {
+  margin-bottom: 15px;
+}
+
+.validation-section h4 {
+  color: var(--minecraft-gold);
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.validation-item {
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  border-left: 4px solid;
+}
+
+.validation-item.passed {
+  background: rgba(93, 140, 62, 0.2);
+  border-left-color: var(--minecraft-green);
+  color: #a8d08d;
+}
+
+.validation-item.failed {
+  background: rgba(198, 51, 122, 0.2);
+  border-left-color: var(--minecraft-red);
+  color: #e8a8b8;
+}
+
+.validation-item.warning {
+  background: rgba(252, 219, 5, 0.12);
+  border-left-color: var(--minecraft-gold);
+  color: #f3e7a1;
+}
+
+.btn-validate.ready {
+  background: var(--minecraft-gold);
+  color: var(--minecraft-dark-brown);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.teams-score .team {
+  cursor: pointer;
+}
+
+.team.active {
+  background: var(--minecraft-brown);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 0 rgba(0,0,0,0.4);
+}
+
+.btn-hint:disabled {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
+}
+
+.console-message pre {
+  margin: 4px 0 0;
+  white-space: pre-wrap;
+  color: #d4d4d4;
+  font-family: 'Courier New', monospace;
+}
+
+#code-editor {
+  tab-size: 2;
+}
