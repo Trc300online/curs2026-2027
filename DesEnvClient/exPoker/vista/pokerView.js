@@ -100,7 +100,7 @@ function anunciarResultat(comprovarMaFn, isBOM, isWindow, myWindow, div) {
 
     } if (!isBOM && !isWindow) {
 */
-       /*    ANUNCIAR RESULTAT NON-BOM
+          //ANUNCIAR RESULTAT NON-BOM
        const missatge = document.createElement("p");
         missatge.innerText = (comprovarMaFn) ? "Has guanyat!!!" : "Has perdut...";
         missatge.style.color = "red";
@@ -126,22 +126,12 @@ function anunciarResultat(comprovarMaFn, isBOM, isWindow, myWindow, div) {
         botoTancar.style.top = "0px";
         botoTancar.style.right = "0px";
         botoTancar.addEventListener("click", function () {
-            /!*console.log("Click a tancar finestra");
-            finestra.style.display = "none";*!/
+            finestra.style.display = "none";
             location.reload();
         } );
 
         finestra.appendChild(botoTancar);
-        */
 
-    const missatge = myWindow.document.createElement("p");
-
-    missatge.innerText = comprovarMaFn ? "Has guanyat!!!" : "Has perdut...";
-
-    missatge.style.color = "red";
-    missatge.style.fontSize = "50px";
-
-    div.appendChild(missatge);
    // }
 }
 
@@ -180,19 +170,26 @@ function generarJoc(ma, cheat, finestraActual) {
         div.append(imatge);
     }
 
+
     const botoReload = myWindow.document.createElement("button");
     botoReload.textContent = "Tornar a jugar";
-
-    div.appendChild(botoReload);
 
     botoReload.addEventListener("click", function () {
         const novaBaralla = initBaralla();
         const novaMa = mesclarIRepartirBaralla(novaBaralla);
-
         generarJoc(novaMa, cheat, myWindow);
     });
 
-    anunciarResultat(cheat || comprovarMa(ma), myWindow, div);
+    div.appendChild(botoReload);
+
+    const missatge = myWindow.document.createElement("h1");
+    missatge.textContent = (cheat || comprovarMa(ma))
+        ? "Has guanyat!!!"
+        : "Has perdut...";
+    missatge.style.color = "red";
+
+    div.appendChild(missatge);
+
 
     myWindow.focus();
 

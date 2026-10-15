@@ -34,8 +34,8 @@ function init() {
     pintarBotoTancarJoc(function () {
         if (myWindow && !myWindow.closed) {
             myWindow.close();
+            myWindow = null;
         }
-        myWindow = null;
     });
 
     pintarBotoTancarPrograma(function () {
