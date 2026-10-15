@@ -1,14 +1,11 @@
 console.log("main init");
 
+let myWindow = null;
 
 function init() {
-    const baralla = initBaralla();
-    //console.log(baralla);
 
-    const ma = mesclarIRepartirBaralla(baralla);
-    //console.log(baralla);
-
-    pintarMa(ma);
+    //pintarMa(ma);
+    /*
     pintarBotoComprovar(function () {
         //pintar amb DOM (ventana emergente)
         const isBOM = true;
@@ -16,6 +13,7 @@ function init() {
         anunciarResultat(comprovarMa(ma), isBOM, isWindow);
         //pintar amb BOM (use alert)
     });
+    */
     pintarBotoPlay(function () {
         let cheat = prompt("vols fer trampes?").toLowerCase();
 
@@ -25,9 +23,28 @@ function init() {
             alert("Ets molt honrat, però segur que perdràs!")
         }
 
-        generarJoc(ma)
+        const baralla = initBaralla();
+
+        const ma = mesclarIRepartirBaralla(baralla);
+
+        myWindow = generarJoc(ma, cheat === "si", myWindow);
 
     });
+
+    pintarBotoTancarJoc(function () {
+        if (myWindow && !myWindow.closed) {
+            myWindow.close();
+        }
+        myWindow = null;
+    });
+
+    pintarBotoTancarPrograma(function () {
+        if (myWindow && !myWindow.closed) {
+            myWindow.close();
+        }
+        window.close();
+    });
+
 }
 
 init();

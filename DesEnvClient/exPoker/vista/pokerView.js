@@ -43,12 +43,6 @@ function pintarBotoComprovar(comprovarFn) {
     boto.innerHTML = "comprovar";
     boto.addEventListener('click', comprovarFn)
 
-        /*
-        boto.addEventListener('click', function () {
-            console.log("playing")
-        });
-        */
-
     div.append(boto);
 }
 
@@ -61,9 +55,28 @@ function pintarBotoPlay(generarPromptFn) {
     div.append(boto);
 }
 
+function pintarBotoTancarJoc(tancarFn) {
+    const div = document.getElementById("app");
+    const boto = document.createElement("button");
+
+    boto.textContent = "Tancar finestra del joc";
+    boto.addEventListener("click", tancarFn);
+
+    div.append(boto);
+}
+
+function pintarBotoTancarPrograma(tancarFn) {
+    const div = document.getElementById("app");
+    const boto = document.createElement("button");
+
+    boto.textContent = "Tancar tot el programa";
+    boto.addEventListener("click", tancarFn);
+
+    div.append(boto);
+}
 
 
-function anunciarResultat(comprovarMaFn, isBOM, isWindow) {
+function anunciarResultat(comprovarMaFn, isBOM, isWindow, myWindow, div) {
 /*
     if (isBOM && isWindow){
 
@@ -87,7 +100,8 @@ function anunciarResultat(comprovarMaFn, isBOM, isWindow) {
 
     } if (!isBOM && !isWindow) {
 */
-        const missatge = document.createElement("p");
+       /*    ANUNCIAR RESULTAT NON-BOM
+       const missatge = document.createElement("p");
         missatge.innerText = (comprovarMaFn) ? "Has guanyat!!!" : "Has perdut...";
         missatge.style.color = "red";
         missatge.style.fontSize = "50px";
@@ -112,17 +126,79 @@ function anunciarResultat(comprovarMaFn, isBOM, isWindow) {
         botoTancar.style.top = "0px";
         botoTancar.style.right = "0px";
         botoTancar.addEventListener("click", function () {
-            /*console.log("Click a tancar finestra");
-            finestra.style.display = "none";*/
+            /!*console.log("Click a tancar finestra");
+            finestra.style.display = "none";*!/
             location.reload();
         } );
 
         finestra.appendChild(botoTancar);
+        */
 
+    const missatge = myWindow.document.createElement("p");
+
+    missatge.innerText = comprovarMaFn ? "Has guanyat!!!" : "Has perdut...";
+
+    missatge.style.color = "red";
+    missatge.style.fontSize = "50px";
+
+    div.appendChild(missatge);
    // }
 }
 
-function generarJoc(ma) {
+function generarJoc(ma, cheat, finestraActual) {
+    let myWindow = finestraActual;
+
+    if (!myWindow || myWindow.closed) {
+        myWindow = window.open(
+            "",
+            "",
+            "width=1000,height=500,left=300,top=150"
+        );
+    }
+
+    if (!myWindow) {
+        alert("No s'ha pogut obrir la finestra del joc.");
+        return null;
+    }
+
+    myWindow.document.body.innerHTML = "";
+
+    const div = myWindow.document.createElement("div");
+    div.id = "app";
+    myWindow.document.body.append(div);
+
+    for (const carta of ma) {
+        const imgName = cardMapToImage(carta);
+        const imatge = myWindow.document.createElement("img");
+
+        imatge.src = new URL(
+            "assets/cards/" + imgName,
+            window.location.href
+        ).href;
+
+        imatge.width = 150;
+        div.append(imatge);
+    }
+
+    const botoReload = myWindow.document.createElement("button");
+    botoReload.textContent = "Tornar a jugar";
+
+    div.appendChild(botoReload);
+
+    botoReload.addEventListener("click", function () {
+        const novaBaralla = initBaralla();
+        const novaMa = mesclarIRepartirBaralla(novaBaralla);
+
+        generarJoc(novaMa, cheat, myWindow);
+    });
+
+    anunciarResultat(cheat || comprovarMa(ma), myWindow, div);
+
+    myWindow.focus();
+
+    return myWindow;
+
+/*
     const myWindow = window.open("", "", "width=1000,height=500");
     let div = myWindow.document.createElement("div");
     div.innerHTML = "<div id='app'></div>";
@@ -133,11 +209,24 @@ function generarJoc(ma) {
     for (const carta of ma) {
         const imgName = cardMapToImage(carta);
 
-        const imatge = document.createElement("img");
-        imatge.src = "../assets/cards/" + imgName;
+        const imatge = myWindow.document.createElement("img");
+        imatge.src = new URL(
+            `assets/cards/${imgName}`,
+            window.location.href
+        ).href;
         imatge.width = 150;
         divApp.append(imatge);
     }
 
+    const botoComprovar = myWindow.document.createElement("button");
+    botoComprovar.textContent = "Comprovar";
+
+    botoComprovar.addEventListener("click", function () {
+        anunciarResultat(cheat || comprovarMa(ma), true, true, myWindow);
+    });
+
+    divApp.append(botoComprovar);
+
     myWindow.focus();
+ */
 }
