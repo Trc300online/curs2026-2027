@@ -2,7 +2,7 @@
 
 
 // act1 variables
-
+/*
 $color-primari: green;
 $color-secundari: blue;
 $color-alerta: red;
@@ -36,8 +36,10 @@ $redi-vora: 8px;
         transition: 0.3s;
     }
 }
+*/
 
 // act2 variables
+/*
 
 $font-base: 16px;
 $ratio-modular: 1.25;
@@ -79,4 +81,143 @@ $color-subtitol: lighten($color-titol, 15%);
     line-height: 1.6;
     margin-bottom: math.div($mida, 2);
     color: $color-text;
+}
+*/
+
+// act1 nesting
+/*
+$color-fons-menu: darkslategray;
+$color-text-menu: white;
+$collor-hover-menu: lighten($color-fons-menu, 15%);
+$color-accent-focus: darkorange;
+$espaiat-item: 4px;
+$padding-enllac: 12px 20px;
+
+.menu-principal {
+    background-color: $color-fons-menu;
+    padding: 0px 20px 0px 20px;
+
+    &__llista {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+        display: flex;
+    }
+
+    &__item {
+        margin-right: $espaiat-item;
+
+        &:first-child {
+            border-radius: 4px 0 0 4px;
+        }
+        &:last-child {
+            border-radius: 0 4px 4px 0;
+        }
+    }
+
+    &__enllac {
+        display: block;
+        color: $color-text-menu;
+        text-decoration: none;
+        padding: $padding-enllac;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+            background-color: $collor-hover-menu;
+        }
+        &:focus {
+            outline: 2px solid $color-accent-focus;
+            outline-offset: 2px;
+        }
+    }
+}
+*/
+
+// act2 nesting
+
+$radi-vora-targeta: 8px;
+$mida-avatar: 120px;
+$espaiat-petita: 8px;
+$espaiat-mitjana: 16px;
+$espaiat-gran: 24px;
+
+$color-fons-targeta: white;
+$color-nom: darkslategray;
+$color-carrec: ligthen(dimgrey, 10%);
+$color-primari: dodgerblue;
+$color-administrador: tomato;
+$color-ombra: rgba(black, 0.1);
+
+.contenidor {
+    max-width: 800px;
+    align-self: center;
+    margin: 40px auto;
+    padding: 0 $espaiat-gran;
+    display: flex;
+    gap: $espaiat-gran;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.perfil {
+    background-color: $color-fons-targeta;
+    border-radius: $radi-vora-targeta;
+    padding: $espaiat-gran;
+    text-align: center;
+    box-shadow: 0 4px 6px $color-ombra;
+    width: 300px;
+
+    &__avatar {
+        width: $mida-avatar;
+        height: $mida-avatar;
+        border-radius: 50%;
+        margin-bottom: $espaiat-mitjana;
+        object-fit: cover;
+    }
+
+    &__nom {
+        margin-bottom: $espaiat-petita;
+        color: $color-nom;
+        font-size: 20px;
+    }
+
+    &__carrec {
+        color: $color-carrec;
+        font-size: 14px;
+        margin-bottom: $espaiat-mitjana;
+    }
+
+    &__bio {
+        font-size: 14px;
+        color: dimgray;
+        margin-bottom: $espaiat-mitjana;
+        line-height: 1.5;
+    }
+
+    &__boto {
+        background-color: $color-primari;
+        color: white;
+        border: none;
+        padding: $espaiat-petita $espaiat-mitjana;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: darken($color-primari, 10%);
+        }
+    }
+
+    &--administrador {
+        border-top: 4px solid $color-administrador;
+
+        .perfil__boto {
+            background-color: $color-administrador;
+
+            &:hover {
+                background-color: darken($color-administrador, 10%);
+            }
+        }
+    }
 }
