@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>dwes.poo</groupId>
+    <artifactId>practica-son-ametler</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>Pràctica de POO: l'agroturisme Son Ametler</name>
+    <description>Codi de partida de la pràctica (main: Main). Les proves de cada part són a la carpeta proves/:
+        copiau-les a src/main/java quan comenceu la part corresponent.</description>
+
+    <properties>
+        <!-- Tot el codi compila amb Java 17 o posterior -->
+        <maven.compiler.release>17</maven.compiler.release>
+        <!-- Imprescindible: el codi té accents -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.15.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.4.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
