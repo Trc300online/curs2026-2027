@@ -26,3 +26,14 @@
     private int persones;
     private boolean cancelada;
     private List<String> observacions = new ArrayList<>;
+
+2.4- 
+    a) perque son valors que se poden calcular a partir de altres altributs de la reserva. I si fossin atributs podrien quedar desactualitzats a l'hora de fer algun canvi.
+    b) es static perque aixi totes les reserves comparteixen un mateix contador que incrementara de forma constant/correcte, i es private perque nomes se pugui modificar desde la classe Reserva.
+    c) perque si la reserva no es valida (alguns dels atributs es incorrecte i dona error/exception) el contador de codi no se ha de incrementar.
+
+3.3-
+    a) la primer linea ha de ser super(). dona error de compilació.
+    b) no compilaria, ja que preuBase i SUPLEMENT_VISTES tenen acces privat. perque cridam al resultat del metode de la clase pare i l'empram dins l'override de la subclase.
+    c) el codi si compila, pero la prova no empraria el metode de la classe Suite, sino el de Habitació el cual no aplica l'augment del preu.
+    

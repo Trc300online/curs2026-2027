@@ -55,6 +55,10 @@ public class Habitacio {
         return codi;
     }
 
+    public String getNom() {
+        return nom;
+    }
+
     public void setPreuBase(double preuBase) {
         validarPreuBase(preuBase);
         this.preuBase = preuBase;
