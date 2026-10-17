@@ -36,4 +36,12 @@
     a) la primer linea ha de ser super(). dona error de compilació.
     b) no compilaria, ja que preuBase i SUPLEMENT_VISTES tenen acces privat. perque cridam al resultat del metode de la clase pare i l'empram dins l'override de la subclase.
     c) el codi si compila, pero la prova no empraria el metode de la classe Suite, sino el de Habitació el cual no aplica l'augment del preu.
-    
+
+4.1-
+    a) perque casa no necesita tots els metodes de Habitació, nomes alguns, aixi que per evitar duplicar codi innecesariament cream una classe pare comú entre les dues.
+    b) ha de ser abstracte, perque 1) permet compartir atributs i codi entre Habitació i Casa, 2) permet definir metodes abstractes que cada subclasse implementara a la seva manera.
+
+4.4-
+    a) perque empra el preuNit() de la subclasse que el cirda.
+    b) perque permet que cada tipus d'allotjament calculi el preu total de la manera que ho necesiti.
+    c) es genera un error de compilació, ens demana o que es converteixi la classe en abstract o que es declarin tots els metodes de la classe pare.
