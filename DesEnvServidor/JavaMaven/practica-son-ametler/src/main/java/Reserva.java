@@ -12,7 +12,7 @@ public class Reserva {
 
     private final String codi;
     private final Client client;
-    private final Habitacio habitacio;
+    private final Allotjament habitacio;
     private final LocalDate entrada;
     private final LocalDate sortida;
     private final int persones;
@@ -21,7 +21,7 @@ public class Reserva {
 
     private ArrayList<String> observacions = new ArrayList<>();
 
-    public Reserva(Client client, Habitacio habitacio, LocalDate entrada, LocalDate sortida, int persones) {
+    public Reserva(Client client, Allotjament habitacio, LocalDate entrada, LocalDate sortida, int persones) {
 
         validarClient(client);
         validarHabitacio(habitacio);
@@ -44,7 +44,7 @@ public class Reserva {
         }
     }
 
-    private void validarHabitacio(Habitacio habitacio) {
+    private void validarHabitacio(Allotjament habitacio) {
         if (habitacio == null) {
             throw new IllegalArgumentException("L'habitació és obligatòria");
         }
@@ -61,7 +61,7 @@ public class Reserva {
         }
     }
 
-    private void validarPersones(int persones, Habitacio habitacio) {
+    private void validarPersones(int persones, Allotjament habitacio) {
 
         if (persones < 1 || persones > habitacio.getPlaces()) {
             throw new IllegalArgumentException("El nombre de persones no és vàlid");
@@ -88,7 +88,7 @@ public class Reserva {
     }
 
     public double preu() {
-        return (habitacio.preuNit() * nits());
+        return habitacio.preuEstada((int) nits());
     }
 
     public boolean estaCancelada() {
