@@ -45,3 +45,10 @@
     a) perque empra el preuNit() de la subclasse que el cirda.
     b) perque permet que cada tipus d'allotjament calculi el preu total de la manera que ho necesiti.
     c) es genera un error de compilació, ens demana o que es converteixi la classe en abstract o que es declarin tots els metodes de la classe pare.
+
+4.5-
+    a) no compila, no es pot crear una instancia de una classe abstracte.
+    b) si compila, crea una instancia de una casa (C3 · Sa Sinia · 4 places).
+    c) si compila, 120.
+    d) no compila, el metode tePiscina() no exiteix.
+    e) si compila, 420.
