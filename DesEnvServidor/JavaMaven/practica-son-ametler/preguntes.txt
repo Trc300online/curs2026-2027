@@ -52,3 +52,7 @@
     c) si compila, 120.
     d) no compila, el metode tePiscina() no exiteix.
     e) si compila, 420.
+
+5.1- 
+    Facturable ha de ser una interficie, ja que Casa es alhora un Allotjament i un Facturable, i nomes se pot fer extends de 1 unica classe abstracte mentres que es poden fer varis implemets de interficies.
+
