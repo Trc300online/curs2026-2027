@@ -56,3 +56,14 @@
 5.1- 
     Facturable ha de ser una interficie, ja que Casa es alhora un Allotjament i un Facturable, i nomes se pot fer extends de 1 unica classe abstracte mentres que es poden fer varis implemets de interficies.
 
+5.4-
+    a) si es pot posar pero dona error ja que detecta duplicitat de metodes.
+    b) Perque la forma en la que es calcula el l'iva i el tota es sempre la mateixa, pero el percentatge de iva canvia depenent del fet imposable.
+    c) nomes una, la linea que defineix la constant a Facturable.
+
+5.5-
+    a) no, no es pot instanciar una interficie.
+    b) si, perque Reserva implementa Facturable.
+    c) si, 1312,30
+    d) si, 4
+    e) no, no es pot modificar una constant.

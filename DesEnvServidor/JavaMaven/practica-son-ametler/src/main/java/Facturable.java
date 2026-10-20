@@ -8,9 +8,13 @@ public interface Facturable {
 
     public double baseImposable();
 
-    public int precentatgeIva();
+    public int percentatgeIva();
 
-    public double iva();
+    default double iva() {
+        return baseImposable() * percentatgeIva() / 100.0;
+    }
 
-    public double total();
+    default double total() {
+        return baseImposable() + iva();
+    }
 }

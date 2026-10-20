@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Primera versió, feta pel becari.
  */
-public class Reserva {
+public class Reserva implements Facturable{
     private static int comptador = 0;
 
     private final String codi;
@@ -120,5 +120,20 @@ public class Reserva {
         }
 
         return msg;
+    }
+
+    @Override
+    public String concepte() {
+        return "Estada a " + habitacio.getNom() + " (" + nits() + " nits)";
+    }
+
+    @Override
+    public double baseImposable() {
+        return preu();
+    }
+
+    @Override
+    public int percentatgeIva() {
+        return Facturable.IVA_REDUIT;
     }
 }
