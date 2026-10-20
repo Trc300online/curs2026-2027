@@ -1,0 +1,48 @@
+2.
+    - 1 vCPU
+    - ram diponible: 487Mi
+
+3.
+
+caract          -       t2.micro        -       t2.small
+vCPU            -       1 vCPU          -       1vCPU
+mem RAM         -       1 GiB           -       2GiB
+Familia inst    -       t2              -       t2
+Rendiment red   -   Low to Moderate     -   Low to Moderate
+coste aprox     -   0.0116-0.0162$/h    -   0.023-0.032$/h
+
+1) La principal diferència es la memòria RAM
+2) no, el numero de procesadors virtuals no canvia
+3) si, la RAM es duplica
+4) 
+5) cuan mes recursos te asignats mes costosa es la instancia
+
+4.
+
+ip privada: 172.31.47.184
+ip publica: 35.175.227.112
+
+5.
+1) stop atura temporalment la instnacia, terminate la elimina.
+2) les dades es conserven i podran tornar a se accedides ja que EBS es un amagatzament persistent
+3) si que es segueix facturant ja que el contingut dins l'EBS segueix existint/ocupant espai
+
+8.
+ip publica post canvi: 100.55.159.175
+ip privada post canvi: 172.31.47.184
+
+1) si
+2) perque cuan es fa stop es retira la instancia de la red, alliberant la ip publica que tenia unaltra vegada a la "poll"/borsa de IPs
+3) que els usuaris que intenten connectarse a la web no podran fins que no s'actualitzin els enllaços amb la nova ip
+4) La IP elasitca
+
+9.
+    - 1 vCPU
+    - ram: 1.5 GiB
+
+1) ha augmentat la ram disponible
+2) no
+3) no
+4) no
+
+10.
