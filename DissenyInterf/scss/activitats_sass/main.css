@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 $color-primari: green;
 $color-secundari: blue;
@@ -124,69 +125,133 @@ $padding-enllac: 12px 20px;
     }
 }
 */
+/*
+$radi-vora-targeta: 8px;
+$mida-avatar: 120px;
+$espaiat-petita: 8px;
+$espaiat-mitjana: 16px;
+$espaiat-gran: 24px;
+
+$color-fons-targeta: white;
+$color-nom: darkslategray;
+$color-carrec: ligthen(dimgrey, 10%);
+$color-primari: dodgerblue;
+$color-administrador: tomato;
+$color-ombra: rgba(black, 0.1);
+
 .contenidor {
-  max-width: 800px;
-  align-self: center;
-  margin: 40px auto;
-  padding: 0 24px;
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-  justify-content: center;
+    max-width: 800px;
+    align-self: center;
+    margin: 40px auto;
+    padding: 0 $espaiat-gran;
+    display: flex;
+    gap: $espaiat-gran;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .perfil {
-  background-color: white;
-  border-radius: 8px;
-  padding: 24px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 300px;
+    background-color: $color-fons-targeta;
+    border-radius: $radi-vora-targeta;
+    padding: $espaiat-gran;
+    text-align: center;
+    box-shadow: 0 4px 6px $color-ombra;
+    width: 300px;
+
+    &__avatar {
+        width: $mida-avatar;
+        height: $mida-avatar;
+        border-radius: 50%;
+        margin-bottom: $espaiat-mitjana;
+        object-fit: cover;
+    }
+
+    &__nom {
+        margin-bottom: $espaiat-petita;
+        color: $color-nom;
+        font-size: 20px;
+    }
+
+    &__carrec {
+        color: $color-carrec;
+        font-size: 14px;
+        margin-bottom: $espaiat-mitjana;
+    }
+
+    &__bio {
+        font-size: 14px;
+        color: dimgray;
+        margin-bottom: $espaiat-mitjana;
+        line-height: 1.5;
+    }
+
+    &__boto {
+        background-color: $color-primari;
+        color: white;
+        border: none;
+        padding: $espaiat-petita $espaiat-mitjana;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: darken($color-primari, 10%);
+        }
+    }
+
+    &--administrador {
+        border-top: 4px solid $color-administrador;
+
+        .perfil__boto {
+            background-color: $color-administrador;
+
+            &:hover {
+                background-color: darken($color-administrador, 10%);
+            }
+        }
+    }
 }
-.perfil__avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin-bottom: 16px;
-  object-fit: cover;
+*/
+.plataforma {
+  max-width: 600px;
+  justify-self: center;
+  margin: 40px auto;
+  padding: 0 20px;
 }
-.perfil__nom {
-  margin-bottom: 8px;
+.plataforma__titol {
+  margin-bottom: 24px;
   color: darkslategray;
-  font-size: 20px;
+  font-size: 24px;
 }
-.perfil__carrec {
-  color: ligthen(dimgrey, 10%);
-  font-size: 14px;
-  margin-bottom: 16px;
+.plataforma__llista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.perfil__bio {
-  font-size: 14px;
+.plataforma__item {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
   color: dimgray;
-  margin-bottom: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
+  transition: color 0.2s ease;
 }
-.perfil__boto {
-  background-color: dodgerblue;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
+.plataforma__item::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: mediumseagreen;
+  font-weight: bold;
+  font-size: 18px;
+  transition: transform 0.2s ease;
 }
-.perfil__boto:hover {
-  background-color: rgb(0%, 46.4941176471%, 91.7647058824%);
+.plataforma__item:hover {
+  color: mediumseagreen;
 }
-.perfil--administrador {
-  border-top: 4px solid tomato;
-}
-.perfil--administrador .perfil__boto {
-  background-color: tomato;
-}
-.perfil--administrador .perfil__boto:hover {
-  background-color: rgb(100%, 21.8670076726%, 7.8431372549%);
+.plataforma__item:hover::before {
+  scale: 1.2;
 }
 
 /*# sourceMappingURL=main.css.map */
