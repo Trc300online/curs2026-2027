@@ -1,5 +1,5 @@
 @use 'sass:math';
-
+@use 'main_v2';
 
 // act1 variables
 /*
@@ -223,7 +223,7 @@ $color-ombra: rgba(black, 0.1);
 }
 */
 // act3 nesting
-
+/*
 $color-exit: mediumseagreen;
 $color-text: dimgray;
 $color-titol: darkslategray;
@@ -277,3 +277,4 @@ $espaiat-gran: 24px;
         }
     }
 }
+*/
