@@ -1,0 +1,359 @@
+@use 'sass:math';
+
+// act1 variables
+$color-primari-targeta: green;
+$color-secundari-targeta: blue;
+$color-alerta: red;
+
+$espaiat-petit: 8px;
+$espaiat-mitjana: 16px;
+$espaiat-gran: 24px;
+
+$radi-vora: 8px;
+/**/
+$font-base: 16px;
+$ratio-modular: 1.25;
+$mida: $font-base;
+$color-text-p: #333333;
+$color-titol-h1: #111111;
+$color-subtitol: lighten($color-titol-h1, 15%);
+/**/
+$color-fons-menu: darkslategray;
+$color-text-menu: white;
+$color-hover-menu: lighten($color-fons-menu, 15%);
+$color-accent-focus: darkorange;
+$espaiat-item-nav: 4px;
+$padding-enllac: 12px 20px;
+/**/
+$mida-avatar: 120px;
+
+$color-fons-targeta: white;
+$color-nom: darkslategray;
+$color-carrec: lighten(dimgrey, 10%);
+$color-primari-galeria: dodgerblue;
+$color-administrador: tomato;
+$color-ombra: rgba(black, 0.1);
+/**/
+$color-exit: mediumseagreen;
+$color-text-list: dimgray;
+$color-titol-list: darkslategray;
+$espaiat-item-list: 12px;
+$padding-left-icona: 30px;
+/**/
+$amplada-contenidor: 800px;
+$amplada-perfil: 300px;
+$amplada-plataforma: 600px;
+$margin-contenidor-plataforma: 40px;
+$gruixa-vora: 2px;
+$transition-time-03s: 0.3s;
+$transition-time-02s: 0.2s;
+$line-height-hover: 1.2;
+$line-height-sm: 1.3;
+$line-height-m: 1.4;
+$line-height-l: 1.5;
+$line-height-xl: 1.6;
+$radi-vora-0: 0;
+$radi-vora-4: 4px;
+$radi-vora-50p100: 50%; 
+$padding-0: 0px;
+$padding-20: 20px;
+$margin-0: 0px;
+$ombra-offx: 0;
+$ombra-offy: 4px;
+$ombra-blur-6: 6px;
+$font-text: 14px;
+$font-list: 18px;
+$font-titol: 24px;
+$font-nom: 20px;
+$color-bio: dimgray;
+$color-boto: white;
+
+/* MIXINS */
+
+/* Defineix una transició reutilitzable per a una propietat CSS. */
+@mixin transicio($propietat, $durada) {
+    transition: $propietat $durada ease;
+}
+
+/* Defineix el contorn visible quan un element rep el focus. */
+@mixin efecte-focus($gruix, $color) {
+    outline: $gruix solid $color;
+    outline-offset: $gruix;
+}
+
+/* Aplica una ombra configurable a una targeta. */
+@mixin ombra-targeta($x, $y, $difuminacio, $color) {
+    box-shadow: $x $y $difuminacio $color;
+}
+
+/* Aplica un canvi de color quan el cursor passa per damunt. */
+@mixin hover-fons($color) {
+    &:hover {
+        background-color: darken($color, 10%);
+    }
+}
+
+.targeta--primaria, .targeta--secundaria, .targeta--alerta {
+    background-color: lighten($color-primari-targeta, $amount: 60);
+    color: $color-secundari-targeta;
+    border: $gruixa-vora solid darken($color-primari-targeta, $amount: 25);
+    border-radius: $radi-vora;
+
+    padding: $espaiat-mitjana;
+
+    .targeta__titol{
+        margin-bottom: $espaiat-gran;
+    }
+
+    button {
+        background-color: $color-primari-targeta;
+        padding: $espaiat-petit;
+        border-radius: $radi-vora;
+    }
+
+    button:hover {
+        @include hover-fons($color-primari-targeta);
+        transition: $transition-time-03s;
+    }
+}
+
+
+// act2 variables
+/*
+$font-base: 16px;
+$ratio-modular: 1.25;
+$mida: $font-base;
+$color-text: #333333;
+$color-titol: #111111;
+$color-subtitol: lighten($color-titol, 15%);
+*/
+.titol-principal {
+    font-size: $font-base * $ratio-modular * $ratio-modular * $ratio-modular;
+    line-height: $line-height-hover;
+    margin-bottom: math.div($mida, 2);
+    color: $color-titol-h1;
+}
+
+.subtitol {
+    font-size: $font-base * $ratio-modular * $ratio-modular;
+    line-height: $line-height-sm;
+    margin-bottom: math.div($mida, 2);
+    color: $color-subtitol;
+}
+
+.subsubtitol {
+    font-size: $font-base * $ratio-modular;
+    line-height: $line-height-m;
+    margin-bottom: math.div($mida, 2);
+    color: $color-subtitol;
+}
+
+.text-normal {
+    font-size: $font-base;
+    line-height: $line-height-xl;
+    margin-bottom: math.div($mida, 2);
+    color: $color-text-p;
+}
+
+.text-petita {
+    font-size: math.div($font-base, $ratio-modular);
+    line-height: $line-height-xl;
+    margin-bottom: math.div($mida, 2);
+    color: $color-text-p;
+}
+
+
+// act1 nesting
+/*
+$color-fons-menu: darkslategray;
+$color-text-menu: white;
+$collor-hover-menu: lighten($color-fons-menu, 15%);
+$color-accent-focus: darkorange;
+$espaiat-item: 4px;
+$padding-enllac: 12px 20px;
+*/
+
+.menu-principal {
+    background-color: $color-fons-menu;
+    padding: $padding-0 $padding-20 $padding-0 $padding-20;
+
+    &__llista {
+        list-style: none;
+        padding: $padding-0;
+        margin: $margin-0;
+        display: flex;
+    }
+
+    &__item {
+        margin-right: $espaiat-item-nav;
+
+        &:first-child {
+            border-radius: $radi-vora-4 $radi-vora-0 $radi-vora-0 $radi-vora-4;
+        }
+        &:last-child {
+            border-radius: $radi-vora-0 $radi-vora-4 $radi-vora-4  $radi-vora-0;
+        }
+    }
+
+    &__enllac {
+        display: block;
+        color: $color-text-menu;
+        text-decoration: none;
+        padding: $padding-enllac;
+        @include transicio(background-color, $transition-time-03s);
+       @include transicio(color, $transition-time-03s);
+
+        &:hover {
+            @include hover-fons($color-hover-menu);
+        }
+        &:focus {
+            @include efecte-focus($gruixa-vora, $color-accent-focus);
+        }
+    }
+}
+
+
+// act2 nesting
+/*
+$radi-vora-targeta: 8px;
+$mida-avatar: 120px;
+$espaiat-petita: 8px;
+$espaiat-mitjana: 16px;
+$espaiat-gran: 24px;
+
+$color-fons-targeta: white;
+$color-nom: darkslategray;
+$color-carrec: lighten(dimgrey, 10%);
+$color-primari: dodgerblue;
+$color-administrador: tomato;
+$color-ombra: rgba(black, 0.1);
+*/
+.contenidor {
+    max-width: $amplada-contenidor;
+    align-self: center;
+    margin: $margin-contenidor-plataforma auto;
+    padding: $padding-0 $espaiat-gran;
+    display: flex;
+    gap: $espaiat-gran;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.perfil {
+    background-color: $color-fons-targeta;
+    border-radius: $radi-vora;
+    padding: $espaiat-gran;
+    text-align: center;
+    @include ombra-targeta($ombra-offx, $ombra-offy, $ombra-blur-6, $color-ombra);
+    width: $amplada-perfil;
+
+    &__avatar {
+        width: $mida-avatar;
+        height: $mida-avatar;
+        border-radius: $radi-vora-50p100;
+        margin-bottom: $espaiat-mitjana;
+        object-fit: cover;
+    }
+
+    &__nom {
+        margin-bottom: $espaiat-petit;
+        color: $color-nom;
+        font-size: $font-nom;
+    }
+
+    &__carrec {
+        color: $color-carrec;
+        font-size: $font-text;
+        margin-bottom: $espaiat-mitjana;
+    }
+
+    &__bio {
+        font-size: $font-text;
+        color: $color-bio;
+        margin-bottom: $espaiat-mitjana;
+        line-height: $line-height-l;
+    }
+
+    &__boto {
+        background-color: $color-primari-galeria;
+        color: $color-boto;
+        border: none;
+        padding: $espaiat-petit $espaiat-mitjana;
+        border-radius: $radi-vora-4;
+        cursor: pointer;
+        font-size: $font-text;
+        @include transicio(background-color, $transition-time-03s);
+
+        &:hover {
+            @include hover-fons($color-primari-galeria);
+        }
+    }
+
+    &--administrador {
+        border-top: $radi-vora-4 solid $color-administrador;
+
+        .perfil__boto {
+            background-color: $color-administrador;
+
+            &:hover {
+                @include hover-fons($color-administrador);
+            }
+        }
+    }
+}
+
+// act3 nesting
+/*
+$color-exit: mediumseagreen;
+$color-text: dimgray;
+$color-titol: darkslategray;
+$espaiat-item: 12px;
+$padding-left-icona: 30px;
+$espaiat-gran: 24px;
+*/
+.plataforma {
+    max-width: $amplada-plataforma;
+    justify-self: center;
+    margin: $margin-contenidor-plataforma auto;
+    padding: $padding-0 $padding-20;
+
+    &__titol {
+        margin-bottom: $espaiat-gran;
+        color: $color-titol-list;
+        font-size: $font-titol;
+    }
+
+    &__llista {
+        list-style: none;
+        padding: $padding-0;
+        margin: $margin-0;
+    }
+
+    &__item {
+        position: relative;
+        padding-left: $padding-left-icona;
+        margin-bottom: $espaiat-item-list;
+        color: $color-text-list;
+        line-height: $line-height-xl;
+        @include transicio(color, $transition-time-02s);
+
+        &::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: $color-exit;
+            font-weight: bold;
+            font-size: $font-list;
+            @include transicio(transform, $transition-time-02s);
+        }
+
+        &:hover {
+            color: $color-exit;
+
+            &::before {
+                scale: $line-height-hover;
+            }
+        }
+    }
+}
