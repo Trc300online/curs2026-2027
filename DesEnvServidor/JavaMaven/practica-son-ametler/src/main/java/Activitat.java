@@ -46,4 +46,8 @@ public class Activitat implements Facturable{
     public int percentatgeIva() {
         return Facturable.IVA_GENERAL;
     }
+
+    public String getNom() {
+        return nom;
+    }
 }

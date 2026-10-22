@@ -1,4 +1,4 @@
-public abstract class Allotjament {
+public abstract class Allotjament implements Identificable{
 
     private final String codi;
     private final String nom;
@@ -32,7 +32,7 @@ public abstract class Allotjament {
     }
 
 
-
+    @Override
     public String getCodi() {
         return codi;
     }

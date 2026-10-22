@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Primera versió, feta pel becari.
  */
-public class Reserva implements Facturable{
+public class Reserva implements Facturable, Identificable{
     private static int comptador = 0;
 
     private final String codi;
@@ -74,7 +74,7 @@ public class Reserva implements Facturable{
         }
     }
 
-
+    @Override
     public String getCodi() {
         return codi;
     }

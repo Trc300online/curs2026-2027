@@ -67,3 +67,14 @@
     c) si, 1312,30
     d) si, 4
     e) no, no es pot modificar una constant.
+
+6.4-
+    a) Deixen de compilar les cirdades que passen llistes d'un tipus concret, perque encara que reserva i activitat implementen Facturable, List<Reserva> i List<Activitat> no són subtipus de List<Facturable>.
+    b) Perque mesCar() ha de retornar un element del mateix tipus que conte se llista, pero totalFacturat() nomes suma els totals i retorna un double.
+
+6.5-
+    a) No, perque Client no implemente la interficie Identificable amb el metode getCodi().
+    b) Si
+    c) No, perque habitacions es un Regisre<Habitacio> i casa no es una habitació
+    d) Si
+    e) Si compila, pero en executarse donaria exception, ja que tots() retorna una llista inmodificable pertat add() no es podria executar
