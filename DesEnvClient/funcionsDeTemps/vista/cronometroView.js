@@ -1,24 +1,28 @@
 function pintarCronometre(cronometro) {
-    const hours = leadZero(cronometro.hora, 2);
-    const minutes = leadZero(cronometro.minut, 2);
-    const seconds = leadZero(cronometro.segon, 2);
-    const milliseconds = leadZero(cronometro.milisegon, 3);
+    const hours = leadZero(cronometro.hora(), 2);
+    const minutes = leadZero(cronometro.minut(), 2);
+    const seconds = leadZero(cronometro.segon(), 2);
+    const milliseconds = leadZero(cronometro.milisegon(), 3);
 
     const div = document.querySelector("#cronometro");
     div.innerText = `${hours}:${minutes}:${seconds}.${milliseconds}`;
 }
 
-function pintarCronometreInit(cronometro) {
-    let time;
+function pintarCronometreInit() {
+    let cronoInterval;
+    let cronometro;
+    let cronometroPause = false;
+    let elapsedTime;
 
-    const hours = leadZero(cronometro.hora, 2);
-    const minutes = leadZero(cronometro.minut, 2);
-    const seconds = leadZero(cronometro.segon, 2);
-    const milliseconds = leadZero(cronometro.milisegon, 3);
+
+    const hours = leadZero(0, 2);
+    const minutes = leadZero(0, 2);
+    const seconds = leadZero(0, 2);
+    const milliseconds = leadZero(0, 3);
 
     let div = document.createElement("div");
     div.id = "cronometro";
-    let p = document.createElement("p");
+    document.createElement("p");
     div.innerText = `${hours}:${minutes}:${seconds}.${milliseconds}`;
 
     document.querySelector("#app").appendChild(div);
@@ -36,11 +40,26 @@ function pintarCronometreInit(cronometro) {
     document.querySelector("#app").appendChild(stop);
 
     start.addEventListener("click", function () {
-        setInterval(function () {
-            cronometro.segon++;
+
+        if (cronometro === null || cronometro === undefined) {
+            cronometro = initCronometro();
+        }
+        if (cronometroPause) {
+            cronometroPause = false;
+            cronometro.restore(elapsedTime);
+        }
+        pintarCronometre(cronometro);
+        cronoInterval = setInterval(function () {
             pintarCronometre(cronometro);
-            }, 1000)
+            }, 1)
     })
+
+    pause.addEventListener("click", function () {
+        clearInterval(cronoInterval);
+        cronometroPause = true;
+        elapsedTime = cronometro.elapsed();
+    })
+
 
 }
 
