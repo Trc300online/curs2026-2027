@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L'Arxipèlag Taronja</title>
+  <!-- Estils mínims de la pàgina: no els modifiquis. El que compta és el vostre arxipelag.css -->
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; background: #fafafa; color: #222; }
+    main { padding-bottom: 3rem; }
+    section { margin-block: 1.5rem; padding: 1rem; background: #fff; border: 1px solid #ddd; border-radius: 6px; }
+    h2 { margin-top: 0; }
+    .nota { font-size: 0.85rem; color: #666; }
+    .fila { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-block: 0.5rem; }
+    .capcalera { display: flex; gap: 0.75rem; padding: 0.5rem; background: #eef; }
+  </style>
+  <link rel="stylesheet" href="../dist/css/arxipelag.css">
+</head>
+<body>
+  <!-- Lliga Taronja: ha de ser el primer element que rep el focus amb la tecla Tab -->
+  <a href="#contingut" class="enllac-saltar">Salta al contingut principal</a>
+
+  <main id="contingut" class="pagina-lliga">
+    <h1>L'Arxipèlag Taronja</h1>
+    <p class="nota">Si una secció es veu sense estils, l'etapa corresponent encara no està feta o hi ha un error al terminal. Per provar els estats de focus, feu servir la tecla Tab.</p>
+
+    <!-- ============================ ETAPA 1 ============================ -->
+    <section>
+      <h2>Etapa 1. Illa Mikan</h2>
+      <div class="fila">
+        <button class="boto-aigua">Pistola d'aigua</button>
+        <button class="boto-gel">Raig de gel</button>
+        <button class="boto-normal">Placatge</button>
+        <button class="boto-gegant">Botó gegant</button>
+      </div>
+    </section>
+
+    <!-- ============================ ETAPA 2 ============================ -->
+    <section>
+      <h2>Etapa 2. Illa Navel</h2>
+      <div class="fila">
+        <a href="#ruta" class="enllac-ruta">Ruta cap al far</a>
+        <a href="#mapa" class="enllac-mapa">Mapa de l'illa</a>
+      </div>
+      <div class="targeta-illa" tabindex="0">Targeta clicable de l'illa Navel (proveu-la amb Tab)</div>
+
+      <h3>Missió 2.3</h3>
+      <div class="fitxa">
+        <p class="fitxa__titol">Títol de la fitxa</p>
+        <p>Si el títol no surt en negreta i majúscules, el CSS no té cap regla per a .fitxa__titol.</p>
+      </div>
+    </section>
+
+    <!-- ============================ ETAPA 3 ============================ -->
+    <section>
+      <h2>Etapa 3. Illa Trovita</h2>
+      <div class="fila">
+        <button class="boto-tipus-foc">Foc</button>
+        <button class="boto-tipus-aigua">Aigua</button>
+        <button class="boto-tipus-planta">Planta</button>
+        <button class="boto-tipus-electric">Elèctric</button>
+      </div>
+    </section>
+
+    <!-- ============================ ETAPA 4 ============================ -->
+    <section>
+      <h2>Etapa 4. Illa Kumquat</h2>
+
+      <h3>Missió 4.1</h3>
+      <div class="capcalera">
+        <button class="boto-promocio">Promoció</button>
+        <button class="boto-primari">Primari</button>
+      </div>
+      <p class="nota">Dins de la capçalera, Promoció ha de quedar a l'esquerra i Primari, enganxat a la dreta. Si Promoció surt al mig, la regla de la capçalera també li arriba.</p>
+
+      <h3>Missió 4.2</h3>
+      <div class="fila">
+        <button class="menu-escriptori">Menú escriptori</button>
+        <button class="menu-mobil">Menú mòbil</button>
+      </div>
+      <div class="panell-illa" style="background:#eee">Panell: el padding creix a partir de 768px</div>
+
+      <h3>Missió 4.3</h3>
+      <button class="boto-tard">Botó tard (ha de ser vermell)</button>
+    </section>
+
+    <!-- ============================ LLIGA TARONJA ============================ -->
+    <section>
+      <h2>Lliga Taronja</h2>
+
+      <h3>Accessibilitat</h3>
+      <div class="fila">
+        <button class="boto-lliga">
+          Combatre
+          <span class="text-alternatiu">contra el campió Drake</span>
+        </button>
+      </div>
+      <p class="nota">El text "contra el campió Drake" no s'ha de veure, però un lector de pantalla l'ha de llegir.</p>
+
+      <h3>Targetes i galeria</h3>
+      <div class="galeria-illes">
+        <article class="targeta" tabindex="0">
+          <h4 class="targeta__titol">Illa Mikan</h4>
+          <p class="targeta__contingut">Gimnàs de la Cissy. Insígnia Ull de Corall.</p>
+        </article>
+        <article class="targeta targeta--destacada" tabindex="0">
+          <h4 class="targeta__titol">Illa Pummelo</h4>
+          <p class="targeta__contingut">Seu de la Lliga Taronja. Aquí us espera en Drake.</p>
+        </article>
+        <article class="targeta targeta--compacta" tabindex="0">
+          <h4 class="targeta__titol">Illa Kumquat</h4>
+          <p class="targeta__contingut">Targeta compacta.</p>
+        </article>
+      </div>
+
+      <h3>Escenari</h3>
+      <div class="escenari">
+        <div class="escenari__trofeu">Trofeu de la Lliga Taronja</div>
+      </div>
+
+      <h3>Insígnies</h3>
+      <div class="banner-final">
+        <div class="fila">
+          <span class="insignia-corall">Ull de Corall</span>
+          <span class="insignia-robi">Robí Marí</span>
+          <span class="insignia-petxina">Petxina Punxeguda</span>
+          <span class="insignia-jade">Estrella de Jade</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
