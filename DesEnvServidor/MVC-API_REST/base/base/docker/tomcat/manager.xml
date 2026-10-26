@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- El Manager ve amb la imatge (webapps.dist/manager), però no està desplegat.
+     L'activam només per al vigilant: el port 8080 només s'obre a 127.0.0.1 (vegeu compose.yaml)
+     i l'usuari només té el rol manager-script (l'API de text, sense interfície web).
+     NOMÉS PER DESENVOLUPAR: no copieu aquesta configuració a un servidor real. -->
+<Context docBase="/usr/local/tomcat/webapps.dist/manager" privileged="true" antiResourceLocking="false"/>

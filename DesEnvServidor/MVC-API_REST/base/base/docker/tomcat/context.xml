@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plantilla que el vigilant copia per a cada mòdul war, canviant @MODUL@ per la carpeta del mòdul.
+     La copia a conf/Catalina/localhost/<finalName>.xml: el nom del fitxer és la URL de l'aplicació.
+     L'aplicació es desplega directament des del codi, sense .war:
+       - docBase: els fitxers web (HTML, CSS, JSP, WEB-INF/web.xml) surten de src/main/webapp
+       - WEB-INF/classes: les classes compilades surten de target/classes (on compila IntelliJ)
+     cachingAllowed="false": un canvi a un HTML es veu en recarregar el navegador. -->
+<Context docBase="/apps/@MODUL@/src/main/webapp">
+    <Resources cachingAllowed="false">
+        <PreResources className="org.apache.catalina.webresources.DirResourceSet"
+                      base="/apps/@MODUL@/target/classes"
+                      webAppMount="/WEB-INF/classes"/>
+    </Resources>
+</Context>

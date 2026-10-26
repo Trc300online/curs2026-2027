@@ -1,0 +1,71 @@
+# Tomcat 11 dins Docker per desenvolupar, amb recàrrega en calent.
+#
+#   docker compose up            → http://localhost:8080/<finalName>/   (p. ex. /servlets/)
+#
+# Tomcat no rep cap .war: serveix cada mòdul war directament de les seves carpetes
+# (src/main/webapp i target/classes). El servei «vigilant» descobreix els mòduls tot sol,
+# els desplega amb el seu <finalName> i, quan IntelliJ compila una classe, recarrega l'aplicació.
+# Els HTML, CSS i JSP no necessiten ni això. Vegeu el README per als detalls.
+
+services:
+
+  tomcat:
+    image: tomcat:11.0-jdk25-temurin
+    # jpda: deixa connectar el depurador d'IntelliJ al port 5005
+    command: ["catalina.sh", "jpda", "run"]
+    environment:
+      JPDA_ADDRESS: "*:5005"
+      TZ: Europe/Madrid
+    ports:
+      - "127.0.0.1:8080:8080"     # només accessible des del vostre ordinador
+      - "127.0.0.1:5005:5005"
+    volumes:
+      # El codi de totes les aplicacions, només de lectura
+      - .:/apps:ro
+      # Els fitxers de context que escriu el vigilant: un per aplicació, i el del Manager
+      - contexts:/usr/local/tomcat/conf/Catalina/localhost
+      # L'usuari del Manager amb què el vigilant recarrega les aplicacions
+      - ./docker/tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml:ro
+    depends_on:
+      vigilant:
+        condition: service_healthy
+
+  vigilant:
+    image: curlimages/curl:8.23.0
+    user: root                     # ha de poder crear target/classes si encara no existeix
+    entrypoint: ["sh", "/apps/docker/vigila.sh"]
+    environment:
+      MANAGER: "http://tomcat:8080/manager/text"
+      USUARI: "vigilant"
+      CONTRASENYA: "recarrega"
+    volumes:
+      - .:/apps
+      - contexts:/contexts
+    healthcheck:
+      test: ["CMD", "test", "-f", "/tmp/preparat"]
+      interval: 1s
+      retries: 30
+
+  # Opcional, si no compilau amb IntelliJ: docker compose --profile compilador up
+  compilador:
+    profiles: ["compilador"]
+    image: maven:3.9-eclipse-temurin-25
+    entrypoint: ["sh", "/apps/docker/compila.sh"]
+    working_dir: /apps
+    volumes:
+      - .:/apps
+      - maven-repo:/root/.m2       # les dependències es baixen una sola vegada
+
+  # La imatge «de veres»: compila tots els .war i els copia dins Tomcat. Sense recàrrega en calent.
+  #   docker compose --profile war up --build   → http://localhost:8081/<finalName>/
+  war:
+    profiles: ["war"]
+    build: .
+    environment:
+      TZ: Europe/Madrid
+    ports:
+      - "127.0.0.1:8081:8080"
+
+volumes:
+  maven-repo:
+  contexts:
