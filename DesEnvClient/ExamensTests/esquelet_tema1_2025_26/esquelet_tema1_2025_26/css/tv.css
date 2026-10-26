@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Ranga');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+body{
+    position: relative;
+    width: 100%;
+    background-image: url('../img/background-room2.jpg');
+    background-size: cover;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Ranga,serif;
+    display: grid;
+    grid-template-rows: auto auto 270px 300px;
+    justify-content: center;
+    justify-items: center;
+    opacity: 1;
+    animation: show;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+
+#title{
+    font-size: 50pt;
+    text-align: center;
+}
+
+#timer{
+    font-size: 70pt;
+    text-align: center;
+}
+
+#screen{
+    width: 450px;
+    position: relative;
+}
+
+#tv{
+    width: 450px;
+    height: 270px;
+    position: relative;
+    z-index: 2;
+}
+
+#cabinet{
+    height: 300px;
+}
+
+#tvcabinet{
+    height: 290px;
+}
+
+#program{
+    width: 400px;
+    position: absolute;
+    top:20px;
+    left:20px;
+    z-index: 1;
+}
+
+#remote{
+    width: 100%;
+    position: relative;
+    bottom: 165px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.button {
+    background-color: #bdc3c7;
+    border: none;
+    color: white;
+    padding: 12px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

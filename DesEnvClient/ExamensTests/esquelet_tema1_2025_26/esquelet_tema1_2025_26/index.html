@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ca">
+    <head>
+        <title>Examen Javascript</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/tv.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="title">
+            <h1>Examen Vanilla JS</h1>
+        </div>
+        <div id="timer">5</div>
+        <div id="screen">
+            <img src="img/tv.png" alt="tv" id="tv">
+            <video autoplay loop id="program">
+                <source src="videos/alldayfilms.webm" type="video/webm" id="program-source">
+            </video>
+        </div>
+        <div id="cabinet">
+            <img src="img/tvcabinet.png" alt="cabinet" id="tvcabinet">
+
+            <div id="remote">
+                <button id="anterior" class="button">&lt;&lt;</button>
+                <button id="play" class="button">Play</button>
+                <button id="stop" class="button">Stop</button>
+                <button id="seguent" class="button">&gt;&gt;</button>
+            </div>
+        </div>
+
+
+
+
+        <script>
+            /*
+            1-
+                a) fals, depenent de la version de JS del navegador hi ha funcions no funcionals
+                b) fals, en node, un servidor en JS
+                c) fals, si que te tipus implicit
+                d) fals, == compare el valor mentres que === compara valor i tipus.
+
+            3- num vegades-temps1º-tempsDarrer
+                a) si    -   1s  -   1s
+                b) 1    -   4s  -   4s
+                c) INF  -   1s  -   INF
+                d) 0    -   0s  -   0s
+                e) 3    -   1s  -   1s
+            */
+
+            let vid = document.getElementById("program");
+
+            let play = document.getElementById("play");
+            let stop = document.getElementById("stop");
+            let seguent = document.getElementById("seguent");
+            let anterior = document.getElementById("anterior");
+
+            let cronometreActiu = false;
+
+
+
+            play.addEventListener("click", function() {
+                vid.play();
+                initCronometre();
+            })
+
+            stop.addEventListener("click", function() {
+                vid.pause();
+            })
+
+            const llistaVid = ["alldayfilms.webm", "kidstv.webm", "natureplus.webm", "sportstv.webm", "technologytoday.webm", "xtremsports.webm"];
+            function cercarIndexVideo(nom) {
+                const nomDepurat = nom.split("/");
+                return llistaVid.indexOf(nomDepurat[nomDepurat.length - 1]);
+            }
+
+            seguent.addEventListener("click", function() {
+                const nomVid = document.getElementById("program-source").src;
+                const index = cercarIndexVideo(nomVid);
+                document.getElementById("program-source").src = 'videos/' + llistaVid[(index + 1) % llistaVid.length];
+                document.getElementById("program").load();
+                initCronometre();
+            })
+
+            anterior.addEventListener("click", function() {
+                const nomVid = document.getElementById("program-source").src;
+                let index = cercarIndexVideo(nomVid);
+
+                if (index === 0) {
+                    index = llistaVid.length;
+                }
+
+                document.getElementById("program-source").src = 'videos/' + llistaVid[(index - 1) % llistaVid.length];
+                document.getElementById("program").load();
+                initCronometre();
+            })
+
+            function initCronometre() {
+                if (!cronometreActiu) {
+                    let segons5 = Date.now() + 5000;
+                    const tvPagament = setInterval(function() {
+                        cronometreActiu = true;
+                        const diff = Math.round((segons5 - Date.now())/1000);
+                        document.getElementById("timer").innerHTML = diff + "";
+                        
+                        if (diff === 0) {
+                            clearInterval(tvPagament);
+                            vid.pause();
+                            cronometreActiu = false;
+                        }
+                    }, 1)                
+                }
+            }
+
+            let payapl = document.createElement("button");
+            let closePaypal = document.createElement("button");
+            payapl.innerHTML = "PAYPAL";
+            payapl.className = "button";
+
+            closePaypal.innerHTML = "tancar pagament";
+            closePaypal.className = "button";
+
+            let myWindow;
+            
+            payapl.addEventListener("click", function() {
+                myWindow = window.open("https://paypal.com", "_blank", "height=600, width=400");
+            })
+
+            closePaypal.addEventListener("click", function() {
+                myWindow.close();
+            })
+
+            document.querySelector("#title").appendChild(payapl);
+            document.querySelector("#title").appendChild(closePaypal);
+            
+        </script>
+    </body>
+</html>
