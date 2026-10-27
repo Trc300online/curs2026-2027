@@ -1,0 +1,70 @@
+1.
+
+NAME     MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+xvda     202:0    0    8G  0 disk 
+├─xvda1  202:1    0  7.9G  0 part /
+├─xvda14 202:14   0    3M  0 part 
+└─xvda15 202:15   0  124M  0 part /boot/efi
+
+    1) la partició xvda1
+    2) el disc xvda te una capacitat de 8GB, la particio principal (xvda1) te 7.9GB
+    3) el punt de muntatge es el directoru arrel del sistema (/)
+    4) proporciona emmagatzematge persistent en blocs per a les instàncies EC2. Permet guardar el sistema operatiu, les aplicacions, els fitxers i les bases de dades, i conservar les dades encara que la instància s'aturi o es reiniciï.
+
+2.
+    5) disc virtual que es pot connectar a una instància EC2 per emmagatzemar dades
+    6) és un tipus de volum EBS d'ús general que utilitza unitats SSD.
+    7) Perquè un volum EBS només es pot connectar directament a instàncies EC2 que es troben a la mateixa zona de disponibilitat
+    8)  Sí. Un volum EBS pot existir de manera independent sense estar connectat a cap instància EC2.
+
+3.
+NAME     MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+xvda     202:0    0    8G  0 disk 
+├─xvda1  202:1    0  7.9G  0 part /
+├─xvda14 202:14   0    3M  0 part 
+└─xvda15 202:15   0  124M  0 part /boot/efi
+xvdb     202:16   0   10G  0 disk 
+
+5.
+
+element     -       resultat
+dispositiu  -       /dev/xvdb
+capacitat   -       10GiB
+sistema fitxers -   ext4
+punt muntatge   -   /copias
+
+7.
+admin@ip-172-31-32-249:~$ hostname
+ip-172-31-32-249
+admin@ip-172-31-32-249:~$ lsblk
+NAME     MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+xvda     202:0    0    8G  0 disk 
+├─xvda1  202:1    0  7.9G  0 part /
+├─xvda14 202:14   0    3M  0 part 
+└─xvda15 202:15   0  124M  0 part /boot/efi
+admin@ip-172-31-32-249:~$ 
+
+
+8.
+    9) desmontar el volum significa deixar de tenir acces a seu sistema de fitxers pero el volum segueix connectat a la instancia. Eliminar significa borrar el volum de EBS, eliminant totes les dades emmagatzamades
+    10) No, no se elimina nomes deixa de ser accessible
+    11) per assegurar que ses operacions de lectura i escriptura s'han completat, evitatnt la corrupcio de dades
+
+10.
+    12) si que el conserva
+    13) no es necesari tornar a formatetjar-lo
+    14) el arxiu prueba.txt seria eliminat
+
+12.
+    15) a la instancia web-server
+    16) a la instancia web-server-2
+    17) perque es tracta de un volum de EBS
+    18) al volumen EBS
+    19) que les dades dins els volums EBS son independents de la instancia.
+
+    20) el volum conte fitxers/dades que es poden moure facilment i es conservaran independentment de la seva instancia, mentres que la instancia es tracta de una maquina unica.
+    21) mount -> monta el volum. umount -> desmonta el volum. attach -> asocia el volum a una instanca. detach -> desasocia el volum de una instancia. delete -> elimina el volum amb tot el seu contingut
+    22) perque es tracta de un emagatzematge persistent, es a dir, conserva la informació.
+    23) es perdrien totes les dades que conte
+    24) permet la transferència de molts d'arxius amb poques accions
+    25) fer un backup de les dades, assegurar-me de que no hi ha tasques emprant el volum i desmontarlo amb umount abans de fer detach.
