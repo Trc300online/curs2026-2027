@@ -16,4 +16,13 @@
         d) l'usuari de mariadb ha de tenir permisos per poder conectarse desde el host remot.
         e) Workbench ha de utilitzar la ip, el port, l'usuari i la contraseña correctes.
     - donaria peu a intents de adivinar contrasenyes, explotacio de vulnerabilitats, accesos no autoritzats....
-    
+
+9-
+    a) perque Workbench es connecta directament a la ec2 a traves de la red emprant el port 3306
+    b) porque es tracta de una aplicacion web que se executa en el servidor i se comunica amb MariaDB localment, nomes necesita acces als ports 80 0 443 (http o https)
+    c) primer apache al port 80 i despres php executa phpmyadmin.
+
+10-
+    a) no, perque el Security Group bloqueja les connexions entrats al port 3306
+    b) si, perque phpmyadmin accedeix desde el navegador (port 80)
+    c) redueix el risc de atacs de força bruta, explotacions de vulnerabilitats i accesos no autoritzats

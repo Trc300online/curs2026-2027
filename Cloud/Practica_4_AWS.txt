@@ -46,3 +46,21 @@ ip privada post canvi: 172.31.47.184
 4) no
 
 10.
+
+1) no, la pagina no es pert
+2) no, la base de dades no es pert
+3) perque detenir una instancia no elimina el amagatzamatge persistent, les desdes del EBS queden intactes.
+4) Amazon Elastic Block Store proporciona amagatzamatge en blocs persistents permetent conservar les arxius de les pagines web, base de dades, etc fins i tot cuan la instancia es denenguda.
+
+11.
+
+1) Hem modificat el tipus d'instància EC2, augmentant els recursos de maquinari virtual.
+2) No s'han modificat els fitxers de la pàgina web, la base de dades, el sistema operatiu ni la configuració i les dades emmagatzemades al volum EBS. Tampoc no s'han modificat les aplicacions instal·lades
+3) Perquè AWS necessita aturar la màquina virtual per modificar els recursos de maquinari virtual que té assignats
+4) Quan la instància no té prou recursos per executar les aplicacions correctament
+5) Escalat vertical: consisteix a augmentar els recursos d'una mateixa instància, com la CPU o la memòria RAM, canviant-ne el tipus.
+   Escalat horitzontal: consisteix a afegir més instàncies per repartir la càrrega de treball entre diverses màquines.
+6) El cost per hora de la instància normalment augmenta perquè el tipus d'instància més gran té un preu superior
+7) - Aturar: la instància deixa d'executar-se, però conserva les dades del volum EBS. Normalment, deixa de facturar-se el temps d'execució de la instància, però es continua pagant l'emmagatzematge.
+   - Reiniciar: la instància es reinicia sense eliminar les dades ni alliberar la instància. És semblant a reiniciar un ordinador.
+   - Finalitzar: la instància s'elimina definitivament i ja no es pot tornar a iniciar. Els volums EBS associats es poden eliminar o conservar segons la configuració establerta.
