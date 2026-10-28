@@ -1,10 +1,127 @@
-.boto-base {
+.boto-gegant, .boto-normal, .boto-gel, .boto-aigua {
   display: inline-block;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.boto-aigua {
+  background-color: #6890f0;
+  color: #fff;
+}
+.boto-aigua:hover {
+  background-color: #a46fc4;
+}
+
+.boto-gel {
+  background-color: #98d8d8;
+  color: #1d3b3b;
+}
+.boto-gel:hover {
+  background-color: #6fbcbc;
+}
+
+.boto-normal {
+  background-color: #a8a878;
+  color: #fff;
+}
+.boto-normal:hover {
+  background-color: #8a8a5c;
+}
+
+.boto-gegant {
+  font-size: 24px;
+}
+
+.targeta-illa {
+  cursor: pointer;
+  user-select: none;
+}
+
+.targeta-illa:focus-visible, .enllac-mapa:focus-visible, .enllac-ruta:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+}
+
+.enllac-mapa, .enllac-ruta {
+  color: #1a5fb4;
+  text-decoration: none;
+}
+.enllac-mapa:hover, .enllac-ruta:hover {
+  text-decoration: underline;
+}
+.enllac-mapa:visited, .enllac-ruta:visited {
+  color: #613583;
+}
+
+.fitxa {
+  padding: 12px;
+  border: 2px solid #f08030;
+  border-radius: 8px;
+}
+
+.enllac-ruta::after {
+  content: " >";
+  margin-left: 4px;
+}
+
+.fitxa__titol {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.enllac-ruta {
+  font-weight: bold;
+}
+
+.enllac-mapa {
+  font-size: 14px;
+}
+
+.targeta-illa {
+  display: block;
+  padding: 16px;
+  border: 1px solid #ccc;
+}
+
+.boto-tipus-electric, .boto-tipus-planta, .boto-tipus-aigua, .boto-tipus-foc {
+  display: inline-block;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 999px;
+  font-weight: bold;
+  color: #222;
+  cursor: pointer;
+}
+
+.boto-tipus-foc {
+  background-color: #f08030;
+}
+.boto-tipus-foc:hover {
+  background-color: #c0601c;
+}
+
+.boto-tipus-aigua {
+  background-color: #6890f0;
+}
+.boto-tipus-aigua:hover {
+  background-color: #4a6fc4;
+}
+
+.boto-tipus-planta {
+  background-color: #78c850;
+}
+.boto-tipus-planta:hover {
+  background-color: #5a9a3a;
+}
+
+.boto-tipus-electric {
+  background-color: #f8d030;
+}
+.boto-tipus-electric:hover {
+  background-color: #c9a81f;
 }
 
 /*# sourceMappingURL=arxipelag.css.map */

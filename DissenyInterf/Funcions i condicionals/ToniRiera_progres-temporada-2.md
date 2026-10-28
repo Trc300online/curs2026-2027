@@ -16,8 +16,8 @@
 
 | Missió | Resultat (feta / saltada) | Pista més alta oberta (cap / 1 / 2 / 3 / solució) | Compilat al 1r intent? | XP |
 |---|---|---|---|---|
-| 1.1 El placeholder invisible | | | | |
-| 1.2 Tres botons, una base | | | | |
+| 1.1 El placeholder invisible | feta | cap | si | |
+| 1.2 Tres botons, una base | feta | cap | si | |
 | 1.3 Un botó més | | | | |
 | Bonus Mikan | | | | |
 | 2.1 Tres placeholders | | | | |
@@ -48,7 +48,7 @@ Escriviu-les **abans** de compilar i, després, el que ha passat de veritat.
 |---|---|---|
 | 1.1 Què surt al CSS d'un placeholder que ningú no estén | no surt res | no surt res |
 | 1.1 I d'una classe `.boto-base` que ningú no fa servir | si que es generarà | si se ha generat |
-| 1.3 Quantes vegades apareixerà `cursor: pointer` | | |
+| 1.3 Quantes vegades apareixerà `cursor: pointer` | 1 | 1 |
 | 2.2 Quins selectors tindrà la regla `:focus-visible` | | |
 | 2.2 Quantes regles `:hover` hi haurà | | |
 | 2.3 Sortirà `.fitxa__titol` al CSS? | | |
@@ -63,14 +63,14 @@ Escriviu-les **abans** de compilar i, després, el que ha passat de veritat.
 
 | Cas | Extend o mixin | Per què |
 |---|---|---|
-| 1 | | |
-| 2 | | |
-| 3 | | |
-| 4 | | |
-| 5 | | |
-| 6 | | |
-| 7 | | |
-| 8 | | |
+| 1 | E | |
+| 2 | M | |
+| 3 |  | |
+| 4 | M | |
+| 5 | E | |
+| 6 | M | |
+| 7 | E | |
+| 8 | M | |
 
 ## Missió 3.3: comparativa de mida
 

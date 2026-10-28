@@ -1,0 +1,26 @@
+%boto-pokemon {
+    display: inline-block;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 999px;
+    font-weight: bold;
+    color: #222;
+    cursor: pointer;
+}
+
+$tipus-botons: (
+    'foc': (#f08030, #c0601c),
+    'aigua': (#6890f0, #4a6fc4),
+    'planta': (#78c850, #5a9a3a),
+    'electric': (#f8d030, #c9a81f)
+);
+
+@each $nom, $colors in $tipus-botons {
+    .boto-tipus-#{$nom} {
+        @extend %boto-pokemon;
+        background-color: nth($colors, 1);
+        &:hover {
+            background-color: nth($colors, 2);
+        }
+    }
+}

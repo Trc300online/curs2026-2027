@@ -1,0 +1,68 @@
+%element-clicable {
+    cursor: pointer;
+    user-select: none;
+}
+
+%focus-visible {
+    &:focus-visible {
+        outline: 3px solid #005fcc;
+        outline-offset: 2px;
+    }
+}
+
+%enllac-base {
+    color: #1a5fb4;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:visited {
+        color: #613583;
+    }
+}
+
+%fitxa-base {
+  padding: 12px;
+  border: 2px solid #f08030;
+  border-radius: 8px;
+}
+
+%amb-fletxa {
+    &::after {
+        content: " >";
+        margin-left: 4px;
+    }
+}
+
+.fitxa {
+  @extend %fitxa-base;
+
+  &__titol {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.enllac-ruta {
+    @extend %enllac-base;
+    @extend %focus-visible;
+    @extend %amb-fletxa;
+    font-weight: bold;
+}
+
+.enllac-mapa {
+    @extend %enllac-base;
+    @extend %focus-visible;
+    font-size: 14px;
+}
+
+.targeta-illa {
+    @extend %element-clicable;
+    @extend %focus-visible;
+    display: block;
+    padding: 16px;
+    border: 1px solid #ccc;
+}
+

@@ -7,11 +7,40 @@
     cursor: pointer;
 }
 
-.boto-base {
-    display: inline-block;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
+%insignia-mikan {
+    background-color: #ff7f7f;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.boto-aigua {
+    @extend %boto-base;
+    background-color: #6890f0;
+    color: #fff;
+    &:hover {
+        background-color: #a46fc4;
+    }
+}
+
+.boto-gel {
+    @extend %boto-base;
+    background-color: #98d8d8;
+    color: #1d3b3b;
+    &:hover {
+        background-color: #6fbcbc;
+    }
+}
+
+.boto-normal {
+    @extend %boto-base;
+    background-color: #a8a878;
+    color: #fff;
+    &:hover {
+        background-color: #8a8a5c;
+    }
+}
+
+.boto-gegant {
+  @extend %boto-base;
+  font-size: 24px;
 }
