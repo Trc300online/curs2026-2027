@@ -7,4 +7,6 @@ return [
         'dbname' => 'php_videos',
         'charset' => 'utf8mb4'
     ],
+
+    //
 ];
