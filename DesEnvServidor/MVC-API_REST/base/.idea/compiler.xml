@@ -6,10 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="primer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="hola" target="26" />
       <module name="marca" target="25" />
+      <module name="paco" target="25" />
     </bytecodeTargetLevel>
   </component>
 </project>
