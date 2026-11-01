@@ -11,7 +11,7 @@ function initLletres() {
 function initParaula(lletres) {
     const paraulesDisponibles = ["windows", "macosx", "linux", "java", "informatica", "programacio"]
 
-    const paraulaAleatoria = paraulesDisponibles[2];
+    const paraulaAleatoria = paraulesDisponibles[0].split("");
     const resultat = [];
 
     for (const lletraParaula of paraulaAleatoria) {
@@ -29,7 +29,40 @@ function initPenjat(paraula, lletres) {
     return new Penjat(paraula, lletres);
 }
 
-function jugar(lletra) {
-    lletra.estat = ''
-    console.log(lletra);
+let errorCount = 1;
+
+function jugar(lletra, paraula) {
+
+    for (const l of paraula) {
+        if (l === lletra) {
+            lletra.estat = 'ACERT';
+        }
+    }
+
+    if (lletra.estat !== 'ACERT') {
+        lletra.estat = 'ERROR';
+        errorCount++;
+    }
+}
+
+function getErrorCount() {
+    return errorCount;
+}
+
+function comprovarVictoria(penjat) {
+    return paraulaCompleta(penjat);
+}
+
+function paraulaCompleta(penjat) {
+    let lletraCounter = 0;
+
+    for (const lletra of penjat.paraula) {
+
+        if (lletra.estat === "ACERT") {
+            lletraCounter++;
+        }
+    }
+    console.log(lletraCounter);
+console.log(penjat.paraula.length);
+    return lletraCounter === penjat.paraula.length;
 }
