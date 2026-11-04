@@ -3,4 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_1.xsd"
          version="6.1">
+    <servlet>
+        <servlet-name>parametresServlet</servlet-name>
+        <servlet-class> cat.politecnicllevant.primer.ParametresServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>parametresServlet</servlet-name>
+        <url-pattern>/parametres</url-pattern>
+    </servlet-mapping>
 </web-app>
