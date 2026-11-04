@@ -124,4 +124,21 @@
   background-color: #c9a81f;
 }
 
+.boto-primari, .boto-promocio {
+  padding: 10px 20px;
+  background: #3b4cca;
+  color: #fff;
+}
+.boto-primari:hover, .boto-promocio:hover {
+  background: #2a3a9e;
+}
+
+.boto-promocio {
+  font-size: 20px;
+}
+
+.capcalera .boto-primari, .capcalera .boto-promocio {
+  margin-left: auto;
+}
+
 /*# sourceMappingURL=arxipelag.css.map */

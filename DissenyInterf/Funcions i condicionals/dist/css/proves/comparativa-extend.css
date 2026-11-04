@@ -1,0 +1,217 @@
+.boto-50, .boto-49, .boto-48, .boto-47, .boto-46, .boto-45, .boto-44, .boto-43, .boto-42, .boto-41, .boto-40, .boto-39, .boto-38, .boto-37, .boto-36, .boto-35, .boto-34, .boto-33, .boto-32, .boto-31, .boto-30, .boto-29, .boto-28, .boto-27, .boto-26, .boto-25, .boto-24, .boto-23, .boto-22, .boto-21, .boto-20, .boto-19, .boto-18, .boto-17, .boto-16, .boto-15, .boto-14, .boto-13, .boto-12, .boto-11, .boto-10, .boto-9, .boto-8, .boto-7, .boto-6, .boto-5, .boto-4, .boto-3, .boto-2, .boto-1 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.2;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s, transform 0.2s;
+  user-select: none;
+}
+
+.boto-1 {
+  order: 1;
+}
+
+.boto-2 {
+  order: 2;
+}
+
+.boto-3 {
+  order: 3;
+}
+
+.boto-4 {
+  order: 4;
+}
+
+.boto-5 {
+  order: 5;
+}
+
+.boto-6 {
+  order: 6;
+}
+
+.boto-7 {
+  order: 7;
+}
+
+.boto-8 {
+  order: 8;
+}
+
+.boto-9 {
+  order: 9;
+}
+
+.boto-10 {
+  order: 10;
+}
+
+.boto-11 {
+  order: 11;
+}
+
+.boto-12 {
+  order: 12;
+}
+
+.boto-13 {
+  order: 13;
+}
+
+.boto-14 {
+  order: 14;
+}
+
+.boto-15 {
+  order: 15;
+}
+
+.boto-16 {
+  order: 16;
+}
+
+.boto-17 {
+  order: 17;
+}
+
+.boto-18 {
+  order: 18;
+}
+
+.boto-19 {
+  order: 19;
+}
+
+.boto-20 {
+  order: 20;
+}
+
+.boto-21 {
+  order: 21;
+}
+
+.boto-22 {
+  order: 22;
+}
+
+.boto-23 {
+  order: 23;
+}
+
+.boto-24 {
+  order: 24;
+}
+
+.boto-25 {
+  order: 25;
+}
+
+.boto-26 {
+  order: 26;
+}
+
+.boto-27 {
+  order: 27;
+}
+
+.boto-28 {
+  order: 28;
+}
+
+.boto-29 {
+  order: 29;
+}
+
+.boto-30 {
+  order: 30;
+}
+
+.boto-31 {
+  order: 31;
+}
+
+.boto-32 {
+  order: 32;
+}
+
+.boto-33 {
+  order: 33;
+}
+
+.boto-34 {
+  order: 34;
+}
+
+.boto-35 {
+  order: 35;
+}
+
+.boto-36 {
+  order: 36;
+}
+
+.boto-37 {
+  order: 37;
+}
+
+.boto-38 {
+  order: 38;
+}
+
+.boto-39 {
+  order: 39;
+}
+
+.boto-40 {
+  order: 40;
+}
+
+.boto-41 {
+  order: 41;
+}
+
+.boto-42 {
+  order: 42;
+}
+
+.boto-43 {
+  order: 43;
+}
+
+.boto-44 {
+  order: 44;
+}
+
+.boto-45 {
+  order: 45;
+}
+
+.boto-46 {
+  order: 46;
+}
+
+.boto-47 {
+  order: 47;
+}
+
+.boto-48 {
+  order: 48;
+}
+
+.boto-49 {
+  order: 49;
+}
+
+.boto-50 {
+  order: 50;
+}
