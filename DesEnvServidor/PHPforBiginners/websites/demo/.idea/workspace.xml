@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="694c516e-4ae4-4a5c-bad8-d23e1751df3e" name="Changes" comment="" />
+    <list default="true" id="694c516e-4ae4-4a5c-bad8-d23e1751df3e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Http/Forms/LoginForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/Http/controllers/about.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/Http/controllers/contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Http/controllers/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/notes/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/Http/controllers/notes/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/notes/destroy.php" beforeDir="false" afterPath="$PROJECT_DIR$/Http/controllers/notes/destroy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/notes/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/Http/controllers/notes/edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/notes/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Http/controllers/notes/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/notes/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/Http/controllers/notes/show.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/notes/store.php" beforeDir="false" afterPath="$PROJECT_DIR$/Http/controllers/notes/store.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/notes/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/Http/controllers/notes/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/registration/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/Http/controllers/registration/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/registration/store.php" beforeDir="false" afterPath="$PROJECT_DIR$/Http/controllers/registration/store.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/session/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/Http/controllers/session/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/session/destroy.php" beforeDir="false" afterPath="$PROJECT_DIR$/Http/controllers/session/destroy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/session/store.php" beforeDir="false" afterPath="$PROJECT_DIR$/Http/controllers/session/store.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +47,65 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000000003653504" />
+      <entry key="MS500" value="1.0129582019104477" />
+      <entry key="S2" value="1.359626723073828" />
+      <entry key="S5" value="1.9658976945510234" />
+      <entry key="S10" value="2.6079100309199212" />
+      <entry key="S30" value="4.486814609506668" />
+      <entry key="S60" value="7.273061260617714" />
+      <entry key="M2" value="10.74294922934514" />
+      <entry key="M5" value="17.251303577064093" />
+      <entry key="M10" value="23.67078543622241" />
+      <entry key="M15" value="27.165410713800988" />
+      <entry key="M30" value="31.7873479268507" />
+      <entry key="H1" value="34.657974696123844" />
+      <entry key="H2" value="36.26456636117935" />
+      <entry key="H4" value="37.115424530953305" />
+      <entry key="D1" value="37.85016192968819" />
+      <entry key="W1" value="37.97853466750584" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="1.9186662536029044E-82" />
+      <entry key="S2" value="3.721772814358421E-21" />
+      <entry key="S5" value="6.734416053940326E-9" />
+      <entry key="S10" value="8.206348794766267E-5" />
+      <entry key="S30" value="0.043467211136868016" />
+      <entry key="S60" value="0.2133641759643458" />
+      <entry key="M2" value="0.607161575310094" />
+      <entry key="M5" value="2.158921512496635" />
+      <entry key="M10" value="3.9872908197311028" />
+      <entry key="M15" value="4.987438271978542" />
+      <entry key="M30" value="6.291946183892684" />
+      <entry key="H1" value="7.088136185046993" />
+      <entry key="H2" value="7.52856198905483" />
+      <entry key="H4" value="7.760265050163135" />
+      <entry key="D1" value="7.959474149877611" />
+      <entry key="W1" value="7.9941964703123105" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.004364402919678513" />
+      <entry key="MS500" value="0.3454539210698699" />
+      <entry key="S2" value="1.0838071675952878" />
+      <entry key="S5" value="1.8219162578037242" />
+      <entry key="S10" value="2.519225560373455" />
+      <entry key="S30" value="4.483028551249718" />
+      <entry key="S60" value="7.449066068907449" />
+      <entry key="M2" value="11.321140725763554" />
+      <entry key="M5" value="19.38612625348574" />
+      <entry key="M10" value="27.638814366636023" />
+      <entry key="M15" value="32.13736147554905" />
+      <entry key="M30" value="38.069813586011485" />
+      <entry key="H1" value="41.74083738099175" />
+      <entry key="H2" value="43.79034357359518" />
+      <entry key="H4" value="44.8742581766392" />
+      <entry key="D1" value="45.80939191411497" />
+      <entry key="W1" value="45.972696117548814" />
+    </decayedShown>
+  </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6,
@@ -45,7 +125,8 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/alumati/Escriptori/curs2026-2027/DesEnvServidor/PHPforBiginners/websites/demo/views/sessions",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/tonir/Desktop/curs2026-2027/DesEnvServidor/PHPforBiginners/websites/demo",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.jshint": "true",
     "node.js.detected.package.tslint": "true",
@@ -65,18 +146,18 @@
       <recent name="$PROJECT_DIR$/views/notes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tonir\Desktop\curs2026-2027\DesEnvServidor\PHPforBiginners\websites\demo\Http" />
       <recent name="$PROJECT_DIR$/Core" />
       <recent name="$PROJECT_DIR$/views/notes" />
       <recent name="$PROJECT_DIR$/controllers/notes" />
       <recent name="$PROJECT_DIR$/controllers" />
-      <recent name="$PROJECT_DIR$/views" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-PS-262.10968.76" />
-        <option value="bundled-php-predefined-a98d8de5180a-9522f28f0b20-com.jetbrains.php.sharedIndexes-PS-262.10968.76" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-PS-262.11879.104" />
+        <option value="bundled-php-predefined-a98d8de5180a-9522f28f0b20-com.jetbrains.php.sharedIndexes-PS-262.11879.104" />
       </set>
     </attachedChunks>
   </component>
@@ -102,6 +183,7 @@
       <workItem from="1793171502177" duration="6560000" />
       <workItem from="1793272736613" duration="5911000" />
       <workItem from="1793776336451" duration="5117000" />
+      <workItem from="1793878004497" duration="3070000" />
     </task>
     <servers />
   </component>
