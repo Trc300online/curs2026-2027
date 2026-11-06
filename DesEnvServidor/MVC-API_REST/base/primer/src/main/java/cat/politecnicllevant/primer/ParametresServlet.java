@@ -1,8 +1,6 @@
 package cat.politecnicllevant.primer;
 
-import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -40,12 +38,55 @@ public class ParametresServlet extends HttpServlet {
 
         PrintWriter writer = resp.getWriter();
 
-        int id = Integer.parseInt(req.getParameter("id"));
-
+        //String param = req.getParameter("id");
+/*
         if (id >= 0 && id < Alumnes.size()) {
             writer.println("<li>" + Alumnes.get(id) + "</li>");
         } else {
             writer.println("<h1> L'index de alumne no existeix </h1>");
         }
+        */
+        /*versio correcta*/
+
+       /* try {
+            int id = Integer.parseInt(param);
+            writer.println("<li>" + Alumnes.get(id) + "</li>");
+        } catch (NumberFormatException nfe) {
+            writer.println("<h1> L'index no es un valor valid</h1>");
+        } catch (IndexOutOfBoundsException ioobe) {
+            writer.println("<h1> L'index de alumne no existeix </h1>");
+        }*/
+    }
+
+    List<List> llistaInscripcions = new ArrayList<>();
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        ArrayList<Object> inscripcio = new ArrayList();
+
+        String nom = req.getParameter("nom");
+        int edat = Integer.parseInt(req.getParameter("edat"));
+        String estudis = req.getParameter("estudis");
+
+        inscripcio.add(nom);
+        inscripcio.add(edat);
+        inscripcio.add(estudis);
+
+        llistaInscripcions.add(inscripcio);
+
+        resp.setContentType("text/html;cahrset=UTF-8");
+
+        PrintWriter writer = resp.getWriter();
+
+        for (int i = 0; i < llistaInscripcions.size(); i++) {
+            writer.println("<li> nom: " + llistaInscripcions.get(i).get(0) +
+                    ", edat: " + llistaInscripcions.get(i).get(1) +
+                    ", estudis: " + llistaInscripcions.get(i).get(2) + "</li>");
+        }
+
+        writer.println("<a href='formulari.html'>");
+        writer.println("<button type='button'>Tornar al formulari</button>");
+        writer.println("</a>");
     }
 }
