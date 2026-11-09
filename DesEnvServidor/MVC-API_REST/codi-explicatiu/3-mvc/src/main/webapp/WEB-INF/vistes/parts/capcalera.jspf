@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <title>${titol} · Jornades</title>
+  <link rel="stylesheet" href="<c:url value='/estil.css'/>">
+</head>
+<body>
+  <nav>
+    <a href="<c:url value='/tallers'/>">Tallers</a>
+    <a href="<c:url value='/inscripcio'/>">Inscriure'm</a>
+    <a href="<c:url value='/inscripcions'/>">Inscripcions</a>
+  </nav>
+  <h1>${titol}</h1>

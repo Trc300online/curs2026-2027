@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <title>Inscripció a les jornades</title>
+  <link rel="stylesheet" href="estil.css">
+</head>
+<body>
+  <h1>Jornades tècniques</h1>
+  <p class="apagat">Inscripció a un taller. El formulari s'envia per POST a InscripcioServlet.</p>
+
+  <!-- action: a quin Servlet va · method: amb quin verb · name de cada camp: el nom del paràmetre.
+       PROVA: canviau method="post" per method="get". Les dades surten a la URL i el Servlet torna 405 (no té doGet) -->
+  <form action="inscripcio" method="post">
+    <label for="nom">Nom</label>
+    <input type="text" id="nom" name="nom" required>
+
+    <label for="correu">Correu</label>
+    <input type="email" id="correu" name="correu" required>
+
+    <fieldset>
+      <legend>Taller (un)</legend>
+      <input type="radio" id="t-git" name="taller" value="git"><label for="t-git">Git i GitHub</label>
+      <input type="radio" id="t-docker" name="taller" value="docker"><label for="t-docker">Docker</label>
+      <input type="radio" id="t-ia" name="taller" value="ia"><label for="t-ia">Assistents d'IA</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Torns (un o més)</legend>
+      <input type="checkbox" id="mati" name="torns" value="matí"><label for="mati">Matí</label>
+      <input type="checkbox" id="horabaixa" name="torns" value="horabaixa"><label for="horabaixa">Horabaixa</label>
+    </fieldset>
+
+    <!-- formnovalidate: envia el formulari sense la validació del navegador, per veure la del Servlet -->
+    <button type="submit">Inscriure'm</button>
+    <button type="submit" formnovalidate>Enviar sense validar al navegador</button>
+  </form>
+</body>
+</html>

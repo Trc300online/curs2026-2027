@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_1.xsd"
+         version="6.1">
+
+    <display-name>JSP, EL i JSTL</display-name>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <request-character-encoding>UTF-8</request-character-encoding>
+
+    <!-- La sessió, només amb galeta. Sense això, la primera resposta posaria ;jsessionid=... a tots els enllaços de c:url -->
+    <session-config>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+
+    <!-- Regles per a les JSP, sense repetir-les a cada fitxer -->
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <url-pattern>*.jspf</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+        <!-- A les vistes, gens de codi Java: un scriptlet és un error de compilació.
+             ── PROVA 11 ─ Afegiu <%= 1 + 1 %> a benvinguda.jsp i recarregau: 500, Scripting elements are disallowed here -->
+        <jsp-property-group>
+            <url-pattern>/WEB-INF/vistes/*</url-pattern>
+            <scripting-invalid>true</scripting-invalid>
+        </jsp-property-group>
+    </jsp-config>
+
+    <!-- Les pàgines d'error de l'aplicació, en lloc de les de Tomcat.
+         ── PROVA 12 ─ Comentau els dos blocs <error-page> (es recarrega tot sol) i obriu /noexisteix i /falla -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/vistes/error.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/vistes/error.jsp</location>
+    </error-page>
+</web-app>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Usuari del vigilant per cridar /manager/text/reload. NOMÉS PER DESENVOLUPAR. -->
+<tomcat-users xmlns="http://tomcat.apache.org/xml"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd"
+              version="1.0">
+    <role rolename="manager-script"/>
+    <user username="vigilant" password="recarrega" roles="manager-script"/>
+</tomcat-users>

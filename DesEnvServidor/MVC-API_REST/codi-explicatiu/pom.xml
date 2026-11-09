@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>dwes.patrons</groupId>
+    <artifactId>codi-explicatiu</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Codi explicatiu de Jakarta EE</name>
+    <description>Aplicacions web per jugar en directe mentre s'explica Jakarta EE (DWES, Tema 2)</description>
+
+    <!-- Un mòdul per passa del tema (slides-jakarta-N-*.html). Cada mòdul és una aplicació web (.war) -->
+    <modules>
+        <module>1-servlets</module>
+        <module>2-jsp</module>
+        <module>3-mvc</module>
+        <module>4-sessions</module>
+        <module>5-jdbc</module>
+        <module>6-jpa</module>
+    </modules>
+
+    <properties>
+        <!-- Java 25 (LTS): el mateix JDK a l'ordinador i a la imatge de Tomcat (tomcat:11.0-jdk25-temurin) -->
+        <maven.compiler.release>25</maven.compiler.release>
+        <!-- Imprescindible: el codi té accents (Aina Ferrà, horabaixa...) -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Servlet 6.1 = Jakarta EE 11 = Tomcat 11 -->
+            <dependency>
+                <groupId>jakarta.servlet</groupId>
+                <artifactId>jakarta.servlet-api</artifactId>
+                <version>6.1.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- JSTL 3.0: Tomcat no la porta, va dins el .war. Calen dues peces: l'especificació (les
+                 interfícies) i la implementació (el codi de les etiquetes) -->
+            <dependency>
+                <groupId>jakarta.servlet.jsp.jstl</groupId>
+                <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+                <version>3.0.2</version>
+                <exclusions>
+                    <!-- L'API d'EL ja la té Tomcat, i més nova: no ha d'anar dins el .war -->
+                    <exclusion>
+                        <groupId>jakarta.el</groupId>
+                        <artifactId>jakarta.el-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.web</groupId>
+                <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+                <version>3.0.1</version>
+            </dependency>
+            <!-- El controlador JDBC de MySQL: va dins el .war -->
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>26.10.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.orm</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>7.4.14.Final</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.15.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.4.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.4.0</version>
+                </plugin>
+                <!-- El vigilant l'usa per copiar les dependències a target/dependency -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>3.11.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

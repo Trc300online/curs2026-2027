@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <title>${titol} · Jornades</title>
+  <link rel="stylesheet" href="<c:url value='/estil.css'/>">
+</head>
+<body>
+  <nav>
+    <a href="<c:url value='/tallers'/>">Tallers</a>
+    <a href="<c:url value='/visites'/>">Visites</a>
+    <%-- sessionScope: l'usuari és a la sessió, i es veu des de totes les pàgines --%>
+    <c:if test="${not empty sessionScope.usuari}">
+      <a href="<c:url value='/meves/inscripcions'/>">Les meves inscripcions</a>
+    </c:if>
+    <c:if test="${sessionScope.usuari.admin}">
+      <a href="<c:url value='/admin/inscripcions'/>">Totes</a>
+    </c:if>
+    <span class="dreta">
+      <c:choose>
+        <c:when test="${not empty sessionScope.usuari}">
+          Hola, <c:out value="${sessionScope.usuari.nomComplet}"/>
+          <form action="<c:url value='/logout'/>" method="post"><button>Sortir</button></form>
+        </c:when>
+        <c:otherwise><a href="<c:url value='/login'/>">Entrar</a></c:otherwise>
+      </c:choose>
+    </span>
+  </nav>
+  <h1>${titol}</h1>
+  <%-- Un missatge d'un sol ús: ve de la petició anterior, es mostra una vegada i s'esborra --%>
+  <c:if test="${not empty sessionScope.missatge}">
+    <p class="avis"><c:out value="${sessionScope.missatge}"/></p>
+    <c:remove var="missatge" scope="session"/>
+  </c:if>
