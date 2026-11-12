@@ -1,0 +1,16 @@
+{
+    "name": "alumati/demo",
+    "authors": [
+        {
+            "name": "Toni",
+            "email": "trieracolomar@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    }
+}
