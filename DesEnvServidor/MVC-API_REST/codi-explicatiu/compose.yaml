@@ -40,7 +40,7 @@ services:
   mysql:
     image: mysql:8.4
     environment:
-      MYSQL_ROOT_PASSWORD: "arrel"
+      MYSQL_ROOT_PASSWORD: "root"
       MYSQL_USER: "dwes"
       MYSQL_PASSWORD: "dwes"
       TZ: Europe/Madrid
@@ -50,6 +50,17 @@ services:
       - dades-mysql:/var/lib/mysql           # les dades sobreviuen a un docker compose down
       - ./docker/mysql:/docker-entrypoint-initdb.d:ro
       - .:/apps:ro                           # per poder carregar els scripts de cada mòdul
+
+  phpmyadmin:
+      image: phpmyadmin:latest
+      environment:
+        PMA_HOST: mysql
+        PMA_PORT: 3306
+        TZ: Europe/Madrid
+      ports:
+        - "127.0.0.1:8082:80"
+      depends_on:
+        - mysql
 
   vigilant:
     # Imatge amb Maven (per copiar les dependències del pom) i curl (per parlar amb el Manager)

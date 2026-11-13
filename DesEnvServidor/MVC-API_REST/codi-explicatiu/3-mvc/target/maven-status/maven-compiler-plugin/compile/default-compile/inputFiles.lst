@@ -1,0 +1,9 @@
+/apps/3-mvc/src/main/java/controlador/AnullaServlet.java
+/apps/3-mvc/src/main/java/controlador/ConfirmacioServlet.java
+/apps/3-mvc/src/main/java/controlador/InscripcioServlet.java
+/apps/3-mvc/src/main/java/controlador/InscripcionsServlet.java
+/apps/3-mvc/src/main/java/controlador/Parametres.java
+/apps/3-mvc/src/main/java/controlador/TallersServlet.java
+/apps/3-mvc/src/main/java/model/Inscripcio.java
+/apps/3-mvc/src/main/java/model/Jornades.java
+/apps/3-mvc/src/main/java/model/Taller.java

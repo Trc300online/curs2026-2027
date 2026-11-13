@@ -6,14 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="3-mvc" />
-        <module name="4-sessions" />
-        <module name="primer" />
-        <module name="1-servlets" />
-        <module name="2-jsp" />
-        <module name="6-jpa" />
-        <module name="5-jdbc" />
+        <module name="jdbcdao" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="1-servlets" target="25" />
+      <module name="2-jsp" target="25" />
+      <module name="3-mvc" target="25" />
+      <module name="4-sessions" target="25" />
+      <module name="5-jdbc" target="25" />
+      <module name="6-jpa" target="25" />
+      <module name="codi-explicatiu" target="1.5" />
+      <module name="primer" target="25" />
+    </bytecodeTargetLevel>
   </component>
 </project>

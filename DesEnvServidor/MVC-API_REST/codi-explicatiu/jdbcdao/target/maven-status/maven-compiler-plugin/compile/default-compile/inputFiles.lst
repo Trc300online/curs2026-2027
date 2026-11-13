@@ -1,0 +1,7 @@
+/home/alumati/Escriptori/curs2026-2027/DesEnvServidor/MVC-API_REST/codi-explicatiu/jdbcdao/src/main/java/cat/politecnicllevant/jdbcdao/controller/TallersServlet.java
+/home/alumati/Escriptori/curs2026-2027/DesEnvServidor/MVC-API_REST/codi-explicatiu/jdbcdao/src/main/java/cat/politecnicllevant/jdbcdao/dao/TallerDAO.java
+/home/alumati/Escriptori/curs2026-2027/DesEnvServidor/MVC-API_REST/codi-explicatiu/jdbcdao/src/main/java/cat/politecnicllevant/jdbcdao/dao/TallerDAOMemoryImpl.java
+/home/alumati/Escriptori/curs2026-2027/DesEnvServidor/MVC-API_REST/codi-explicatiu/jdbcdao/src/main/java/cat/politecnicllevant/jdbcdao/dao/TallerDaoJdbcImpl.java
+/home/alumati/Escriptori/curs2026-2027/DesEnvServidor/MVC-API_REST/codi-explicatiu/jdbcdao/src/main/java/cat/politecnicllevant/jdbcdao/model/HelloServlet.java
+/home/alumati/Escriptori/curs2026-2027/DesEnvServidor/MVC-API_REST/codi-explicatiu/jdbcdao/src/main/java/cat/politecnicllevant/jdbcdao/model/Taller.java
+/home/alumati/Escriptori/curs2026-2027/DesEnvServidor/MVC-API_REST/codi-explicatiu/jdbcdao/src/main/java/cat/politecnicllevant/jdbcdao/model/bancDeTallers.java

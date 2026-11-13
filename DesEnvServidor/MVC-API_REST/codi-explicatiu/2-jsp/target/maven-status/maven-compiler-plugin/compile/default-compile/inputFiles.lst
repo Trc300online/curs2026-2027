@@ -1,0 +1,11 @@
+/apps/2-jsp/src/main/java/errors/FallaServlet.java
+/apps/2-jsp/src/main/java/etiquetes/InscripcioServlet.java
+/apps/2-jsp/src/main/java/etiquetes/SalutacioServlet.java
+/apps/2-jsp/src/main/java/etiquetes/TallerServlet.java
+/apps/2-jsp/src/main/java/etiquetes/TallersServlet.java
+/apps/2-jsp/src/main/java/expressions/ElServlet.java
+/apps/2-jsp/src/main/java/model/Jornades.java
+/apps/2-jsp/src/main/java/model/Taller.java
+/apps/2-jsp/src/main/java/servletjsp/AnarServlet.java
+/apps/2-jsp/src/main/java/servletjsp/BenvingudaServlet.java
+/apps/2-jsp/src/main/java/servletjsp/DestiServlet.java

@@ -1,0 +1,8 @@
+util/Html.class
+primer/PeticioServlet.class
+resposta/EnllacServlet.class
+resposta/HoraServlet.class
+primer/HolaServlet.class
+ciclevida/ComptadorServlet.class
+dades/SalutacioServlet.class
+dades/InscripcioServlet.class

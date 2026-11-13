@@ -1,0 +1,9 @@
+controlador/Parametres.class
+model/Inscripcio.class
+controlador/InscripcioServlet.class
+controlador/TallersServlet.class
+model/Taller.class
+controlador/AnullaServlet.class
+controlador/InscripcionsServlet.class
+controlador/ConfirmacioServlet.class
+model/Jornades.class

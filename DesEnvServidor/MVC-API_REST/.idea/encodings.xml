@@ -15,6 +15,8 @@
     <file url="file://$PROJECT_DIR$/codi-explicatiu/5-jdbc/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codi-explicatiu/6-jpa/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codi-explicatiu/6-jpa/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/codi-explicatiu/jdbcdao/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/codi-explicatiu/jdbcdao/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codi-explicatiu/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codi-explicatiu/src/main/resources" charset="UTF-8" />
   </component>

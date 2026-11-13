@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- La configuració de JPA. Spring Boot en farà una de més curta, a application.properties -->
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.2">
+
+    <persistence-unit name="jornades">
+        <!-- Les classes que corresponen a una taula -->
+        <class>model.Usuari</class>
+        <class>model.Taller</class>
+        <class>model.Inscripcio</class>
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://mysql:3306/jornades"/>
+            <property name="jakarta.persistence.jdbc.user" value="dwes"/>
+            <property name="jakarta.persistence.jdbc.password" value="dwes"/>
+
+            <!-- Escriu cada SQL a docker compose logs: mirau què fa Hibernate per vosaltres -->
+            <property name="hibernate.show_sql" value="true"/>
+
+            <!-- En arrencar, comprova que les entitats i les taules coincideixen. Les taules les crea el nostre script -->
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+        </properties>
+    </persistence-unit>
+</persistence>
