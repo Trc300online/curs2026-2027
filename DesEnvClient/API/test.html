@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+    //FETCH --> retorna una PROMISE
+
+
+    function saludarDelay(missatge, temps) {
+        return new Promise(function (ok, ko) {
+            if (temps <= 0) {
+                ko(new Error("El temps no pot ser igual o inferior a 0"));
+            }
+            setTimeout(function () {
+                ok(missatge);
+            }, temps * 1000);
+        })
+    }
+
+    saludarDelay('hola', 1).then(function(miss) {
+        document.querySelector("#app").innerHTML = miss;
+    })
+
+
+    /*function saludarDelay(missatge, temps) {
+        setTimeout(function () {
+            document.querySelector("#app").innerHTML = missatge
+        }, temps * 1000);
+    }*/
+
+</script>
+
+</body>
+</html>
