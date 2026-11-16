@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="cat.politecnicllevant.jdbcdao.model.Taller" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -8,13 +9,10 @@
 <body>
 
 <h1>Llista de Tallers</h1>
-<%List<Taller> tallersList = (List<Taller>) request.getAttribute("tallers");%>
 <ol>
-    <%for (Taller taller : tallersList) {%>
-
-    <li><%= taller.getId() + ", " + taller.getNom() + ", " + taller.getPonent()%></li>
-
-    <% } %>
+    <c:forEach items="${tallers}" var="taller">
+        <li>${taller.id}, ${taller.nom}</li>
+    </c:forEach>
 </ol>
 
 </body>

@@ -1,7 +1,9 @@
 cat/politecnicllevant/jdbcdao/model/Taller.class
-cat/politecnicllevant/jdbcdao/model/bancDeTallers.class
 cat/politecnicllevant/jdbcdao/controller/TallersServlet.class
-cat/politecnicllevant/jdbcdao/dao/TallerDAOMemoryImpl.class
-cat/politecnicllevant/jdbcdao/dao/TallerDaoJdbcImpl.class
+cat/politecnicllevant/jdbcdao/dao/jdbc/TallerDaoJdbcImpl.class
+cat/politecnicllevant/jdbcdao/controller/TallerServlet.class
 cat/politecnicllevant/jdbcdao/dao/TallerDAO.class
+cat/politecnicllevant/jdbcdao/model/TallerModel.class
 cat/politecnicllevant/jdbcdao/model/HelloServlet.class
+cat/politecnicllevant/jdbcdao/dao/memory/TallerDAOMemoryImpl.class
+cat/politecnicllevant/jdbcdao/dao/jdbc/BaseDeDades.class

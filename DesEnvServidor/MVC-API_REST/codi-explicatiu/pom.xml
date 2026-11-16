@@ -20,6 +20,7 @@
         <module>4-sessions</module>
         <module>5-jdbc</module>
         <module>6-jpa</module>
+        <module>jdbcdao</module>
     </modules>
 
     <properties>

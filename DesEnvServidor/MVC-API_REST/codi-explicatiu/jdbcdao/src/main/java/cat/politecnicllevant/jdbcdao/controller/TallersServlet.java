@@ -1,8 +1,7 @@
 package cat.politecnicllevant.jdbcdao.controller;
 
-import cat.politecnicllevant.jdbcdao.dao.TallerDAO;
-import cat.politecnicllevant.jdbcdao.dao.TallerDAOMemoryImpl;
 import cat.politecnicllevant.jdbcdao.model.Taller;
+import cat.politecnicllevant.jdbcdao.model.TallerModel;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,16 +14,19 @@ import java.util.List;
 @WebServlet("/tallers")
 public class TallersServlet extends HttpServlet {
 
-    private TallerDAO modelTallers;
+    TallerModel tallerModel;
 
     @Override
     public void init() throws ServletException {
-        modelTallers = new TallerDAOMemoryImpl();
+        tallerModel = TallerModel.instancia();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Taller> tallers = modelTallers.getAll();
+
+        List<Taller> tallers = tallerModel.tallers();
+
+
         req.setAttribute("tallers", tallers);
 
         req.getRequestDispatcher("/WEB-INF/tallers.jsp").forward(req, resp);

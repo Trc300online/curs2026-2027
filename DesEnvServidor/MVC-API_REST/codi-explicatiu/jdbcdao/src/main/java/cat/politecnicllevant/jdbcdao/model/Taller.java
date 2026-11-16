@@ -29,10 +29,7 @@ public class Taller implements Serializable {
     private Integer places;
     private BigDecimal preu;
 
-    public Taller(String id, String nom, String ponent) {
-        this.id = id;
-        this.nom = nom;
-        this.ponent = ponent;
+    public Taller() {
     }
 
     public Taller(String id, String nom, String ponent, LocalDate dia, int places, BigDecimal preu) {
