@@ -8,12 +8,6 @@
 </head>
 <body>
 
-<h1>Llista de Tallers</h1>
-<ol>
-    <c:forEach items="${tallers}" var="taller">
-        <li>${taller.id}, ${taller.nom}</li>
-    </c:forEach>
-</ol>
 
 </body>
 </html>
