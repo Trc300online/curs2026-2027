@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <title>JSP, EL i JSTL</title>
+  <link rel="stylesheet" href="estil.css">
+</head>
+<body>
+  <h1>JSP, EL i JSTL</h1>
+  <p class="apagat">DWES · Jakarta EE, passa 2. Els enllaços van en l'ordre dels blocs de les diapositives.</p>
+
+  <h2>1 · Què és una JSP</h2>
+  <ul>
+    <li><a href="hola.jsp"><code>/hola.jsp</code></a>: la primera JSP. Canviau-hi un text, desau i recarregau: no cal compilar.</li>
+    <li><a href="classica.jsp?n=5"><code>/classica.jsp?n=5</code></a>: les etiquetes clàssiques, amb codi Java dins la pàgina.</li>
+  </ul>
+
+  <h2>2 · Del Servlet a la JSP</h2>
+  <ul>
+    <li><a href="benvinguda?nom=Aina"><code>/benvinguda?nom=Aina</code></a>: el Servlet decideix i la JSP pinta.</li>
+    <li><a href="WEB-INF/vistes/benvinguda.jsp"><code>/WEB-INF/vistes/benvinguda.jsp</code></a>: i si intentam obrir la vista directament?</li>
+    <li><a href="anar?com=forward"><code>/anar?com=forward</code></a> i
+        <a href="anar?com=redirect"><code>/anar?com=redirect</code></a>: mirau la barra d'adreces i F12 › Xarxa.</li>
+  </ul>
+
+  <h2>3 · Expression Language</h2>
+  <ul>
+    <li><a href="el?nom=Aina&amp;nom=Pau"><code>/el?nom=Aina&amp;nom=Pau</code></a>: cada expressió amb el seu resultat.</li>
+  </ul>
+
+  <h2>4 · JSTL</h2>
+  <ul>
+    <li><a href="tallers"><code>/tallers</code></a>: <code>c:forEach</code>, <code>c:choose</code>, <code>c:url</code>, <code>fmt:formatNumber</code>.</li>
+    <li><a href="salutacio?nom=%3Cscript%3Ealert('Has%20estat%20hackejat')%3C/script%3E"><code>/salutacio?nom=&lt;script&gt;…</code></a>: <code>c:out</code> escapa, <code>${…}</code> no.</li>
+    <li><a href="inscripcio"><code>/inscripcio</code></a>: el formulari de la passa 1, sense cap <code>println</code>. Enviau-lo amb errors.</li>
+  </ul>
+
+  <h2>5 · Organitzar les vistes</h2>
+  <ul>
+    <li><a href="taller?id=noexisteix"><code>/taller?id=noexisteix</code></a>, <a href="noexisteix"><code>/noexisteix</code></a>: la nostra pàgina d'error per al 404.</li>
+    <li><a href="falla"><code>/falla</code></a>: la mateixa pàgina per al 500.</li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<%-- Fragment: no és una pàgina completa. El copia dins cada vista la directiva include, abans de compilar.
+     Per això hi podem usar ${titol} i el prefix «c» de la pàgina que l'inclou. --%>
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <title>${titol} · Jornades</title>
+  <%-- c:url hi afegeix el context (/jsp): funciona des de qualsevol URL --%>
+  <link rel="stylesheet" href="<c:url value='/estil.css'/>">
+</head>
+<body>
+  <nav>
+    <a href="<c:url value='/'/>">Inici</a>
+    <a href="<c:url value='/tallers'/>">Tallers</a>
+    <a href="<c:url value='/inscripcio'/>">Inscripció</a>
+  </nav>
+  <h1>${titol}</h1>

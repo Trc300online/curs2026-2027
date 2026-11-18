@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <title>Primers Servlets</title>
+  <link rel="stylesheet" href="estil.css">
+</head>
+<body>
+  <!-- Aquesta pàgina és estàtica: Tomcat la torna tal qual, sense executar cap Servlet -->
+  <h1>Primers Servlets</h1>
+  <p class="apagat">DWES · Jakarta EE, passa 1. Cada enllaç fa una petició a un Servlet.</p>
+
+  <h2>2 · El primer Servlet</h2>
+  <ul>
+    <li><a href="hola"><code>/hola</code></a>: HolaServlet. Recarregau-lo: l'hora canvia.</li>
+    <li><a href="peticio"><code>/peticio</code></a>,
+        <a href="peticio/cursos/7?nom=Aina&amp;nom=Pau&amp;idioma=en"><code>/peticio/cursos/7?nom=Aina&amp;nom=Pau&amp;idioma=en</code></a>:
+        tot el que porta una petició.</li>
+    <li>
+      <form action="hola" method="post" style="display:inline">
+        <button type="submit" style="margin:0">Enviar un POST a /hola</button>
+      </form>
+      HolaServlet només té <code>doGet</code>: què torna Tomcat?
+    </li>
+  </ul>
+
+  <h2>3 · Rebre dades</h2>
+  <ul>
+    <li><a href="salutacio"><code>/salutacio</code></a>,
+        <a href="salutacio?nom=Aina"><code>?nom=Aina</code></a>,
+        <a href="salutacio?nom=Aina&amp;idioma=en&amp;vegades=3"><code>?nom=Aina&amp;idioma=en&amp;vegades=3</code></a></li>
+    <li><a href="salutacio?vegades=tres"><code>/salutacio?vegades=tres</code></a>: i si el número no és un número?</li>
+    <li><a href="inscripcio.html">Formulari d'inscripció</a> (POST a <code>/inscripcio</code>)</li>
+    <li><a href="inscripcio"><code>/inscripcio</code></a> escrit a la barra: és un GET</li>
+  </ul>
+
+  <h2>4 · Respondre</h2>
+  <ul>
+    <li><a href="hora"><code>/hora</code></a>,
+        <a href="hora?format=text"><code>?format=text</code></a>,
+        <a href="hora?format=json"><code>?format=json</code></a>,
+        <a href="hora?format=xml"><code>?format=xml</code></a></li>
+    <li><a href="enllac/tomcat"><code>/enllac/tomcat</code></a>,
+        <a href="enllac/jakarta"><code>/enllac/jakarta</code></a>,
+        <a href="enllac/mdn"><code>/enllac/mdn</code></a>,
+        <a href="enllac/noexisteix"><code>/enllac/noexisteix</code></a></li>
+    <li><a href="noexisteix"><code>/noexisteix</code></a>: una URL que no té cap Servlet</li>
+  </ul>
+
+  <h2>5 · Com viu un Servlet</h2>
+  <ul>
+    <li><a href="comptador"><code>/comptador</code></a>: obriu-lo també des d'un altre navegador i mirau la consola de Tomcat.</li>
+  </ul>
+</body>
+</html>

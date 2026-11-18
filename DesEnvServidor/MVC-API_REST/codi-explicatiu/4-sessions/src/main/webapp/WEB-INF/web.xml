@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_1.xsd"
+         version="6.1">
+
+    <display-name>Sessions i filtres</display-name>
+
+    <welcome-file-list>
+        <welcome-file>tallers</welcome-file>
+    </welcome-file-list>
+
+    <request-character-encoding>UTF-8</request-character-encoding>
+
+    <session-config>
+        <!-- Minuts sense cap petició fins que la sessió caduca -->
+        <session-timeout>30</session-timeout>
+        <cookie-config>
+            <!-- El JavaScript de la pàgina no pot llegir la cookie: un XSS no la pot robar -->
+            <http-only>true</http-only>
+            <!-- A producció, amb HTTPS, també: <secure>true</secure> -->
+        </cookie-config>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+
+    <!-- Els filtres. Amb @WebFilter també es poden declarar, com els Servlets, però llavors l'ordre no està garantit.
+         Aquí importa: l'ordre dels <filter-mapping> és l'ordre en què s'executen. -->
+    <filter>
+        <filter-name>registre</filter-name>
+        <filter-class>filtre.RegistreFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>autenticacio</filter-name>
+        <filter-class>filtre.AutenticacioFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>admin</filter-name>
+        <filter-class>filtre.AdminFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>registre</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!-- ── PROVA 3 ─ Moveu aquest filter-mapping darrere el d'admin i desau. Sortiu de la sessió i obriu /admin/inscripcions:
+         500, NullPointerException. AdminFilter s'executa primer i encara no hi ha usuari. L'ordre importa. -->
+    <filter-mapping>
+        <filter-name>autenticacio</filter-name>
+        <url-pattern>/meves/*</url-pattern>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>admin</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <url-pattern>*.jspf</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+        <jsp-property-group>
+            <url-pattern>/WEB-INF/vistes/*</url-pattern>
+            <scripting-invalid>true</scripting-invalid>
+        </jsp-property-group>
+    </jsp-config>
+
+    <error-page>
+        <error-code>403</error-code>
+        <location>/WEB-INF/vistes/error.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/vistes/error.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/vistes/error.jsp</location>
+    </error-page>
+</web-app>

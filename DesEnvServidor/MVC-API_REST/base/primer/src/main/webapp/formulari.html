@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>formulari</title>
+</head>
+<body>
+
+<h1>Formulari d'inscripció</h1>
+
+<form action="parametres" method="post">
+
+    <!-- Nom -->
+    <label for="nom">Nom:</label>
+    <input type="text" id="nom" name="nom" required>
+
+    <br><br>
+
+    <!-- Edat -->
+    <label for="edat">Edat:</label>
+    <input type="number" id="edat" name="edat" min="1" required>
+
+    <br><br>
+
+    <!-- Estudis -->
+    <p>Estudis:</p>
+
+    <input type="radio" id="grau-mitja" name="estudis" value="grau-mitja" required>
+    <label for="grau-mitja">Grau mitjà</label>
+
+    <br>
+
+    <input type="radio" id="grau-superior" name="estudis" value="grau-superior">
+    <label for="grau-superior">Grau superior</label>
+
+    <br>
+
+    <input type="radio" id="grau-especialitzacio" name="estudis" value="grau-especialitzacio">
+    <label for="grau-especialitzacio">Grau d'especialització</label>
+
+    <br><br>
+
+    <!-- Botó d'enviament -->
+    <button type="submit">Inscriure'm</button>
+
+</form>
+
+</body>
+</html>

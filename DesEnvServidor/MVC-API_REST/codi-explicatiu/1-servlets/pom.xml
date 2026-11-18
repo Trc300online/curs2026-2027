@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>dwes.patrons</groupId>
+        <artifactId>codi-explicatiu</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>1-servlets</artifactId>
+    <!-- war: el resultat no és un .jar per executar amb java, és una aplicació web per desplegar a Tomcat -->
+    <packaging>war</packaging>
+    <name>1 Servlets</name>
+    <description>Els primers Servlets: hola, la petició, paràmetres, formularis, tipus de resposta,
+        redireccions i el cicle de vida</description>
+
+    <dependencies>
+        <!-- provided: la necessitam per compilar, però no va dins el .war perquè Tomcat ja la té -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!-- target/servlets.war → http://localhost:8080/servlets/ -->
+        <finalName>servlets</finalName>
+    </build>
+</project>

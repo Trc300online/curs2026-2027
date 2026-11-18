@@ -1,0 +1,15 @@
+filtre/AutenticacioFilter.class
+controlador/VisitesServlet.class
+model/Inscripcio.class
+controlador/TallersServlet.class
+model/Usuari.class
+filtre/AdminFilter.class
+filtre/RegistreFilter.class
+controlador/LogoutServlet.class
+model/Taller.class
+controlador/InscriuServlet.class
+controlador/MevesInscripcionsServlet.class
+controlador/TotesServlet.class
+controlador/AnullaServlet.class
+model/Jornades.class
+controlador/LoginServlet.class

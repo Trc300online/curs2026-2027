@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>dwes.patrons</groupId>
+        <artifactId>codi-explicatiu</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>3-mvc</artifactId>
+    <packaging>war</packaging>
+    <name>3 MVC complet</name>
+    <description>El MVC sencer: JavaBeans, un model en memòria, controladors i Post/Redirect/Get</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+        </dependency>
+
+        <!-- JSTL: Tomcat no la porta, va dins el .war -->
+        <dependency>
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!-- target/mvc.war → http://localhost:8080/mvc/ -->
+        <finalName>mvc</finalName>
+    </build>
+</project>

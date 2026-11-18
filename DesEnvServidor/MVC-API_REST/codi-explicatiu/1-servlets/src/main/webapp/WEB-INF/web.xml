@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Descriptor de desplegament. Amb les anotacions (@WebServlet) ja no és obligatori,
+     però continua servint per a la configuració de tota l'aplicació. -->
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_1.xsd"
+         version="6.1">
+
+    <display-name>Primers Servlets</display-name>
+
+    <!-- La pàgina que es mostra quan es demana l'arrel de l'aplicació (/servlets/) -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <!-- Llegeix en UTF-8 els paràmetres dels formularis POST. Sense això, «Ferrà» arriba com «FerrÃ ».
+         ── PROVA 7 ─ Comentau aquesta línia, tornau a desplegar i enviau el formulari amb accents -->
+    <request-character-encoding>UTF-8</request-character-encoding>
+
+    <!-- La manera tradicional de mapejar un Servlet, abans de les anotacions.
+         ── PROVA 8 ─ Descomentau el bloc: HolaServlet respon també a /hello (ara n'hi ha dues instàncies)
+    <servlet>
+        <servlet-name>HolaTradicional</servlet-name>
+        <servlet-class>primer.HolaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HolaTradicional</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    -->
+</web-app>

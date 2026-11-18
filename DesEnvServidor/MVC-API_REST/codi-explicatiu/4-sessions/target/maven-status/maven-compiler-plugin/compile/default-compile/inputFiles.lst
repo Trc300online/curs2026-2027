@@ -1,0 +1,15 @@
+/apps/4-sessions/src/main/java/controlador/AnullaServlet.java
+/apps/4-sessions/src/main/java/controlador/InscriuServlet.java
+/apps/4-sessions/src/main/java/controlador/LoginServlet.java
+/apps/4-sessions/src/main/java/controlador/LogoutServlet.java
+/apps/4-sessions/src/main/java/controlador/MevesInscripcionsServlet.java
+/apps/4-sessions/src/main/java/controlador/TallersServlet.java
+/apps/4-sessions/src/main/java/controlador/TotesServlet.java
+/apps/4-sessions/src/main/java/controlador/VisitesServlet.java
+/apps/4-sessions/src/main/java/filtre/AdminFilter.java
+/apps/4-sessions/src/main/java/filtre/AutenticacioFilter.java
+/apps/4-sessions/src/main/java/filtre/RegistreFilter.java
+/apps/4-sessions/src/main/java/model/Inscripcio.java
+/apps/4-sessions/src/main/java/model/Jornades.java
+/apps/4-sessions/src/main/java/model/Taller.java
+/apps/4-sessions/src/main/java/model/Usuari.java

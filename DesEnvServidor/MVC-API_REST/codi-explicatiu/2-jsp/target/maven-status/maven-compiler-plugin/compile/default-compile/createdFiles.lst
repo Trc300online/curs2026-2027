@@ -1,0 +1,11 @@
+expressions/ElServlet.class
+errors/FallaServlet.class
+etiquetes/TallersServlet.class
+servletjsp/AnarServlet.class
+servletjsp/DestiServlet.class
+model/Taller.class
+servletjsp/BenvingudaServlet.class
+etiquetes/TallerServlet.class
+etiquetes/SalutacioServlet.class
+etiquetes/InscripcioServlet.class
+model/Jornades.class

@@ -3,7 +3,7 @@
 #   docker compose up            → http://localhost:8080/<finalName>/   (p. ex. /servlets/)
 #
 # Tomcat no rep cap .war: serveix cada mòdul war directament de les seves carpetes
-# (src/main/webapp i target/classes). El servei «vigilant» descobreix els mòduls tot sol,
+# (src/main/webapp, target/classes i target/dependency). El servei «vigilant» descobreix els mòduls tot sol,
 # els desplega amb el seu <finalName> i, quan IntelliJ compila una classe, recarrega l'aplicació.
 # Els HTML, CSS i JSP no necessiten ni això. Vegeu el README per als detalls.
 
@@ -16,6 +16,8 @@ services:
     environment:
       JPDA_ADDRESS: "*:5005"
       TZ: Europe/Madrid
+      # El controlador de MySQL no deixa cap fil pendent en recarregar l'aplicació
+      CATALINA_OPTS: "-Dcom.mysql.cj.disableAbandonedConnectionCleanup=true"
     ports:
       - "127.0.0.1:8080:8080"     # només accessible des del vostre ordinador
       - "127.0.0.1:5005:5005"
@@ -26,13 +28,32 @@ services:
       - contexts:/usr/local/tomcat/conf/Catalina/localhost
       # L'usuari del Manager amb què el vigilant recarrega les aplicacions
       - ./docker/tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml:ro
+      # Els errors de les aplicacions, també a docker compose logs
+      - ./docker/tomcat/logging.properties:/usr/local/tomcat/conf/logging.properties:ro
     depends_on:
       vigilant:
         condition: service_healthy
 
+  # La base de dades. Des de les aplicacions: jdbc:mysql://mysql:3306/... · Des de l'ordinador: localhost:3307
+  # Cada mòdul té el seu script. Per carregar-lo, o per deixar les dades com al principi:
+  #   docker compose exec mysql sh -c "mysql -udwes -pdwes < /apps/5-jdbc/sql/jornades.sql"
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: "arrel"
+      MYSQL_USER: "dwes"
+      MYSQL_PASSWORD: "dwes"
+      TZ: Europe/Madrid
+    ports:
+      - "127.0.0.1:3307:3306"     # 3307: per no topar amb un MySQL instal·lat a l'ordinador
+    volumes:
+      - dades-mysql:/var/lib/mysql           # les dades sobreviuen a un docker compose down
+      - ./docker/mysql:/docker-entrypoint-initdb.d:ro
+      - .:/apps:ro                           # per poder carregar els scripts de cada mòdul
+
   vigilant:
-    image: curlimages/curl:8.23.0
-    user: root                     # ha de poder crear target/classes si encara no existeix
+    # Imatge amb Maven (per copiar les dependències del pom) i curl (per parlar amb el Manager)
+    image: maven:3.9-eclipse-temurin-25
     entrypoint: ["sh", "/apps/docker/vigila.sh"]
     environment:
       MANAGER: "http://tomcat:8080/manager/text"
@@ -41,10 +62,11 @@ services:
     volumes:
       - .:/apps
       - contexts:/contexts
+      - maven-repo:/root/.m2       # les dependències es baixen una sola vegada
     healthcheck:
       test: ["CMD", "test", "-f", "/tmp/preparat"]
       interval: 1s
-      retries: 30
+      retries: 300                 # la primera vegada ha de baixar les dependències
 
   # Opcional, si no compilau amb IntelliJ: docker compose --profile compilador up
   compilador:
@@ -69,3 +91,4 @@ services:
 volumes:
   maven-repo:
   contexts:
+  dades-mysql:

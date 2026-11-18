@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+</div>
+<script>
+
+    /*function listBreeds() {
+        const capcaleras = new Headers({
+            "Content-Type": "application/json",
+            "x-api-key": "live_jYEjT54ZfDk3SNYHESuuyKYV2KhxlD4VBwU6obIa94I7x0tuPjZxjHSyTgDmVNF2"
+        });
+
+        const options = {
+            method: 'GET',
+            headers: capcaleras
+        }
+
+        const promesa = fetch("https://api.thecatapi.com/v1/breeds?limit=1000", options)
+
+        const llista = document.createElement("ol");
+
+        promesa.then(function (resposta) {
+            return resposta.json();
+        }).then( function (resposta) {
+            for (let resp of resposta) {
+              const list = document.createElement("li");
+              list.innerHTML = resp.id;
+
+              llista.appendChild(list);
+            }
+        })
+
+        document.querySelector("#app").appendChild(llista);
+    }
+
+    function searchByBreed(breed) {
+
+        const capcaleras = new Headers({
+            "Content-Type": "application/json",
+            "x-api-key": "live_jYEjT54ZfDk3SNYHESuuyKYV2KhxlD4VBwU6obIa94I7x0tuPjZxjHSyTgDmVNF2"
+        });
+
+        const options = {
+            method: 'GET',
+            headers: capcaleras
+        }
+
+        const promesa = fetch("https://api.thecatapi.com/v1/breeds/" + breed, options)
+
+        let foto = document.createElement("img");
+        foto.setAttribute("id", "img");
+
+        promesa.then(function (resposta) {
+            return resposta.json();
+        }).then(function (resposta) {
+           // console.log("a la fi", resposta);
+            foto.src = resposta.image.url;
+        })
+
+        foto.style.width = "300px";
+        document.querySelector("#app").appendChild(foto);
+    }
+
+    const search = document.createElement("button");
+    const textBar = document.createElement("input");
+
+    search.innerHTML = "Search";
+
+    search.addEventListener("click", function () {
+        searchByBreed(textBar.value)
+    });
+
+    document.querySelector("#app").appendChild(textBar);
+    document.querySelector("#app").appendChild(search);
+
+
+    function uploadCat() {
+
+        const fileInput = document.querySelector("#fileInput");
+        const file = fileInput.files[0];
+
+        if (!file) {
+            alert("Selecciona una imagen primero");
+            return;
+        }
+
+        const formData = new FormData();
+
+        const capcaleras = new Headers({
+            "Content-Type": "multipart/form-data",
+            "x-api-key": "live_jYEjT54ZfDk3SNYHESuuyKYV2KhxlD4VBwU6obIa94I7x0tuPjZxjHSyTgDmVNF2"
+        });
+
+        const options = {
+            method: 'POST',
+            headers: capcaleras,
+            body: formData
+        }
+
+        fetch("https://api.thecatapi.com/v1/images/upload", options)
+            .then(function(resposta) {
+                return resposta.json();
+            })
+            .then(function(resposta) {
+                console.log("Imagen subida:", resposta);
+
+                const foto = document.createElement("img");
+                foto.src = resposta.url;
+                foto.style.width = "300px";
+
+                document.querySelector("#app").appendChild(foto);
+            })
+    }
+
+    const fileInput = document.createElement("input");
+
+    fileInput.type = "file";
+    fileInput.id = "fileInput";
+    fileInput.accept = "image/!*";
+
+    const uploadButton = document.createElement("button");
+
+    uploadButton.innerHTML = "Upload image";
+
+    uploadButton.addEventListener("click", function() {
+        uploadCat();
+    });
+
+    document.querySelector("#app").appendChild(fileInput);
+    document.querySelector("#app").appendChild(uploadButton);
+
+
+    listBreeds();
+*/
+
+
+    //Json
+    function Usuari(nom, cognom1, cognom2, username) {
+        this.nom = nom;
+        this.cognom1 = cognom1;
+        this.cognom2 = cognom2;
+        this.username = username;
+    }
+
+    const martina = new Usuari("Martina", "Rodriguez", "Riera", "mrodriguez");
+    const paula = new Usuari("Paula", "Rigo", "Binimelis", "pbinimelis");
+    const gori = new Usuari("Gori", "Llull", "Prohens", "gllull");
+
+    const usuaris = [martina, paula, gori];
+
+    // OBJECTE JS (array d'objectes) --> FORMAT JSON
+    const usuarisJSON = JSON.stringify(usuaris);
+
+    //OBJECTE JSON --> ARRAY JS
+    const usuarisObject = JSON.parse(usuarisJSON);
+
+    console.log(usuarisJSON)
+    console.log(usuarisObject);
+
+
+</script>
+
+</body>
+</html>

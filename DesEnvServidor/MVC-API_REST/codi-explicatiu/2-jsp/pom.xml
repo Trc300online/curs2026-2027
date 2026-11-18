@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>dwes.patrons</groupId>
+        <artifactId>codi-explicatiu</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>2-jsp</artifactId>
+    <packaging>war</packaging>
+    <name>2 JSP, EL i JSTL</name>
+    <description>La vista: JSP, del Servlet a la JSP (forward), Expression Language, JSTL i organitzar les vistes</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+        </dependency>
+
+        <!-- JSTL: Tomcat implementa JSP i EL, però no porta les etiquetes <c:...>. Sense scope: van dins el .war.
+             ── PROVA 7 ─ Comentau aquestes dues dependències, desau i obriu /tallers (el vigilant buida
+             target/dependency en uns segons). Tornau-les a descomentar -->
+        <dependency>
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!-- target/jsp.war → http://localhost:8080/jsp/ -->
+        <finalName>jsp</finalName>
+    </build>
+</project>
