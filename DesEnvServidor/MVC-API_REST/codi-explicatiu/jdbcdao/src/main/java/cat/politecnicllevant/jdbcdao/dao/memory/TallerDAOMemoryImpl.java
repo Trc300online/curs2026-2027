@@ -31,4 +31,12 @@ public class TallerDAOMemoryImpl implements TallerDAO {
     public Taller getById(String id) {
         return tallers.get(id);
     }
+
+    @Override
+    public void insert(Taller taller) {
+        if (tallers.containsKey(taller.getId())) {
+            throw new IllegalArgumentException("Ja existeix un taller amb aquest identificador.");
+        }
+        tallers.put(taller.getId(), taller);
+    }
 }

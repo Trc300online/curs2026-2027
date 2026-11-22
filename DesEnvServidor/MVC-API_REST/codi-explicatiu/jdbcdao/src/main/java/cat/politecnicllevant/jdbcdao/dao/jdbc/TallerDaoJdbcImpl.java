@@ -21,7 +21,7 @@ public class TallerDaoJdbcImpl implements TallerDAO {
                 Connection con = BaseDeDades.connexio();
                 PreparedStatement query = con.prepareStatement(sql);
                 ResultSet files = query.executeQuery();
-                ) {
+        ) {
 
             List<Taller> tallers = new ArrayList<>();
             while (files.next()) {
@@ -46,6 +46,46 @@ public class TallerDaoJdbcImpl implements TallerDAO {
 
     @Override
     public Taller getById(String id) {
-        return null;
+        String sql = "SELECT * FROM taller WHERE id = ?";
+        try (
+                Connection con = BaseDeDades.connexio();
+                PreparedStatement query = con.prepareStatement(sql)
+        ) {
+            query.setString(1, id);
+            try (ResultSet files = query.executeQuery()) {
+                if (!files.next()) {
+                    return null;
+                }
+                Taller taller = new Taller();
+                taller.setId(files.getString("id"));
+                taller.setNom(files.getString("nom"));
+                taller.setPonent(files.getString("ponent"));
+                taller.setDia(files.getObject("dia", LocalDate.class));
+                taller.setPlaces(files.getInt("places"));
+                taller.setPreu(files.getBigDecimal("preu"));
+                return taller;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void insert(Taller taller) {
+        String sql = "INSERT INTO taller (id, nom, ponent, dia, places, preu) VALUES (?, ?, ?, ?, ?, ?)";
+        try (
+                Connection con = BaseDeDades.connexio();
+                PreparedStatement query = con.prepareStatement(sql)
+        ) {
+            query.setString(1, taller.getId());
+            query.setString(2, taller.getNom());
+            query.setString(3, taller.getPonent());
+            query.setObject(4, taller.getDia());
+            query.setInt(5, taller.getPlaces());
+            query.setBigDecimal(6, taller.getPreu());
+            query.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

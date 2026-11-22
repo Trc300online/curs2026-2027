@@ -37,16 +37,27 @@ public class TallersServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         req.setCharacterEncoding("UTF-8");
 
-        String id = req.getParameter("id");
-        String nom = req.getParameter("nom");
-        String ponent = req.getParameter("ponent");
-        LocalDate dia = LocalDate.parse(req.getParameter("dia"));
-        Integer places = Integer.valueOf(req.getParameter("places"));
-        BigDecimal preu = new BigDecimal(req.getParameter("preu"));
+        List<String> errors = tallerModel.crea(
+                req.getParameter("id"),
+                req.getParameter("nom"),
+                req.getParameter("ponent"),
+                req.getParameter("dia"),
+                req.getParameter("places"),
+                req.getParameter("preu")
+        );
 
+        if (!errors.isEmpty()) {
+            req.setAttribute("errors", errors);
+            req.setAttribute("tallers", tallerModel.tallers());
 
+            // Forward: conservam els errors dins la mateixa request perquè els mostri tallers.jsp.
+            req.getRequestDispatcher("/WEB-INF/tallers.jsp").forward(req, resp);
+            return;
+        }
+
+        // Redirect després d'inserir correctament (Post/Redirect/Get).
+        resp.sendRedirect(req.getContextPath() + "/tallers");
     }
 }
