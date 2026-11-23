@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-/** Sortir: canvia l'estat, per tant és un POST. */
+/** Sortir: canvia l'estat, per tant és un POST. Només hi ha doPost: un GET a /logout dona 405. */
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
 
@@ -17,10 +17,8 @@ public class LogoutServlet extends HttpServlet {
         // false: si no hi ha sessió, no en cream una només per esborrar-la
         HttpSession sessio = req.getSession(false);
         if (sessio != null) {
-            // ── PROVA 1 ─ Comentau aquesta línia i compilau. Entrau i premeu Sortir: seguiu dins. Redirigir no tanca la sessió:
-            //    fins que no l'esborrau, el servidor continua recordant qui sou.
             sessio.invalidate();
         }
-        resp.sendRedirect(req.getContextPath() + "/tallers");
+        resp.sendRedirect(req.getContextPath() + "/login");
     }
 }

@@ -13,7 +13,7 @@
     <artifactId>4-sessions</artifactId>
     <packaging>war</packaging>
     <name>4 Sessions i filtres</name>
-    <description>Recordar qui és l'usuari amb sessions, login i logout, i protegir pàgines amb filtres</description>
+    <description>Una sessió per recordar qui ha entrat, i un filtre per protegir les pàgines privades</description>
 
     <dependencies>
         <dependency>

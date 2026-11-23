@@ -2,6 +2,7 @@ package filtre;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -10,9 +11,12 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Qui sou? Protegeix tot el que hi ha sota /meves/* i /admin/* (els patrons són a web.xml).
- * Així cap Servlet no ha de repetir la comprovació, i cap Servlet nou no se n'oblidarà.
+ * S'executa abans de qualsevol Servlet de /privat/*. Si no heu entrat, vos envia a /login.
+ * Així cap Servlet privat no ha de repetir la comprovació, i un Servlet nou sota /privat ja neix protegit.
  */
+// ── PROVA 3 ─ Comentau @WebFilter i compilau. Obriu /privat/perfil en una finestra d'incògnit:
+//    la pàgina privada es veu sense haver entrat, i diu «Hola, !». El Servlet no comprova res.
+@WebFilter("/privat/*")
 public class AutenticacioFilter extends HttpFilter {
 
     @Override
@@ -26,8 +30,8 @@ public class AutenticacioFilter extends HttpFilter {
             return;     // no cridam chain.doFilter: la petició no arriba al Servlet
         }
 
-        // Que el navegador no guardi una còpia: després de sortir, el botó d'enrere no ha de mostrar pàgines privades
-        resp.setHeader("Cache-Control", "no-store");
-        chain.doFilter(req, resp);
+        // ── PROVA 4 ─ Comentau aquesta línia i compilau. Entrau: la pàgina privada surt en blanc.
+        //    Sense doFilter la petició s'atura al filtre, i el Servlet no s'executa.
+        chain.doFilter(req, resp);      // deixam passar la petició cap al Servlet
     }
 }
