@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+
+    /*for (let i= 1; i <= 50; i++) {
+        fetch("https://theteacher.codiblau.com/public/exercicis/other/asincron-get?num=" + i)
+            .then(function (r) {
+                return r.text()
+            }).then(function (r) {
+                console.log(r)
+        })
+    }*/
+
+    const peticions = [];
+
+    for (let i= 1; i <= 20; i++) {
+        const peticio = fetch("https://theteacher.codiblau.com/public/exercicis/other/asincron-get?num=" + i)
+            .then(function (r) {
+                return r.text();
+            })
+        peticions.push(peticio);
+
+    }
+    Promise.all(peticions).then(function (resultats) {
+        for (const r of resultats) {
+            console.log(r);
+        }
+    })
+
+
+</script>
+
+</body>
+</html>
