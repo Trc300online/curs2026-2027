@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -31,33 +32,17 @@ public class TallersServlet extends HttpServlet {
 
         req.setAttribute("tallers", tallers);
 
-        req.getRequestDispatcher("/WEB-INF/tallers.jsp").forward(req, resp);
+        HttpSession sessio = req.getSession(false);
 
-    }
+        String usuari = null;
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
-
-        List<String> errors = tallerModel.crea(
-                req.getParameter("id"),
-                req.getParameter("nom"),
-                req.getParameter("ponent"),
-                req.getParameter("dia"),
-                req.getParameter("places"),
-                req.getParameter("preu")
-        );
-
-        if (!errors.isEmpty()) {
-            req.setAttribute("errors", errors);
-            req.setAttribute("tallers", tallerModel.tallers());
-
-            // Forward: conservam els errors dins la mateixa request perquè els mostri tallers.jsp.
-            req.getRequestDispatcher("/WEB-INF/tallers.jsp").forward(req, resp);
-            return;
+        if (sessio != null) {
+            usuari = (String) sessio.getAttribute("usuari");
         }
 
-        // Redirect després d'inserir correctament (Post/Redirect/Get).
-        resp.sendRedirect(req.getContextPath() + "/tallers");
+        req.setAttribute("usuari", usuari);
+
+        req.getRequestDispatcher("/WEB-INF/tallers.jsp").forward(req, resp);
+
     }
 }

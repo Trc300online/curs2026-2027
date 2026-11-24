@@ -1,9 +1,12 @@
 cat/politecnicllevant/jdbcdao/model/Taller.class
 cat/politecnicllevant/jdbcdao/controller/TallersServlet.class
+cat/politecnicllevant/jdbcdao/filter/AutenticacioFilter.class
 cat/politecnicllevant/jdbcdao/dao/jdbc/TallerDaoJdbcImpl.class
-cat/politecnicllevant/jdbcdao/controller/TallerServlet.class
+cat/politecnicllevant/jdbcdao/controller/NouTallerServlet.class
+cat/politecnicllevant/jdbcdao/controller/LogoutServlet.class
+cat/politecnicllevant/jdbcdao/model/Usuaris.class
 cat/politecnicllevant/jdbcdao/dao/TallerDAO.class
-cat/politecnicllevant/jdbcdao/model/TallerModel.class
-cat/politecnicllevant/jdbcdao/model/HelloServlet.class
-cat/politecnicllevant/jdbcdao/dao/memory/TallerDAOMemoryImpl.class
 cat/politecnicllevant/jdbcdao/dao/jdbc/BaseDeDades.class
+cat/politecnicllevant/jdbcdao/dao/memory/TallerDAOMemoryImpl.class
+cat/politecnicllevant/jdbcdao/model/TallerModel.class
+cat/politecnicllevant/jdbcdao/controller/LoginServlet.class

@@ -1,5 +1,4 @@
 filtre/AutenticacioFilter.class
-filtre/ProvaFilter.class
 model/Usuaris.class
 controlador/PerfilServlet.class
 controlador/LogoutServlet.class

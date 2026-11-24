@@ -1,0 +1,14 @@
+a) Per què el filtre fa servir getSession(false) i no getSession()?
+
+ El filtre fa servir getSession(false) per consultar si ja existeix una sessió, sense crear-ne una de nova.
+ Si no hi ha sessió, l'usuari no està autenticat i el filtre el redirigeix al login.
+
+b) Per què hem mogut el formulari a /gestio/ en lloc de posar el filtre a /tallers?
+
+ /tallers ha de continuar sent públic perquè qualsevol visitant pugui consultar els tallers.
+ El filtre es limita a /gestio/* per protegir només les operacions de gestió, com crear-ne un de nou.
+
+c) Deixes el formulari de crear obert en una pestanya, surts des d'una altra pestanya i després prems «Crear» a la primera. Què passa? Per què?
+
+ En sortir des de l'altra pestanya, s'invalida la sessió compartida per les dues pestanyes del navegador.
+ En prémer «Crear», el filtre detecta que ja no hi ha una sessió vàlida i redirigeix al login; el taller no es crea.
