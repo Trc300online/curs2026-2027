@@ -2,5 +2,4 @@
 /apps/4-sessions/src/main/java/controlador/LogoutServlet.java
 /apps/4-sessions/src/main/java/controlador/PerfilServlet.java
 /apps/4-sessions/src/main/java/filtre/AutenticacioFilter.java
-/apps/4-sessions/src/main/java/filtre/ProvaFilter.java
 /apps/4-sessions/src/main/java/model/Usuaris.java

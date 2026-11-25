@@ -219,7 +219,7 @@ La pàgina d'inici ([`index.html`](2-jsp/src/main/webapp/index.html)) té un enl
 | 2 | `servletjsp.BenvingudaServlet` + `benvinguda.jsp` | `/benvinguda?nom=Aina` | `setAttribute`, `forward`, vista dins `WEB-INF` |
 | 2 | `servletjsp.AnarServlet`, `DestiServlet` + `desti.jsp` | `/anar?com=forward\|redirect` | Forward i redirect, un al costat de l'altre |
 | 3 | `expressions.ElServlet` + `el.jsp` | `/el?nom=Aina&nom=Pau` | Propietats, llistes, mapes, operadors, àmbits i objectes implícits |
-| 4 | `etiquetes.TallersServlet` + `tallers.jsp` | `/tallers` | `c:forEach`, `c:if`, `c:choose`, `c:url`, `fmt`, `fn`, `jsp:include` |
+| 4 | `etiquetes.TallersServlet` + `nou-taller.jsp` | `/tallers` | `c:forEach`, `c:if`, `c:choose`, `c:url`, `fmt`, `fn`, `jsp:include` |
 | 4 | `etiquetes.SalutacioServlet` + `salutacio.jsp` | `/salutacio?nom=…` | `c:out` escapa, `${…}` no |
 | 4 | `etiquetes.InscripcioServlet` + `inscripcio.jsp`, `confirmacio.jsp` | `/inscripcio` | La inscripció de la passa 1, sense `println`. Els errors tornen al formulari amb els valors escrits |
 | 5 | `parts/capcalera.jspf`, `parts/peu.jspf`, `parts/avis.jsp` | totes les vistes | `include` i `jsp:include` |
@@ -252,9 +252,9 @@ A les JSP, la PROVA és un comentari que diu què s'ha de canviar. Es desa i es 
 | 5 | `el.jsp` | Afegir `${taller.noExisteix}` | `500`: *PropertyNotFoundException: Property [noExisteix] not found on type [model.Taller]* | Una propietat que no existeix sí que és un error |
 | 6 | `ElServlet` | Comentar el `setAttribute` de `qui` a la petició | `${qui}` passa a ser el de la sessió | Ordre de cerca dels àmbits |
 | 7 | `2-jsp/pom.xml` | Comentar les dues dependències de JSTL | `/tallers` dona `500`. En tornar-les a posar, es recupera tot sol | Tomcat no porta JSTL |
-| 8 | `tallers.jsp` | Esborrar el `taglib` del prefix `c` | No hi ha cap error: `<c:set>` i `<c:forEach>` arriben tal qual al codi font | Sense `taglib`, és text |
+| 8 | `nou-taller.jsp` | Esborrar el `taglib` del prefix `c` | No hi ha cap error: `<c:set>` i `<c:forEach>` arriben tal qual al codi font | Sense `taglib`, és text |
 | 9 | `salutacio.jsp` | Canviar `c:out` per `${nom}` | El `<script>` arriba sense escapar | EL no escapa: XSS |
-| 10 | `tallers.jsp` | `fmt:setLocale` a `en_US` | `12,50 €` passa a ser `€12.50` | El *locale* decideix el format |
+| 10 | `nou-taller.jsp` | `fmt:setLocale` a `en_US` | `12,50 €` passa a ser `€12.50` | El *locale* decideix el format |
 | 11 | `benvinguda.jsp` | Afegir `<%= 1 + 1 %>` | `500`: *Scripting elements … are disallowed here* | `scripting-invalid` |
 | 12 | `web.xml` | Comentar els dos `<error-page>` | Tornen les pàgines de Tomcat | `error-page` |
 
@@ -268,7 +268,7 @@ A les JSP, la PROVA és un comentari que diu què s'ha de canviar. Es desa i es 
 |:-:|---|---|---|
 | 1 | `model.Taller`, `model.Inscripcio` | — | JavaBean: constructor buit, getters i setters, `Serializable` |
 | 1 | `model.Jornades` | — | El model: dades i regles, sense res d'HTTP. Singleton i `synchronized` |
-| 2 | `controlador.TallersServlet` + `tallers.jsp` | `/tallers` | El controlador més senzill |
+| 2 | `controlador.TallersServlet` + `nou-taller.jsp` | `/tallers` | El controlador més senzill |
 | 2 | `controlador.InscripcioServlet` + `inscripcio.jsp` | `/inscripcio` | Paràmetres → objecte → model → vista |
 | 3 | `controlador.ConfirmacioServlet` + `confirmacio.jsp` | `/confirmacio?id=1` | Post/Redirect/Get |
 | 3 | `controlador.InscripcionsServlet`, `AnullaServlet` + `inscripcions.jsp` | `/inscripcions`, POST a `/anulla` | Una acció que canvia dades: POST, sense vista pròpia |
