@@ -13,7 +13,7 @@
     <artifactId>6-jpa</artifactId>
     <packaging>war</packaging>
     <name>6 JPA</name>
-    <description>Les mateixes taules i els mateixos DAO, ara amb JPA: classes anotades, i el SQL el genera Hibernate</description>
+    <description>L'aplicació de tallers-sessions, ara amb JPA: la classe Taller anotada, i el SQL el genera Hibernate</description>
 
     <dependencies>
         <dependency>

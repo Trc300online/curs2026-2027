@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/codi-explicatiu/jdbcdao/pom.xml" />
         <option value="$PROJECT_DIR$/codi-explicatiu/4-sessions/pom.xml" />
+        <option value="$PROJECT_DIR$/codi-explicatiu/incidencies-jpa/pom.xml" />
       </list>
     </option>
   </component>

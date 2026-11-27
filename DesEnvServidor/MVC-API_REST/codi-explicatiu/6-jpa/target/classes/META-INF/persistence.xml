@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- La configuració de JPA. Spring Boot en farà una de més curta, a application.properties -->
+<!-- La configuració de JPA. Fa la feina de BaseDeDades a dao.jdbc, i més. Spring Boot en farà una de més curta,
+     a application.properties -->
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.2">
 
-    <persistence-unit name="jornades">
+    <!-- El nom amb què la demana Persistencia -->
+    <persistence-unit name="tallers">
         <!-- Les classes que corresponen a una taula -->
-        <class>model.Usuari</class>
-        <class>model.Taller</class>
-        <class>model.Inscripcio</class>
+        <class>cat.politecnicllevant.jpa.model.Taller</class>
 
         <properties>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://mysql:3306/jornades"/>
+            <!-- On és la base de dades: les mateixes dades que BaseDeDades -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://mysql:3306/tallers"/>
             <property name="jakarta.persistence.jdbc.user" value="dwes"/>
             <property name="jakarta.persistence.jdbc.password" value="dwes"/>
 

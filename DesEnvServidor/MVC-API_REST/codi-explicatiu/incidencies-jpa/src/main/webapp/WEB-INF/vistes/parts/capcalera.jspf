@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <title>${titol} · Incidències</title>
+  <link rel="stylesheet" href="<c:url value='/estil.css'/>">
+</head>
+<body>
+  <nav>
+    <a href="<c:url value='/incidencies'/>">Incidències</a>
+    <a href="<c:url value='/incidencies/nova'/>">Nova incidència</a>
+  </nav>
+  <h1>${titol}</h1>

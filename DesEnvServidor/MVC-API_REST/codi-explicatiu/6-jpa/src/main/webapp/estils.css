@@ -1,0 +1,192 @@
+/*
+ * Estils de les quatre vistes (tallers.jsp, taller.jsp, login.jsp i nou-taller.jsp).
+ * Les JSP no tenen classes: els selectors són d'etiqueta i de posició, perquè les vistes quedin com eren.
+ * Fitxer estàtic: Tomcat el serveix tal qual, sense passar per cap Servlet ni pel filtre de /gestio/*.
+ */
+
+:root {
+  --fons: #f4f6f9;
+  --targeta: #ffffff;
+  --text: #1d2433;
+  --apagat: #5b6475;
+  --vora: #dde2ea;
+  --accent: #2f5bd3;
+  --accent-fosc: #2448ad;
+  --radi: 10px;
+  --ombra: 0 1px 2px rgb(16 24 40 / 0.06), 0 1px 3px rgb(16 24 40 / 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--fons);
+}
+
+h1 {
+  margin: 28px 0 16px;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ── La barra de dalt: el primer element de cada vista ──────────────────────────
+   tallers.jsp: «Entrar», o «Hola, nom · Nou taller · Sortir». Les altres: «← Tornar a la llista» */
+body > :first-child {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin: 0;
+  padding: 10px 16px;
+  background: var(--targeta);
+  border: 1px solid var(--vora);
+  border-radius: var(--radi);
+  box-shadow: var(--ombra);
+  color: var(--apagat);
+}
+
+/* ── Avisos: els errors (vermell) i el missatge de «creat correctament» (verd) ───────
+   Les JSP ja hi posen el color amb style="color: ...". El quadre agafa aquest mateix color (currentColor) */
+p[style],
+ul[style] {
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border: 1px solid currentColor;
+  border-left-width: 4px;
+  border-radius: var(--radi);
+  background: color-mix(in srgb, currentColor 7%, white);
+}
+
+ul[style] {
+  padding-left: 36px;
+}
+
+/* ── La llista de tallers ────────────────────────────────────────────────── */
+ul:not([style]) {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul:not([style]) > li {
+  padding: 14px 18px;
+  background: var(--targeta);
+  border: 1px solid var(--vora);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radi);
+  box-shadow: var(--ombra);
+}
+
+/* ── La fitxa d'un taller (taller.jsp): cada <dt> és un nom, i el <dd> el seu valor ── */
+dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 10px 24px;
+  margin: 0;
+  padding: 20px 24px;
+  background: var(--targeta);
+  border: 1px solid var(--vora);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radi);
+  box-shadow: var(--ombra);
+}
+
+dt {
+  font-weight: 600;
+  color: var(--apagat);
+}
+
+dd {
+  margin: 0;
+}
+
+/* ── Els formularis d'entrar i de nou taller (el de Sortir és dins la barra) ─── */
+body > form {
+  padding: 8px 24px 24px;
+  background: var(--targeta);
+  border: 1px solid var(--vora);
+  border-radius: var(--radi);
+  box-shadow: var(--ombra);
+}
+
+body > form p {
+  margin: 16px 0 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 9px 12px;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  border: 1px solid var(--vora);
+  border-radius: 8px;
+}
+
+input:focus {
+  outline: 3px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-color: var(--accent);
+}
+
+button {
+  margin-top: 20px;
+  padding: 9px 20px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-fosc);
+}
+
+/* El botó Sortir, dins la barra: més discret */
+body > :first-child button {
+  margin: 0;
+  padding: 4px 12px;
+  font-weight: 500;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--vora);
+}
+
+body > :first-child button:hover {
+  background: var(--fons);
+}
+
+/* Els usuaris de prova, sota el formulari d'entrar */
+form + p {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--apagat);
+}

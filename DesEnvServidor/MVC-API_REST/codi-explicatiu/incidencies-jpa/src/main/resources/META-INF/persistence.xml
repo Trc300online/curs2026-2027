@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.2">
+
+    <persistence-unit name="aula">
+        <class>model.Incidencia</class>
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://mysql:3306/aula"/>
+            <property name="jakarta.persistence.jdbc.user" value="dwes"/>
+            <property name="jakarta.persistence.jdbc.password" value="dwes"/>
+
+            <!-- Escriu cada SQL a docker compose logs -->
+            <property name="hibernate.show_sql" value="true"/>
+
+            <!-- En arrencar, comprova que l'entitat i la taula coincideixen. La taula la crea el nostre script -->
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+        </properties>
+    </persistence-unit>
+</persistence>
